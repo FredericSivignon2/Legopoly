@@ -3,14 +3,13 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using Legopoly.Data.
+using Legopoly.Data.Items;
+using System.Windows.Forms;
 
 namespace Legopoly.Data
 {
     public class Player
     {
-
-
         #region Public Properties
         /// <summary>
         /// Gets or sets the player Name
@@ -23,14 +22,19 @@ namespace Legopoly.Data
         /// <summary>
         /// Gets or sets the play experiences information.
         /// </summary>
-        public Experiences Experiences { get; set; } = new Experiences();
+        public LPExperiences Experiences { get; set; } = new LPExperiences();
 
         public List<ItemBase> Items { get; } = new List<ItemBase>();
         #endregion 
 
-        public void Play()
+        public bool Play(Form parentForm)
         {
-
+            using (FormPlay play = new FormPlay(this))
+            {
+                if (play.ShowDialog(parentForm) != DialogResult.OK)
+                    return false;
+            }
+            return true;
         }
     }
 }

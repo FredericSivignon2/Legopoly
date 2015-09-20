@@ -1,5 +1,5 @@
 ﻿using Legopoly.Data;
-using Legopoly.Options;
+using Legopoly.Parameters;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -20,6 +20,13 @@ namespace Legopoly
         {
             InitializeComponent();
             this.player = new Player();
+            InitializeFormContent();
+        }
+
+        public FormPlayerEdition(Player player)
+        {
+            InitializeComponent();
+            this.player = player;
             InitializeFormContent();
         }
 
@@ -46,7 +53,7 @@ namespace Legopoly
             this.numericUpDownPhysicalFitness.Value = Convert.ToDecimal(this.player.Experiences.PhysicalFitness);
             this.numericUpDownScientific.Value = Convert.ToDecimal(this.player.Experiences.Scientific);
 
-            this.labelMaxPoints.Text = string.Format(this.labelMaxPoints.Text, OptionsMain.Instance.DefaultExperiencePoints);
+            this.labelMaxPoints.Text = string.Format(this.labelMaxPoints.Text, ParametersMain.Instance.DefaultExperiencePoints);
             ValidateOKButton();
         }
 
@@ -95,6 +102,12 @@ namespace Legopoly
             ValidateOKButton();
         }
 
+        private void textBoxName_TextChanged(object sender, EventArgs e)
+        {
+            this.player.Name = this.textBoxName.Text;
+            ValidateOKButton();
+        }
+
         private void numericUpDownScientific_Validating(object sender, CancelEventArgs e)
         {
            
@@ -102,7 +115,7 @@ namespace Legopoly
 
         private bool ValidateExperiencePoints()
         {
-            return !(ComputeTotalExperiencePoints() > OptionsMain.Instance.DefaultExperiencePoints);
+            return !(ComputeTotalExperiencePoints() > ParametersMain.Instance.DefaultExperiencePoints);
         }       
 
         private decimal ComputeTotalExperiencePoints()
@@ -122,15 +135,10 @@ namespace Legopoly
                 this.textBoxName.Name.Length < 3)
                 valide = false;
 
-            if (ComputeTotalExperiencePoints() < OptionsMain.Instance.DefaultExperiencePoints)
+            if (ComputeTotalExperiencePoints() < ParametersMain.Instance.DefaultExperiencePoints)
                 valide = false;
 
             this.buttonOK.Enabled = valide;
-        }
-
-        private void textBoxName_TextChanged(object sender, EventArgs e)
-        {
-            ValidateOKButton();
         }
     }
 }

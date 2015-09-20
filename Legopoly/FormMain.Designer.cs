@@ -73,8 +73,9 @@
             this.buttonOptions.Name = "buttonOptions";
             this.buttonOptions.Size = new System.Drawing.Size(260, 52);
             this.buttonOptions.TabIndex = 4;
-            this.buttonOptions.Text = "Options";
+            this.buttonOptions.Text = "Paramètres";
             this.buttonOptions.UseVisualStyleBackColor = true;
+            this.buttonOptions.Click += new System.EventHandler(this.buttonOptions_Click);
             // 
             // buttonQuit
             // 

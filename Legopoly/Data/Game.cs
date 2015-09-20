@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 
 namespace Legopoly.Data
 {
@@ -23,13 +24,17 @@ namespace Legopoly.Data
             }
         }
 
-        public void Start()
+        public void Start(Form parentForm)
         {
             for (;;)
             {
                 foreach (Player player in this.players)
                 {
-                    player.Play();
+                    if (!player.Play(parentForm))
+                    {
+                        // Stop the game
+                        return;
+                    }
                 }
             }
         }

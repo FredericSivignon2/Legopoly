@@ -8,6 +8,8 @@ namespace Legopoly
 {
     static class Program
     {
+        public static FormMain MainForm { get; set; }
+
         /// <summary>
         /// Point d'entrée principal de l'application.
         /// </summary>
@@ -16,7 +18,16 @@ namespace Legopoly
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new FormMain());
+
+            AppDomain.CurrentDomain.UnhandledException += CurrentDomain_UnhandledException;
+
+            MainForm = new FormMain();
+            Application.Run(MainForm);
+        }
+
+        private static void CurrentDomain_UnhandledException(object sender, UnhandledExceptionEventArgs e)
+        {
+            LPMessageBox.ShowError("Exception non gérée!", (Exception)e.ExceptionObject);
         }
     }
 }

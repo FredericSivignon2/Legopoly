@@ -51,6 +51,9 @@
     <Prefer32Bit>false</Prefer32Bit>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="FoundationLibraries.Xml">
+      <HintPath>..\..\..\Libraries\FoundationLibraries_1.0\libs\FoundationLibraries.Xml.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Runtime.Serialization" />
@@ -65,6 +68,19 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Data\LPExperiences.cs" />
+    <Compile Include="Data\Game.cs" />
+    <Compile Include="Data\Items\Bicycle.cs" />
+    <Compile Include="Data\Items\Building.cs" />
+    <Compile Include="Data\Items\Car.cs" />
+    <Compile Include="Data\Items\Truck.cs" />
+    <Compile Include="Data\Player.cs" />
+    <Compile Include="FormChooseItem.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormChooseItem.Designer.cs">
+      <DependentUpon>FormChooseItem.cs</DependentUpon>
+    </Compile>
     <Compile Include="FormMain.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -77,20 +93,46 @@
     <Compile Include="FormNewGame.Designer.cs">
       <DependentUpon>FormNewGame.cs</DependentUpon>
     </Compile>
+    <Compile Include="FormParameters.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormParameters.Designer.cs">
+      <DependentUpon>FormParameters.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormPlay.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormPlay.Designer.cs">
+      <DependentUpon>FormPlay.cs</DependentUpon>
+    </Compile>
     <Compile Include="FormPlayerEdition.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="FormPlayerEdition.Designer.cs">
       <DependentUpon>FormPlayerEdition.cs</DependentUpon>
     </Compile>
-    <Compile Include="Options\OptionsMain.cs" />
+    <Compile Include="Data\Items\Home.cs" />
+    <Compile Include="Data\Items\ItemBase.cs" />
+    <Compile Include="Data\Items\Vehicle.cs" />
+    <Compile Include="LPMessageBox.cs" />
+    <Compile Include="Parameters\ParametersMain.cs" />
+    <Compile Include="Parameters\Shop.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="FormChooseItem.resx">
+      <DependentUpon>FormChooseItem.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FormMain.resx">
       <DependentUpon>FormMain.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormNewGame.resx">
       <DependentUpon>FormNewGame.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormParameters.resx">
+      <DependentUpon>FormParameters.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormPlay.resx">
+      <DependentUpon>FormPlay.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormPlayerEdition.resx">
       <DependentUpon>FormPlayerEdition.cs</DependentUpon>
@@ -120,12 +162,6 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\logo_title.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\Legopoly.Data\Legopoly.Data.csproj">
-      <Project>{59fa7411-a449-408e-9cf8-448af40428da}</Project>
-      <Name>Legopoly.Data</Name>
-    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <BootstrapperPackage Include=".NETFramework,Version=v4.6">

@@ -32,6 +32,7 @@
             this.buttonAdd = new System.Windows.Forms.Button();
             this.buttonDelete = new System.Windows.Forms.Button();
             this.buttonEdit = new System.Windows.Forms.Button();
+            this.buttonStart = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // listViewPlayers
@@ -40,7 +41,7 @@
             this.listViewPlayers.GridLines = true;
             this.listViewPlayers.Location = new System.Drawing.Point(12, 41);
             this.listViewPlayers.Name = "listViewPlayers";
-            this.listViewPlayers.Size = new System.Drawing.Size(882, 97);
+            this.listViewPlayers.Size = new System.Drawing.Size(882, 133);
             this.listViewPlayers.TabIndex = 0;
             this.listViewPlayers.UseCompatibleStateImageBehavior = false;
             this.listViewPlayers.View = System.Windows.Forms.View.Details;
@@ -63,6 +64,7 @@
             this.buttonDelete.TabIndex = 2;
             this.buttonDelete.Text = "Supprimer";
             this.buttonDelete.UseVisualStyleBackColor = true;
+            this.buttonDelete.Click += new System.EventHandler(this.buttonDelete_Click);
             // 
             // buttonEdit
             // 
@@ -72,16 +74,32 @@
             this.buttonEdit.TabIndex = 3;
             this.buttonEdit.Text = "Modifier";
             this.buttonEdit.UseVisualStyleBackColor = true;
+            this.buttonEdit.Click += new System.EventHandler(this.buttonEdit_Click);
+            // 
+            // buttonStart
+            // 
+            this.buttonStart.DialogResult = System.Windows.Forms.DialogResult.OK;
+            this.buttonStart.Location = new System.Drawing.Point(336, 185);
+            this.buttonStart.Name = "buttonStart";
+            this.buttonStart.Size = new System.Drawing.Size(201, 45);
+            this.buttonStart.TabIndex = 4;
+            this.buttonStart.Text = "Démarrer";
+            this.buttonStart.UseVisualStyleBackColor = true;
+            this.buttonStart.Click += new System.EventHandler(this.buttonStart_Click);
             // 
             // FormNewGame
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(906, 486);
+            this.ClientSize = new System.Drawing.Size(906, 242);
+            this.Controls.Add(this.buttonStart);
             this.Controls.Add(this.buttonEdit);
             this.Controls.Add(this.buttonDelete);
             this.Controls.Add(this.buttonAdd);
             this.Controls.Add(this.listViewPlayers);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "FormNewGame";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Nouvelle Partie";
@@ -95,5 +113,6 @@
         private System.Windows.Forms.Button buttonAdd;
         private System.Windows.Forms.Button buttonDelete;
         private System.Windows.Forms.Button buttonEdit;
+        private System.Windows.Forms.Button buttonStart;
     }
 }

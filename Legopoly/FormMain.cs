@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Legopoly.Data;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -27,6 +28,9 @@ namespace Legopoly
                     if (dlg.ShowDialog(this) == DialogResult.OK)
                     {
                         // Start the game
+                        Game game = dlg.Game;
+
+                        game.Start(this);
                     }
                 }
             }
@@ -39,6 +43,16 @@ namespace Legopoly
         private void buttonQuit_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void buttonOptions_Click(object sender, EventArgs e)
+        {
+
+            using (FormParameters dlg = new FormParameters())
+            {
+                dlg.ShowDialog();
+            }
+
         }
     }
 }
