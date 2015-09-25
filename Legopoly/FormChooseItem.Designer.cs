@@ -41,6 +41,7 @@
             this.listViewItems.Size = new System.Drawing.Size(572, 239);
             this.listViewItems.TabIndex = 0;
             this.listViewItems.UseCompatibleStateImageBehavior = false;
+            this.listViewItems.View = System.Windows.Forms.View.List;
             this.listViewItems.SelectedIndexChanged += new System.EventHandler(this.listViewItems_SelectedIndexChanged);
             // 
             // buttonCancel

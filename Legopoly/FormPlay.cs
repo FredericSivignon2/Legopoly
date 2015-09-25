@@ -15,10 +15,12 @@ namespace Legopoly
     public partial class FormPlay : Form
     {
         private Player player;
+        private Game game;
 
-        public FormPlay(Player player)
+        public FormPlay(Player player, Game game)
         {
             this.player = player;
+            this.game = game;
 
             InitializeComponent();
             InitializeFormContent();
@@ -26,9 +28,18 @@ namespace Legopoly
 
         private void InitializeFormContent()
         {
-            this.labelName.Text = this.player.Name;
+            if (this.player.Job == null)
+            {
+
+            }
+
+            UpdateName();
             UpdateCapitalDisplay();
-             InitializeHeritageList();
+            InitializeHeritageList();
+            UpdateExperiencePoints();
+            UpdateGradeName();
+
+            this.Text = string.Format("Tour n°{0}", this.game.Round);
         }
 
         private void InitializeHeritageList()
@@ -46,6 +57,9 @@ namespace Legopoly
                 {
                     ItemBase itemBase = dlg.SelectedItem;
                     AddListViewItem(itemBase);
+
+                    player.Capital -= itemBase.InitialCost;
+                    UpdateCapitalDisplay();
                 }
             }
         }
@@ -63,7 +77,27 @@ namespace Legopoly
 
         private void UpdateCapitalDisplay()
         {
-            this.labelCapital.Text = string.Format("{0}€", this.player.Capital);
+            this.labelCapital.Text = string.Format("{0,20:N0}€", this.player.Capital);
+        }
+
+        private void UpdateExperiencePoints()
+        {
+            this.textBoxCreativity.Text = string.Format("{0,10:N0}", this.player.Experiences.Creativity);
+            this.textBoxEmpathy.Text = string.Format("{0,10:N0}", this.player.Experiences.Empathy);
+            this.textBoxFitness.Text = string.Format("{0,10:N0}", this.player.Experiences.PhysicalFitness);
+            this.textBoxManagement.Text = string.Format("{0,10:N0}", this.player.Experiences.ManagerialSkills);
+            this.textBoxScientific.Text = string.Format("{0,10:N0}", this.player.Experiences.Scientific);
+        }
+
+        private void UpdateName()
+        {
+            this.labelName.Text = string.Format("{0}, {1}", this.player.Name, 
+                this.player.Job == null ? "Inactif" : this.player.Job.Name);
+        }
+
+        private void UpdateGradeName()
+        {
+            this.labelGrade.Text = this.player.Job == null ? string.Empty : this.player.Job.GradeName;
         }
     }
 }

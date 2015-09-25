@@ -68,6 +68,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Data\Jobs\Fireman.cs" />
+    <Compile Include="Data\Jobs\Grade.cs" />
+    <Compile Include="Data\Jobs\JobBase.cs" />
     <Compile Include="Data\LPExperiences.cs" />
     <Compile Include="Data\Game.cs" />
     <Compile Include="Data\Items\Bicycle.cs" />
@@ -75,11 +78,18 @@
     <Compile Include="Data\Items\Car.cs" />
     <Compile Include="Data\Items\Truck.cs" />
     <Compile Include="Data\Player.cs" />
+    <Compile Include="Data\Jobs\Policeman.cs" />
     <Compile Include="FormChooseItem.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="FormChooseItem.Designer.cs">
       <DependentUpon>FormChooseItem.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormChooseJob.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormChooseJob.Designer.cs">
+      <DependentUpon>FormChooseJob.cs</DependentUpon>
     </Compile>
     <Compile Include="FormMain.cs">
       <SubType>Form</SubType>
@@ -121,6 +131,9 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="FormChooseItem.resx">
       <DependentUpon>FormChooseItem.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormChooseJob.resx">
+      <DependentUpon>FormChooseJob.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormMain.resx">
       <DependentUpon>FormMain.cs</DependentUpon>
@@ -175,6 +188,205 @@
       <Install>false</Install>
     </BootstrapperPackage>
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\nav_right_green.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\money.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ok.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\sign_stop.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\astrologer.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\astronaut.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\athlete.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\bicyclist.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\bookkeeper.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\businessman.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\businessman2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\businessman3.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\caesar.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\clown.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\cook.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\delivery_man.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\devil.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\doctor.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\dude.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\dude2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\dude3.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\dude4.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\dude5.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\dude6.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\engineer.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\firefighter.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\genius.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\graduate.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\guard.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\holmes.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\judge.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\judge_wig.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\knight.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\knight2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\lecture.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\magician.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\motorcyclist.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\nurse.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\nurse2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\pastor.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\patient.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\pilot.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\pilot2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\pirate.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\policeman_bobby.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\policeman_german.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\policeman_usa.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\pontifex.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\robber.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\schoolboy.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\scientist.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\security_agent.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\senior_citizen.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\spy.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\stockbroker.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\stockbroker2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\stockbroker3.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\superhero.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\surgeon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\teacher.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\user.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\user_headphones.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\user_headset.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\user2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\worker.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\worker2.png" />
+  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
