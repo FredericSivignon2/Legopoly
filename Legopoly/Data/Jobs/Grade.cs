@@ -14,28 +14,21 @@ namespace Legopoly.Data.Jobs
         /// <summary>
         /// 
         /// </summary>
-        /// <param name="name"></param>
-        /// <param name="scientific"></param>
-        /// <param name="physicalFitness"></param>
-        /// <param name="managerialSkills"></param>
-        /// <param name="creativity"></param>
-        /// <param name="empathy"></param>
-        public Grade(string name, int scientific, int physicalFitness, int managerialSkills, int creativity, int empathy, int salaryPerRound)
-        {
-            this.Name = name;
-            this.MinimalExperiences = new LPExperiences()
-            {
-                Creativity = creativity,
-                Empathy = empathy,
-                ManagerialSkills = managerialSkills,
-                PhysicalFitness = physicalFitness,
-                Scientific = scientific
-            };
-            this.SalaryPerRound = salaryPerRound;
+        public Grade()
+        {  
         }
 
         public string Name { get; set; }
+        /// <summary>
+        /// Defines the minimal experiences needed to have this Grade.
+        /// </summary>
         public LPExperiences MinimalExperiences { get; set; }
+
+        /// <summary>
+        /// Defines the maximum experience gain after a round.
+        /// </summary>
+        public LPExperiences MaxExperiencesGainPerRound { get; set;  }
+
         /// <summary>
         /// Salary per round when the player is present at his Job (and only when he is present!!!)
         /// </summary>

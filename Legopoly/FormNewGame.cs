@@ -18,38 +18,7 @@ namespace Legopoly
         public FormNewGame()
         {
             InitializeComponent();
-
-            this.game = new Game();
-            Player player = new Player()
-            {
-                Name = "Damien"
-            };
-            player.Experiences.Creativity = 10;
-            player.Experiences.PhysicalFitness = 10;
-            player.Experiences.Scientific = 20;
-
-            this.game.Players.Add(player);
-
-            player = new Player()
-            {
-                Name = "Léa"
-            };
-            player.Experiences.Creativity = 20;
-            player.Experiences.PhysicalFitness = 5;
-            player.Experiences.Scientific = 15;
-
-            this.game.Players.Add(player);
-
-            player = new Player()
-            {
-                Name = "Frédéric"
-            };
-            player.Experiences.Creativity = 10;
-            player.Experiences.PhysicalFitness = 20;
-            player.Experiences.Scientific = 10;
-
-            this.game.Players.Add(player);
-
+			CreateDefaultPlayers();
             InitializeFormContent();
         }
 
@@ -97,7 +66,7 @@ namespace Legopoly
 
         private void InitializeFormContent()
         {
-            this.listViewPlayers.Columns.Add("Name", 220);
+            this.listViewPlayers.Columns.Add("Nom", 220);
             this.listViewPlayers.Columns.Add("Creativité", 100);
             this.listViewPlayers.Columns.Add("Empathie", 100);
             this.listViewPlayers.Columns.Add("Management", 100);
@@ -139,5 +108,46 @@ namespace Legopoly
             this.game.Players.Remove(item.Tag as Player);
             this.listViewPlayers.Items.Remove(item);
         }
+
+		private void CreateDefaultPlayers()
+		{
+			try
+			{
+				this.game = new Game();
+				Player player = new Player()
+				{
+					Name = "Damien"
+				};
+				player.Experiences.Creativity = 10;
+				player.Experiences.PhysicalFitness = 10;
+				player.Experiences.Scientific = 20;
+
+				this.game.Players.Add(player);
+
+				player = new Player()
+				{
+					Name = "Léa"
+				};
+				player.Experiences.Creativity = 20;
+				player.Experiences.PhysicalFitness = 5;
+				player.Experiences.Scientific = 15;
+
+				this.game.Players.Add(player);
+
+				player = new Player()
+				{
+					Name = "Frédéric"
+				};
+				player.Experiences.Creativity = 10;
+				player.Experiences.PhysicalFitness = 20;
+				player.Experiences.Scientific = 10;
+
+				this.game.Players.Add(player);
+			}
+			catch (Exception exp)
+			{
+				LPMessageBox.ShowError("Erreur pendant la creation des joueurs !", exp);
+			}
+		}
     }
 }

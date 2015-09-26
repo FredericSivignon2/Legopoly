@@ -29,8 +29,8 @@ namespace Legopoly.Data
         /// <summary>
         /// Gets or sets the player Job
         /// </summary>
-        public JobBase Job { get; set; }
-        #endregion 
+        public JobBase Job { get; set; } = null;
+        #endregion
 
         public bool Play(Form parentForm, Game game)
         {

@@ -30,7 +30,16 @@ namespace Legopoly
         {
             if (this.player.Job == null)
             {
+				using (FormChooseJob dlg = new FormChooseJob(this.game))
+				{
+					if (dlg.ShowDialog(this) != DialogResult.OK)
+					{
+						this.DialogResult = DialogResult.Cancel;
+						return;
+					}
 
+					this.player.Job = dlg.SelectedJob;
+				}
             }
 
             UpdateName();
