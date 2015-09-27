@@ -25,6 +25,7 @@ YOUR INFORMATION HANDLING SYSTEM OR OTHERWISE, EVEN If WE ARE
 EXPRESSLY ADVISED OF THE POSSIBILITY OF SUCH DAMAGES.
 */
 
+#if TOTO
 using System.IO;
 using System.Text.RegularExpressions;
 using System.Collections;
@@ -474,5 +475,5 @@ public class IniFile
         } // End of IniKey class
     } // End of IniSection class
 } // End of IniFile class
-
+#endif
    

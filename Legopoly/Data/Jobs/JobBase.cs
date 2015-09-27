@@ -1,5 +1,8 @@
-﻿using System;
+﻿using Legopoly.Utils;
+using System;
 using System.Collections.Generic;
+using System.Diagnostics;
+using System.Drawing;
 using System.IO;
 using System.Linq;
 using System.Text;
@@ -8,7 +11,8 @@ using System.Windows.Forms;
 
 namespace Legopoly.Data.Jobs
 {
-    public class JobBase
+	[DebuggerDisplay("{Name}, {GradeName}")]
+    public abstract class JobBase
     {
         #region Data Members
         private const string defaultValuesFilePath = "job_default.ini";
@@ -16,21 +20,37 @@ namespace Legopoly.Data.Jobs
         private Grade[] grades;
 		private int gradeNumber = 0;
         private string name;
+		private Image image;
         #endregion
 
-        public JobBase()
+        protected JobBase()
         {
         }
 
-        #region Public Properties
-  //      public int GradeNumber
-		//{
-		//	get
-		//	{
-		//		return this.gradeNumber;
-		//	}
+		protected JobBase(JobBase job)
+		{
+			if (job.grades != null)
+			{
+				this.grades = new Grade[job.grades.Length];
 
-		//}
+				for (int i = 0; i < job.grades.Length; i++)
+				{
+					this.grades[i] = new Grade(job.grades[i]);
+				}
+				this.gradeNumber = job.gradeNumber;
+				this.name = job.name;
+				this.image = job.image;
+			}
+		}
+
+		#region Public Properties
+		public int GradeNumber
+		{
+			get
+			{
+				return this.gradeNumber;
+			}
+		}
 
         public string Name
         {
@@ -45,6 +65,18 @@ namespace Legopoly.Data.Jobs
                 InitializeData();
             }
         }
+
+		public Image Image
+		{
+			get
+			{
+				return this.image;
+			}
+			protected set
+			{
+				this.image = value;
+			}
+		}
 
         public string GradeName
         {
@@ -91,14 +123,17 @@ namespace Legopoly.Data.Jobs
 		}
 		#endregion
 
-		public bool NextGrade()
+		public abstract JobBase Clone();
+
+		public JobBase NextGrade()
 		{
 			if (this.gradeNumber < this.grades.Length - 1)
 			{
-				this.gradeNumber++;
-				return true;
+				JobBase newJob = this.Clone();
+				newJob.gradeNumber++;
+				return newJob;
 			}
-			return false;
+			return null;
 		}
 
         private static string DefaultValuesFilePath
@@ -115,7 +150,7 @@ namespace Legopoly.Data.Jobs
             if (File.Exists(filePath) == false)
                 throw new FileNotFoundException(string.Format("Le fichier de données\r\n{0}'\r\nest introuvable!", filePath));
 
-            IniFile iniFile = new IniFile();
+			IniFileReader iniFile = new IniFileReader(); 
 
 			try
 			{
@@ -125,19 +160,17 @@ namespace Legopoly.Data.Jobs
 			{
 				throw new Exception(string.Format("Erreur lors du chargement du fichier de configuration\r\n{0}", filePath), exp);
 			}
-            IniFile.IniSection section = iniFile.GetSection(this.name);
-			if (section == null)
-			{
-				throw new Exception(string.Format("Il manque la section '{0}' dans le fichier de configuration\r\n{0}", this.name, filePath));
-			}
 
+			if (iniFile.Sections.ContainsKey(this.name) == false)
+				throw new Exception(string.Format("Il manque la section '{0}' dans le fichier de configuration\r\n{0}", this.name, filePath));
+
+			IniSection section = iniFile.Sections[this.name];
             List<Grade> tmpGrades = new List<Grade>();
 
-            foreach (IniFile.IniSection.IniKey iniKey in section.Keys)
+            foreach (string keyName in section.KeyValues.Keys)
             {
-                string keyName = iniKey.Name;
-                string value = iniKey.GetValue();
-				if (string.IsNullOrWhiteSpace(value))
+				string value = section.KeyValues[keyName];
+                if (string.IsNullOrWhiteSpace(value))
 					throw new Exception(string.Format("Valeur incorrecte dans le fichier de configuration\r\n{0}\r\npour la clef '{1}' dans la section '{2}'.", filePath, keyName, this.name));
 
 				string[] values = value.Split(new char[] { ',' });

@@ -124,12 +124,14 @@
     <Compile Include="Data\Items\Home.cs" />
     <Compile Include="Data\Items\ItemBase.cs" />
     <Compile Include="Data\Items\Vehicle.cs" />
+    <Compile Include="ListViewJobColumnSorter.cs" />
     <Compile Include="LPMessageBox.cs" />
     <Compile Include="Parameters\ParametersMain.cs" />
     <Compile Include="Parameters\Shop.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ThirdParties\IniFileCs.cs" />
+    <Compile Include="Utils\IniFileReader.cs" />
     <EmbeddedResource Include="FormChooseItem.resx">
       <DependentUpon>FormChooseItem.cs</DependentUpon>
     </EmbeddedResource>

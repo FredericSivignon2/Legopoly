@@ -6,10 +6,12 @@ using System.Threading.Tasks;
 using Legopoly.Data.Items;
 using System.Windows.Forms;
 using Legopoly.Data.Jobs;
+using System.Diagnostics;
 
 namespace Legopoly.Data
 {
-    public class Player
+	[DebuggerDisplay("{Name}, {Capital}€")]
+	public class Player
     {
         #region Public Properties
         /// <summary>

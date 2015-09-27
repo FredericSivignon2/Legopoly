@@ -26,27 +26,31 @@ namespace Legopoly
             InitializeFormContent();
         }
 
+		private void ChooseJob()
+		{
+			using (FormChooseJob dlg = new FormChooseJob(this.game, this.player))
+			{
+				if (dlg.ShowDialog(this) != DialogResult.OK)
+				{
+					this.DialogResult = DialogResult.Cancel;
+					return;
+				}
+
+				this.player.Job = dlg.SelectedJob;
+			}
+		}
+
         private void InitializeFormContent()
         {
             if (this.player.Job == null)
             {
-				using (FormChooseJob dlg = new FormChooseJob(this.game))
-				{
-					if (dlg.ShowDialog(this) != DialogResult.OK)
-					{
-						this.DialogResult = DialogResult.Cancel;
-						return;
-					}
-
-					this.player.Job = dlg.SelectedJob;
-				}
+				ChooseJob();
             }
 
-            UpdateName();
             UpdateCapitalDisplay();
             InitializeHeritageList();
             UpdateExperiencePoints();
-            UpdateGradeName();
+            UpdateJobInfo();
 
             this.Text = string.Format("Tour n°{0}", this.game.Round);
         }
@@ -98,15 +102,18 @@ namespace Legopoly
             this.textBoxScientific.Text = string.Format("{0,10:N0}", this.player.Experiences.Scientific);
         }
 
-        private void UpdateName()
+        private void UpdateJobInfo()
         {
-            this.labelName.Text = string.Format("{0}, {1}", this.player.Name, 
-                this.player.Job == null ? "Inactif" : this.player.Job.Name);
-        }
+			this.labelName.Text = string.Format("{0}, {1}", this.player.Name,
+				this.player.Job == null ? "Inactif" : this.player.Job.Name);
+			this.labelGrade.Text = this.player.Job == null ? string.Empty : this.player.Job.GradeName;
+			this.pictureBoxJob.Image = this.player.Job == null ? null : this.player.Job.Image;
+		}
 
-        private void UpdateGradeName()
-        {
-            this.labelGrade.Text = this.player.Job == null ? string.Empty : this.player.Job.GradeName;
+		private void buttonChangeJob_Click(object sender, EventArgs e)
+		{
+			ChooseJob();
+			UpdateJobInfo();
         }
-    }
+	}
 }

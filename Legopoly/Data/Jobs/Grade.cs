@@ -1,15 +1,17 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
 namespace Legopoly.Data.Jobs
 {
-    /// <summary>
-    /// 
-    /// </summary>
-    public class Grade
+	/// <summary>
+	/// 
+	/// </summary>
+	[DebuggerDisplay("{Name}, Per round: {SalaryPerRound}€")]
+	public class Grade
     {
         /// <summary>
         /// 
@@ -18,7 +20,15 @@ namespace Legopoly.Data.Jobs
         {  
         }
 
-        public string Name { get; set; }
+		public Grade(Grade grade)
+		{
+			this.Name = grade.Name;
+			this.MinimalExperiences = new LPExperiences(grade.MinimalExperiences);
+			this.MaxExperiencesGainPerRound = new LPExperiences(grade.MaxExperiencesGainPerRound);
+			this.SalaryPerRound = grade.SalaryPerRound;
+        }
+
+		public string Name { get; set; }
         /// <summary>
         /// Defines the minimal experiences needed to have this Grade.
         /// </summary>

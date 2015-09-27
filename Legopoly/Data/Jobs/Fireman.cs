@@ -10,7 +10,17 @@ namespace Legopoly.Data.Jobs
     {
         public Fireman()
         {
-            this.Name = "Pompier";            
+            this.Name = "Pompier";
+			this.Image = global::Legopoly.Properties.Resources.firefighter;        
         }
-    }
+
+		public Fireman(Fireman fm) : base(fm)
+		{
+		}
+
+		public override JobBase Clone()
+		{
+			return new Fireman(this);
+		}
+	}
 }

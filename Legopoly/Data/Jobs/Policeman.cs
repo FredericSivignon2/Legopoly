@@ -11,6 +11,16 @@ namespace Legopoly.Data.Jobs
         public Policeman()
         {
             this.Name = "Policier";
-        }
-    }
+			this.Image = global::Legopoly.Properties.Resources.policeman_usa;
+		}
+
+		public Policeman(Policeman pm) : base(pm)
+		{
+		}
+
+		public override JobBase Clone()
+		{
+			return new Policeman(this);
+		}
+	}
 }
