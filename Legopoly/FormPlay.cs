@@ -52,6 +52,8 @@ namespace Legopoly
             UpdateExperiencePoints();
             UpdateJobInfo();
 
+			this.radioButtonOffWork.Checked = this.player.Working == false;
+			this.radioButtonWorking.Checked = this.player.Working;
             this.Text = string.Format("Tour n°{0}", this.game.Round);
         }
 
@@ -108,6 +110,7 @@ namespace Legopoly
 				this.player.Job == null ? "Inactif" : this.player.Job.Name);
 			this.labelGrade.Text = this.player.Job == null ? string.Empty : this.player.Job.GradeName;
 			this.pictureBoxJob.Image = this.player.Job == null ? null : this.player.Job.Image;
+			this.textBoxSalary.Text = string.Format("{0,10:N0}€", this.player.Job.SalaryPerRound);
 		}
 
 		private void buttonChangeJob_Click(object sender, EventArgs e)
@@ -115,5 +118,39 @@ namespace Legopoly
 			ChooseJob();
 			UpdateJobInfo();
         }
+
+		private void buttonNextPlayer_Click(object sender, EventArgs e)
+		{
+			ProcessEndOfRound();
+		}
+
+		private void ProcessEndOfRound()
+		{
+			if (this.player.Working && this.player.Job != null)
+			{
+				this.player.Capital += this.player.Job.SalaryPerRound;
+				this.player.Experiences.Creativity += this.game.GetRandomNumber(0, this.player.Job.MaxExperiencesGainPerRound.Creativity);
+				this.player.Experiences.Empathy += this.game.GetRandomNumber(0, this.player.Job.MaxExperiencesGainPerRound.Empathy);
+				this.player.Experiences.ManagerialSkills += this.game.GetRandomNumber(0, this.player.Job.MaxExperiencesGainPerRound.ManagerialSkills);
+				this.player.Experiences.PhysicalFitness += this.game.GetRandomNumber(0, this.player.Job.MaxExperiencesGainPerRound.PhysicalFitness);
+				this.player.Experiences.Scientific += this.game.GetRandomNumber(0, this.player.Job.MaxExperiencesGainPerRound.Scientific);
+			}
+
+			foreach (ItemBase item in this.player.Items)
+			{
+				this.player.Capital -= item.CostPerRound;
+				
+			}
+		}
+
+		private void radioButtonWorking_CheckedChanged(object sender, EventArgs e)
+		{
+			this.player.Working = true;
+		}
+
+		private void radioButtonOffWork_CheckedChanged(object sender, EventArgs e)
+		{
+			this.player.Working = false;
+		}
 	}
 }

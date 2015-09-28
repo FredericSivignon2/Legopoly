@@ -9,6 +9,9 @@ using System.Windows.Forms;
 
 namespace Legopoly
 {
+	/// <summary>
+	/// Used to sort column within the ListViews in FormChooseJob
+	/// </summary>
 	public class ListViewJobColumnSorter : IComparer
 	{
 		private SortOrder order;

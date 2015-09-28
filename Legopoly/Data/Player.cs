@@ -32,6 +32,11 @@ namespace Legopoly.Data
         /// Gets or sets the player Job
         /// </summary>
         public JobBase Job { get; set; } = null;
+
+		/// <summary>
+		/// Gets or sets a boolean value that indicates whether this player is currently working.
+		/// </summary>
+		public bool Working { get; set; } = false;
         #endregion
 
         public bool Play(Form parentForm, Game game)

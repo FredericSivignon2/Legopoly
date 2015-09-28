@@ -118,9 +118,11 @@ namespace Legopoly
 				{
 					Name = "Damien"
 				};
-				player.Experiences.Creativity = 10;
-				player.Experiences.PhysicalFitness = 10;
-				player.Experiences.Scientific = 20;
+				player.Experiences.Empathy = 10;
+				player.Experiences.Creativity = 2;
+				player.Experiences.PhysicalFitness = 20;
+				player.Experiences.Scientific = 6;
+				player.Experiences.ManagerialSkills = 2;
 
 				this.game.Players.Add(player);
 
@@ -128,9 +130,11 @@ namespace Legopoly
 				{
 					Name = "Léa"
 				};
-				player.Experiences.Creativity = 20;
-				player.Experiences.PhysicalFitness = 5;
-				player.Experiences.Scientific = 15;
+				player.Experiences.Empathy = 2;
+				player.Experiences.Creativity = 10;
+				player.Experiences.PhysicalFitness = 20;
+				player.Experiences.Scientific = 6;
+				player.Experiences.ManagerialSkills = 2;
 
 				this.game.Players.Add(player);
 
@@ -138,9 +142,11 @@ namespace Legopoly
 				{
 					Name = "Frédéric"
 				};
+				player.Experiences.Empathy = 2;
 				player.Experiences.Creativity = 10;
 				player.Experiences.PhysicalFitness = 20;
-				player.Experiences.Scientific = 10;
+				player.Experiences.Scientific = 6;
+				player.Experiences.ManagerialSkills = 2;
 
 				this.game.Players.Add(player);
 			}

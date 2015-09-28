@@ -123,6 +123,20 @@ namespace Legopoly.Data.Jobs
 		}
 		#endregion
 
+		/// <summary>
+		/// Gets a boolean value that indicates whether the given player can choose the current Job.
+		/// </summary>
+		/// <param name="player">The player to test.</param>
+		/// <returns>true if the Job can be choosen. Otherwise, returns false.</returns>
+		public bool CanChoose(Player player)
+		{
+			return (player.Experiences.Creativity >= MinimalExperiences.Creativity &&
+					player.Experiences.Empathy >= MinimalExperiences.Empathy &&
+					player.Experiences.ManagerialSkills >= MinimalExperiences.ManagerialSkills &&
+					player.Experiences.PhysicalFitness >= MinimalExperiences.PhysicalFitness &&
+					player.Experiences.Scientific >= MinimalExperiences.Scientific);
+		}
+
 		public abstract JobBase Clone();
 
 		public JobBase NextGrade()

@@ -49,6 +49,9 @@ namespace Legopoly
 				JobBase jobGrade = job;
 				do
 				{
+					if (jobGrade.CanChoose(this.player) == false)
+						continue;
+
 					ListViewItem item = new ListViewItem(jobGrade.Name);
 					item.Tag = jobGrade;
 
@@ -59,7 +62,9 @@ namespace Legopoly
 				}
 				while ((jobGrade = jobGrade.NextGrade()) != null);
 			}
-			this.listViewJobs.SelectedIndices.Add(0);
+
+			if (this.listViewJobs.Items.Count > 0)
+				this.listViewJobs.SelectedIndices.Add(0);
 
 			this.columnSorter = new ListViewJobColumnSorter();
 			this.listViewJobs.ListViewItemSorter = this.columnSorter;

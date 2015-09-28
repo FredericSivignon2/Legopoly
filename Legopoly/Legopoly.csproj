@@ -390,7 +390,9 @@
   <ItemGroup>
     <None Include="Resources\worker2.png" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <None Include="Resources\hat_blue.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>
     <PostBuildEvent>xcopy /R /Y "$(ProjectDir)job_default.ini"  "$(TargetDir)"</PostBuildEvent>

@@ -32,13 +32,11 @@
 			this.listViewHeritage = new System.Windows.Forms.ListView();
 			this.groupBoxHeritage = new System.Windows.Forms.GroupBox();
 			this.buttonSoldItem = new System.Windows.Forms.Button();
-			this.pictureBox1 = new System.Windows.Forms.PictureBox();
 			this.buttonBuyItem = new System.Windows.Forms.Button();
 			this.labelCapital = new System.Windows.Forms.Label();
 			this.groupBoxIdentification = new System.Windows.Forms.GroupBox();
 			this.labelGrade = new System.Windows.Forms.Label();
 			this.buttonChangeJob = new System.Windows.Forms.Button();
-			this.pictureBoxJob = new System.Windows.Forms.PictureBox();
 			this.textBoxEmpathy = new System.Windows.Forms.TextBox();
 			this.textBoxCreativity = new System.Windows.Forms.TextBox();
 			this.textBoxManagement = new System.Windows.Forms.TextBox();
@@ -52,10 +50,21 @@
 			this.buttonMove = new System.Windows.Forms.Button();
 			this.buttonNextPlayer = new System.Windows.Forms.Button();
 			this.buttonStopGame = new System.Windows.Forms.Button();
+			this.pictureBoxJob = new System.Windows.Forms.PictureBox();
+			this.pictureBox1 = new System.Windows.Forms.PictureBox();
+			this.radioButtonWorking = new System.Windows.Forms.RadioButton();
+			this.radioButtonOffWork = new System.Windows.Forms.RadioButton();
+			this.groupBoxActivity = new System.Windows.Forms.GroupBox();
+			this.label6 = new System.Windows.Forms.Label();
+			this.groupBox1 = new System.Windows.Forms.GroupBox();
+			this.label7 = new System.Windows.Forms.Label();
+			this.textBoxSalary = new System.Windows.Forms.TextBox();
 			this.groupBoxHeritage.SuspendLayout();
-			((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
 			this.groupBoxIdentification.SuspendLayout();
 			((System.ComponentModel.ISupportInitialize)(this.pictureBoxJob)).BeginInit();
+			((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+			this.groupBoxActivity.SuspendLayout();
+			this.groupBox1.SuspendLayout();
 			this.SuspendLayout();
 			// 
 			// labelName
@@ -100,15 +109,6 @@
 			this.buttonSoldItem.Text = "Vendre";
 			this.buttonSoldItem.UseVisualStyleBackColor = true;
 			// 
-			// pictureBox1
-			// 
-			this.pictureBox1.Image = global::Legopoly.Properties.Resources.money;
-			this.pictureBox1.Location = new System.Drawing.Point(670, 11);
-			this.pictureBox1.Name = "pictureBox1";
-			this.pictureBox1.Size = new System.Drawing.Size(64, 64);
-			this.pictureBox1.TabIndex = 7;
-			this.pictureBox1.TabStop = false;
-			// 
 			// buttonBuyItem
 			// 
 			this.buttonBuyItem.Location = new System.Drawing.Point(7, 24);
@@ -131,20 +131,12 @@
 			// 
 			// groupBoxIdentification
 			// 
+			this.groupBoxIdentification.Controls.Add(this.groupBox1);
+			this.groupBoxIdentification.Controls.Add(this.groupBoxActivity);
 			this.groupBoxIdentification.Controls.Add(this.labelGrade);
 			this.groupBoxIdentification.Controls.Add(this.buttonChangeJob);
 			this.groupBoxIdentification.Controls.Add(this.pictureBoxJob);
-			this.groupBoxIdentification.Controls.Add(this.textBoxEmpathy);
-			this.groupBoxIdentification.Controls.Add(this.textBoxCreativity);
 			this.groupBoxIdentification.Controls.Add(this.labelName);
-			this.groupBoxIdentification.Controls.Add(this.textBoxManagement);
-			this.groupBoxIdentification.Controls.Add(this.textBoxFitness);
-			this.groupBoxIdentification.Controls.Add(this.textBoxScientific);
-			this.groupBoxIdentification.Controls.Add(this.label1);
-			this.groupBoxIdentification.Controls.Add(this.label5);
-			this.groupBoxIdentification.Controls.Add(this.label2);
-			this.groupBoxIdentification.Controls.Add(this.label4);
-			this.groupBoxIdentification.Controls.Add(this.label3);
 			this.groupBoxIdentification.Location = new System.Drawing.Point(12, 12);
 			this.groupBoxIdentification.Name = "groupBoxIdentification";
 			this.groupBoxIdentification.Size = new System.Drawing.Size(984, 269);
@@ -163,26 +155,20 @@
 			// 
 			// buttonChangeJob
 			// 
-			this.buttonChangeJob.Location = new System.Drawing.Point(661, 36);
+			this.buttonChangeJob.Image = global::Legopoly.Properties.Resources.hat_blue;
+			this.buttonChangeJob.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+			this.buttonChangeJob.Location = new System.Drawing.Point(13, 240);
 			this.buttonChangeJob.Name = "buttonChangeJob";
-			this.buttonChangeJob.Size = new System.Drawing.Size(118, 23);
+			this.buttonChangeJob.Size = new System.Drawing.Size(128, 23);
 			this.buttonChangeJob.TabIndex = 26;
 			this.buttonChangeJob.Text = "Changer de métier";
+			this.buttonChangeJob.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
 			this.buttonChangeJob.UseVisualStyleBackColor = true;
 			this.buttonChangeJob.Click += new System.EventHandler(this.buttonChangeJob_Click);
 			// 
-			// pictureBoxJob
-			// 
-			this.pictureBoxJob.Image = global::Legopoly.Properties.Resources.policeman_usa;
-			this.pictureBoxJob.Location = new System.Drawing.Point(13, 69);
-			this.pictureBoxJob.Name = "pictureBoxJob";
-			this.pictureBoxJob.Size = new System.Drawing.Size(128, 128);
-			this.pictureBoxJob.TabIndex = 25;
-			this.pictureBoxJob.TabStop = false;
-			// 
 			// textBoxEmpathy
 			// 
-			this.textBoxEmpathy.Location = new System.Drawing.Point(665, 203);
+			this.textBoxEmpathy.Location = new System.Drawing.Point(501, 33);
 			this.textBoxEmpathy.Name = "textBoxEmpathy";
 			this.textBoxEmpathy.ReadOnly = true;
 			this.textBoxEmpathy.Size = new System.Drawing.Size(77, 20);
@@ -190,7 +176,7 @@
 			// 
 			// textBoxCreativity
 			// 
-			this.textBoxCreativity.Location = new System.Drawing.Point(665, 177);
+			this.textBoxCreativity.Location = new System.Drawing.Point(300, 59);
 			this.textBoxCreativity.Name = "textBoxCreativity";
 			this.textBoxCreativity.ReadOnly = true;
 			this.textBoxCreativity.Size = new System.Drawing.Size(77, 20);
@@ -198,7 +184,7 @@
 			// 
 			// textBoxManagement
 			// 
-			this.textBoxManagement.Location = new System.Drawing.Point(665, 151);
+			this.textBoxManagement.Location = new System.Drawing.Point(109, 59);
 			this.textBoxManagement.Name = "textBoxManagement";
 			this.textBoxManagement.ReadOnly = true;
 			this.textBoxManagement.Size = new System.Drawing.Size(77, 20);
@@ -206,7 +192,7 @@
 			// 
 			// textBoxFitness
 			// 
-			this.textBoxFitness.Location = new System.Drawing.Point(665, 125);
+			this.textBoxFitness.Location = new System.Drawing.Point(300, 33);
 			this.textBoxFitness.Name = "textBoxFitness";
 			this.textBoxFitness.ReadOnly = true;
 			this.textBoxFitness.Size = new System.Drawing.Size(77, 20);
@@ -214,7 +200,7 @@
 			// 
 			// textBoxScientific
 			// 
-			this.textBoxScientific.Location = new System.Drawing.Point(665, 99);
+			this.textBoxScientific.Location = new System.Drawing.Point(109, 33);
 			this.textBoxScientific.Name = "textBoxScientific";
 			this.textBoxScientific.ReadOnly = true;
 			this.textBoxScientific.Size = new System.Drawing.Size(77, 20);
@@ -223,47 +209,47 @@
 			// label1
 			// 
 			this.label1.AutoSize = true;
-			this.label1.Location = new System.Drawing.Point(562, 102);
+			this.label1.Location = new System.Drawing.Point(6, 36);
 			this.label1.Name = "label1";
-			this.label1.Size = new System.Drawing.Size(97, 13);
+			this.label1.Size = new System.Drawing.Size(65, 13);
 			this.label1.TabIndex = 15;
-			this.label1.Text = "Points Scientifique:";
+			this.label1.Text = "Scientifique:";
 			// 
 			// label5
 			// 
 			this.label5.AutoSize = true;
-			this.label5.Location = new System.Drawing.Point(562, 128);
+			this.label5.Location = new System.Drawing.Point(197, 36);
 			this.label5.Name = "label5";
-			this.label5.Size = new System.Drawing.Size(90, 13);
+			this.label5.Size = new System.Drawing.Size(58, 13);
 			this.label5.TabIndex = 19;
-			this.label5.Text = "Points Physiques:";
+			this.label5.Text = "Physiques:";
 			// 
 			// label2
 			// 
 			this.label2.AutoSize = true;
-			this.label2.Location = new System.Drawing.Point(562, 206);
+			this.label2.Location = new System.Drawing.Point(398, 36);
 			this.label2.Name = "label2";
-			this.label2.Size = new System.Drawing.Size(86, 13);
+			this.label2.Size = new System.Drawing.Size(54, 13);
 			this.label2.TabIndex = 16;
-			this.label2.Text = "Points Empathie:";
+			this.label2.Text = "Empathie:";
 			// 
 			// label4
 			// 
 			this.label4.AutoSize = true;
-			this.label4.Location = new System.Drawing.Point(562, 154);
+			this.label4.Location = new System.Drawing.Point(6, 62);
 			this.label4.Name = "label4";
-			this.label4.Size = new System.Drawing.Size(104, 13);
+			this.label4.Size = new System.Drawing.Size(72, 13);
 			this.label4.TabIndex = 18;
-			this.label4.Text = "Points Management:";
+			this.label4.Text = "Management:";
 			// 
 			// label3
 			// 
 			this.label3.AutoSize = true;
-			this.label3.Location = new System.Drawing.Point(562, 180);
+			this.label3.Location = new System.Drawing.Point(197, 62);
 			this.label3.Name = "label3";
-			this.label3.Size = new System.Drawing.Size(86, 13);
+			this.label3.Size = new System.Drawing.Size(54, 13);
 			this.label3.TabIndex = 17;
-			this.label3.Text = "Points Créativité:";
+			this.label3.Text = "Créativité:";
 			// 
 			// buttonMove
 			// 
@@ -289,6 +275,7 @@
 			this.buttonNextPlayer.Text = "Tour OK";
 			this.buttonNextPlayer.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
 			this.buttonNextPlayer.UseVisualStyleBackColor = true;
+			this.buttonNextPlayer.Click += new System.EventHandler(this.buttonNextPlayer_Click);
 			// 
 			// buttonStopGame
 			// 
@@ -302,6 +289,110 @@
 			this.buttonStopGame.Text = "Arrêter la partie";
 			this.buttonStopGame.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
 			this.buttonStopGame.UseVisualStyleBackColor = true;
+			// 
+			// pictureBoxJob
+			// 
+			this.pictureBoxJob.Image = global::Legopoly.Properties.Resources.policeman_usa;
+			this.pictureBoxJob.Location = new System.Drawing.Point(13, 69);
+			this.pictureBoxJob.Name = "pictureBoxJob";
+			this.pictureBoxJob.Size = new System.Drawing.Size(128, 128);
+			this.pictureBoxJob.TabIndex = 25;
+			this.pictureBoxJob.TabStop = false;
+			// 
+			// pictureBox1
+			// 
+			this.pictureBox1.Image = global::Legopoly.Properties.Resources.money;
+			this.pictureBox1.Location = new System.Drawing.Point(670, 11);
+			this.pictureBox1.Name = "pictureBox1";
+			this.pictureBox1.Size = new System.Drawing.Size(64, 64);
+			this.pictureBox1.TabIndex = 7;
+			this.pictureBox1.TabStop = false;
+			// 
+			// radioButtonWorking
+			// 
+			this.radioButtonWorking.AutoSize = true;
+			this.radioButtonWorking.Location = new System.Drawing.Point(27, 56);
+			this.radioButtonWorking.Name = "radioButtonWorking";
+			this.radioButtonWorking.Size = new System.Drawing.Size(328, 17);
+			this.radioButtonWorking.TabIndex = 28;
+			this.radioButtonWorking.TabStop = true;
+			this.radioButtonWorking.Text = "Au travail (Le joueur doit être présent à son travail ou en mission)";
+			this.radioButtonWorking.UseVisualStyleBackColor = true;
+			this.radioButtonWorking.CheckedChanged += new System.EventHandler(this.radioButtonWorking_CheckedChanged);
+			// 
+			// radioButtonOffWork
+			// 
+			this.radioButtonOffWork.AutoSize = true;
+			this.radioButtonOffWork.Location = new System.Drawing.Point(27, 105);
+			this.radioButtonOffWork.Name = "radioButtonOffWork";
+			this.radioButtonOffWork.Size = new System.Drawing.Size(478, 17);
+			this.radioButtonOffWork.TabIndex = 29;
+			this.radioButtonOffWork.TabStop = true;
+			this.radioButtonOffWork.Text = "En repos (Le joueur est libre d\'aller où il veut, mais il ne touchera ni salaire " +
+    "ni points d\'expérience)";
+			this.radioButtonOffWork.UseVisualStyleBackColor = true;
+			this.radioButtonOffWork.CheckedChanged += new System.EventHandler(this.radioButtonOffWork_CheckedChanged);
+			// 
+			// groupBoxActivity
+			// 
+			this.groupBoxActivity.Controls.Add(this.label7);
+			this.groupBoxActivity.Controls.Add(this.textBoxSalary);
+			this.groupBoxActivity.Controls.Add(this.label6);
+			this.groupBoxActivity.Controls.Add(this.radioButtonWorking);
+			this.groupBoxActivity.Controls.Add(this.radioButtonOffWork);
+			this.groupBoxActivity.Location = new System.Drawing.Point(393, 17);
+			this.groupBoxActivity.Name = "groupBoxActivity";
+			this.groupBoxActivity.Size = new System.Drawing.Size(585, 145);
+			this.groupBoxActivity.TabIndex = 30;
+			this.groupBoxActivity.TabStop = false;
+			this.groupBoxActivity.Text = "Activité";
+			// 
+			// label6
+			// 
+			this.label6.AutoSize = true;
+			this.label6.Location = new System.Drawing.Point(15, 24);
+			this.label6.Name = "label6";
+			this.label6.Size = new System.Drawing.Size(569, 26);
+			this.label6.TabIndex = 30;
+			this.label6.Text = "Un jour au travail reçoit automatiquement des points d\'expérience après chaque to" +
+    "ur, en fonction de son grade courant,\r\nainsi qu\'un salaire également défini par " +
+    "son grade.";
+			// 
+			// groupBox1
+			// 
+			this.groupBox1.Controls.Add(this.label1);
+			this.groupBox1.Controls.Add(this.label3);
+			this.groupBox1.Controls.Add(this.label4);
+			this.groupBox1.Controls.Add(this.label2);
+			this.groupBox1.Controls.Add(this.label5);
+			this.groupBox1.Controls.Add(this.textBoxEmpathy);
+			this.groupBox1.Controls.Add(this.textBoxScientific);
+			this.groupBox1.Controls.Add(this.textBoxCreativity);
+			this.groupBox1.Controls.Add(this.textBoxFitness);
+			this.groupBox1.Controls.Add(this.textBoxManagement);
+			this.groupBox1.Location = new System.Drawing.Point(393, 168);
+			this.groupBox1.Name = "groupBox1";
+			this.groupBox1.Size = new System.Drawing.Size(584, 95);
+			this.groupBox1.TabIndex = 31;
+			this.groupBox1.TabStop = false;
+			this.groupBox1.Text = "Expériences Cumulée";
+			// 
+			// label7
+			// 
+			this.label7.AutoSize = true;
+			this.label7.Location = new System.Drawing.Point(48, 82);
+			this.label7.Name = "label7";
+			this.label7.Size = new System.Drawing.Size(81, 13);
+			this.label7.TabIndex = 31;
+			this.label7.Text = "Salaire par tour:";
+			// 
+			// textBoxSalary
+			// 
+			this.textBoxSalary.Location = new System.Drawing.Point(135, 79);
+			this.textBoxSalary.Name = "textBoxSalary";
+			this.textBoxSalary.ReadOnly = true;
+			this.textBoxSalary.Size = new System.Drawing.Size(77, 20);
+			this.textBoxSalary.TabIndex = 32;
 			// 
 			// FormPlay
 			// 
@@ -321,10 +412,14 @@
 			this.Text = "Tour";
 			this.groupBoxHeritage.ResumeLayout(false);
 			this.groupBoxHeritage.PerformLayout();
-			((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
 			this.groupBoxIdentification.ResumeLayout(false);
 			this.groupBoxIdentification.PerformLayout();
 			((System.ComponentModel.ISupportInitialize)(this.pictureBoxJob)).EndInit();
+			((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+			this.groupBoxActivity.ResumeLayout(false);
+			this.groupBoxActivity.PerformLayout();
+			this.groupBox1.ResumeLayout(false);
+			this.groupBox1.PerformLayout();
 			this.ResumeLayout(false);
 
         }
@@ -355,5 +450,12 @@
         private System.Windows.Forms.PictureBox pictureBoxJob;
         private System.Windows.Forms.Button buttonChangeJob;
         private System.Windows.Forms.Label labelGrade;
-    }
+		private System.Windows.Forms.RadioButton radioButtonOffWork;
+		private System.Windows.Forms.RadioButton radioButtonWorking;
+		private System.Windows.Forms.GroupBox groupBoxActivity;
+		private System.Windows.Forms.Label label6;
+		private System.Windows.Forms.GroupBox groupBox1;
+		private System.Windows.Forms.Label label7;
+		private System.Windows.Forms.TextBox textBoxSalary;
+	}
 }

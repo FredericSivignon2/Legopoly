@@ -18,6 +18,7 @@ namespace Legopoly.Data
         [DataMember]
         private List<Player> players;
 		private List<JobBase> allJobs;
+		private Random rnd;
         #endregion
 
         #region Constructor
@@ -25,6 +26,7 @@ namespace Legopoly.Data
         {
             this.players = new List<Player>();
 			this.allJobs = new List<JobBase>();
+			this.rnd = new Random(DateTime.UtcNow.Millisecond);
         }
         #endregion
 
@@ -55,6 +57,11 @@ namespace Legopoly.Data
         #endregion
 
         #region Public Methods
+		public int GetRandomNumber(int min, int max)
+		{
+			return this.rnd.Next(min, max);
+		}
+
         public void Start(Form parentForm)
         {
 			InitializeAllJobs();
