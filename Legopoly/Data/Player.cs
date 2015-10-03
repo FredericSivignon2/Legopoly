@@ -13,6 +13,8 @@ namespace Legopoly.Data
 	[DebuggerDisplay("{Name}, {Capital}€")]
 	public class Player
     {
+		private Game game;
+
         #region Public Properties
         /// <summary>
         /// Gets or sets the player Name
@@ -41,6 +43,7 @@ namespace Legopoly.Data
 
         public bool Play(Form parentForm, Game game)
         {
+			this.game = game;
             using (FormPlay play = new FormPlay(this, game))
             {
                 if (play.ShowDialog(parentForm) != DialogResult.OK)
@@ -48,5 +51,24 @@ namespace Legopoly.Data
             }
             return true;
         }
+
+		public void ProcessEndOfRound()
+		{
+			if (this.Working && this.Job != null)
+			{
+				this.Capital += this.Job.SalaryPerRound;
+				this.Experiences.Creativity += this.game.GetRandomNumber(0, this.Job.MaxExperiencesGainPerRound.Creativity);
+				this.Experiences.Empathy += this.game.GetRandomNumber(0, this.Job.MaxExperiencesGainPerRound.Empathy);
+				this.Experiences.ManagerialSkills += this.game.GetRandomNumber(0, this.Job.MaxExperiencesGainPerRound.ManagerialSkills);
+				this.Experiences.PhysicalFitness += this.game.GetRandomNumber(0, this.Job.MaxExperiencesGainPerRound.PhysicalFitness);
+				this.Experiences.Scientific += this.game.GetRandomNumber(0, this.Job.MaxExperiencesGainPerRound.Scientific);
+			}
+
+			foreach (ItemBase item in this.Items)
+			{
+				this.Capital -= item.CostPerRound;
+
+			}
+		}
     }
 }

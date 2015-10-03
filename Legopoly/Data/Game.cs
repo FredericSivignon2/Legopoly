@@ -1,4 +1,5 @@
 ﻿using Legopoly.Data.Jobs;
+using Legopoly.Data.Missions;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -18,6 +19,7 @@ namespace Legopoly.Data
         [DataMember]
         private List<Player> players;
 		private List<JobBase> allJobs;
+		private List<Mission> allMissions;
 		private Random rnd;
         #endregion
 
@@ -26,7 +28,8 @@ namespace Legopoly.Data
         {
             this.players = new List<Player>();
 			this.allJobs = new List<JobBase>();
-			this.rnd = new Random(DateTime.UtcNow.Millisecond);
+			this.allMissions = new List<Mission>();
+            this.rnd = new Random(DateTime.UtcNow.Millisecond);
         }
         #endregion
 

@@ -52,7 +52,7 @@ namespace Legopoly.Utils
 					if (equalOp == -1)
 						throw new Exception(string.Format("No equal character at line {0}!", lineNumber));
 
-					string key = pline.Substring(0, equalOp - 1).Trim();
+					string key = pline.Substring(0, equalOp - 0).Trim();
 					string value = pline.Substring(equalOp + 1, pline.Length - equalOp - 1).Trim();
 
 					curSection.KeyValues.Add(key, value);

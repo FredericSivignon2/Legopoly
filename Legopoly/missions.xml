@@ -1,0 +1,49 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<JobsWithMissions>
+	<Pompier>
+		<Missions>
+			<Mission>
+				<Description>Une personne s'est blessée devant la gare. Va la chercher et emmène la à l'hopital.</Description>
+				<MinRounds>8</MinRounds>
+				<MaxRounds>12</MaxRounds>
+				<Gain>20</Gain>
+			</Mission>
+		</Missions>
+		<Missions>
+			<Mission>
+				<Description>Une personne s'est blessée devant le parc de la gare. Va la chercher et emmène la à l'hopital.</Description>
+				<MinRounds>8</MinRounds>
+				<MaxRounds>12</MaxRounds>
+				<Gain>20</Gain>
+			</Mission>
+		</Missions>
+		<Missions>
+			<Mission>
+				<Description>Une personne a fait un malaise devant la gare. Va la secourir.</Description>
+				<MinRounds>8</MinRounds>
+				<MaxRounds>12</MaxRounds>
+				<Gain>10</Gain>
+			</Mission>
+		</Missions>
+	</Pompier>
+	<Policier>
+		<Missions>
+			<Mission>
+				<Description>Un vol se déroule devant le salon de coiffure. Intercepte le voleur avant qu'il prenne la fuite.</Description>
+				<MinRounds>7</MinRounds>
+				<MaxRounds>12</MaxRounds>
+				<Gain>30</Gain>
+			</Mission>
+		</Missions>
+		<Missions>
+			<Mission>
+				<Description>Un vol s'est déroulé au 5 rue du Vélux. Va relever les empruntes.</Description>
+				<MinRounds>8</MinRounds>
+				<MaxRounds>10</MaxRounds>
+				<Gain>10</Gain>
+			</Mission>
+		</Missions>
+	
+		
+	</Policier>
+</JobsWithMissions>

@@ -16,6 +16,16 @@ namespace Legopoly
             MessageBox.Show(Program.MainForm, message, title, MessageBoxButtons.OK, MessageBoxIcon.Information, MessageBoxDefaultButton.Button1);
         }
 
+		public static void ShowExclamation(string message)
+		{
+			MessageBox.Show(Program.MainForm, message, title, MessageBoxButtons.OK, MessageBoxIcon.Exclamation, MessageBoxDefaultButton.Button1);
+		}
+
+		public static DialogResult ShowQuestion(string message)
+		{
+			return MessageBox.Show(Program.MainForm, message, title, MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2);
+		}
+
         public static void ShowError(string message, Exception exp = null)
         {
             StringBuilder msg = new StringBuilder(message);

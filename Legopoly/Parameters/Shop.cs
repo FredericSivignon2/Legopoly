@@ -39,6 +39,7 @@ namespace Legopoly.Parameters
                 InitialCost = 8000,
                 CostLostPerRound = 2,
                 CostPerRound = 4,
+				CostPerMove = 4,
                 GainPerRound = 0,
                 MaxMovePerRound = 8,
                 MinMovePerRound = 4

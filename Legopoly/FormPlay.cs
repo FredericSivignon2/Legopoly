@@ -32,7 +32,6 @@ namespace Legopoly
 			{
 				if (dlg.ShowDialog(this) != DialogResult.OK)
 				{
-					this.DialogResult = DialogResult.Cancel;
 					return;
 				}
 
@@ -55,6 +54,8 @@ namespace Legopoly
 			this.radioButtonOffWork.Checked = this.player.Working == false;
 			this.radioButtonWorking.Checked = this.player.Working;
             this.Text = string.Format("Tour n°{0}", this.game.Round);
+
+			UpdateMissionButtonEnable();
         }
 
         private void InitializeHeritageList()
@@ -73,8 +74,10 @@ namespace Legopoly
                     ItemBase itemBase = dlg.SelectedItem;
                     AddListViewItem(itemBase);
 
-                    player.Capital -= itemBase.InitialCost;
-                    UpdateCapitalDisplay();
+					player.Capital -= itemBase.InitialCost;
+					this.player.Items.Add(itemBase);
+
+					UpdateCapitalDisplay();
                 }
             }
         }
@@ -86,8 +89,6 @@ namespace Legopoly
             item.SubItems.Add(itemBase.GetDisplayType());
             item.SubItems.Add(itemBase.CostPerRound.ToString());
             this.listViewHeritage.Items.Add(item);
-
-            this.player.Items.Add(itemBase);
         }
 
         private void UpdateCapitalDisplay()
@@ -126,31 +127,69 @@ namespace Legopoly
 
 		private void ProcessEndOfRound()
 		{
-			if (this.player.Working && this.player.Job != null)
-			{
-				this.player.Capital += this.player.Job.SalaryPerRound;
-				this.player.Experiences.Creativity += this.game.GetRandomNumber(0, this.player.Job.MaxExperiencesGainPerRound.Creativity);
-				this.player.Experiences.Empathy += this.game.GetRandomNumber(0, this.player.Job.MaxExperiencesGainPerRound.Empathy);
-				this.player.Experiences.ManagerialSkills += this.game.GetRandomNumber(0, this.player.Job.MaxExperiencesGainPerRound.ManagerialSkills);
-				this.player.Experiences.PhysicalFitness += this.game.GetRandomNumber(0, this.player.Job.MaxExperiencesGainPerRound.PhysicalFitness);
-				this.player.Experiences.Scientific += this.game.GetRandomNumber(0, this.player.Job.MaxExperiencesGainPerRound.Scientific);
-			}
-
-			foreach (ItemBase item in this.player.Items)
-			{
-				this.player.Capital -= item.CostPerRound;
-				
-			}
+			this.player.ProcessEndOfRound();
 		}
 
 		private void radioButtonWorking_CheckedChanged(object sender, EventArgs e)
 		{
 			this.player.Working = true;
-		}
+			this.pictureBoxJob.Enabled = true;
+			UpdateMissionButtonEnable();
+        }
 
 		private void radioButtonOffWork_CheckedChanged(object sender, EventArgs e)
 		{
 			this.player.Working = false;
+			this.pictureBoxJob.Enabled = false;
+			UpdateMissionButtonEnable();
 		}
-	}
+
+		private void buttonMove_Click(object sender, EventArgs e)
+		{
+			using (FormPlayerMove dlg = new FormPlayerMove(this.player, this.game))
+			{
+				if (dlg.ShowDialog(this) == DialogResult.OK)
+				{
+					UpdateCapitalDisplay();
+					this.buttonMove.Enabled = false;
+					// If a move has been performed, mission is not allowed
+					this.buttonMission.Enabled = false;
+				}
+			}
+		}
+
+		private void buttonMission_Click(object sender, EventArgs e)
+		{
+			if (this.player.Job == null ||
+				this.player.Job.Missions.Length == 0)
+				return;
+
+			int missionToDo = this.game.GetRandomNumber(0, 2);
+			if (missionToDo == 0)
+			{
+				LPMessageBox.ShowMessage("Pas de mission disponible pour ce tour !");
+				this.buttonMission.Enabled = false;
+				return;
+			}
+
+			int missionIndex = this.game.GetRandomNumber(0, this.player.Job.Missions.Length - 1);
+			using (FormMission dlg = new FormMission(this.player.Job.Missions[missionIndex], this.player, this.game))
+			{
+				if (dlg.ShowDialog(this) == DialogResult.OK)
+				{
+					this.player.Capital += dlg.Gain;
+					UpdateCapitalDisplay();
+				}
+			} 
+
+			// If a mission has been performed, a move is not allowed
+			this.buttonMove.Enabled = false;
+			this.buttonMission.Enabled = false;
+		}
+
+		private void UpdateMissionButtonEnable()
+		{
+			this.buttonMission.Enabled = this.radioButtonWorking.Checked;
+		}
+    }
 }

@@ -77,6 +77,7 @@
     <Compile Include="Data\Items\Building.cs" />
     <Compile Include="Data\Items\Car.cs" />
     <Compile Include="Data\Items\Truck.cs" />
+    <Compile Include="Data\Missions\Mission.cs" />
     <Compile Include="Data\Player.cs" />
     <Compile Include="Data\Jobs\Policeman.cs" />
     <Compile Include="FormChooseItem.cs">
@@ -96,6 +97,18 @@
     </Compile>
     <Compile Include="FormMain.Designer.cs">
       <DependentUpon>FormMain.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormMission.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormMission.Designer.cs">
+      <DependentUpon>FormMission.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormMoving.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormMoving.Designer.cs">
+      <DependentUpon>FormMoving.cs</DependentUpon>
     </Compile>
     <Compile Include="FormNewGame.cs">
       <SubType>Form</SubType>
@@ -124,6 +137,12 @@
     <Compile Include="Data\Items\Home.cs" />
     <Compile Include="Data\Items\ItemBase.cs" />
     <Compile Include="Data\Items\Vehicle.cs" />
+    <Compile Include="FormPlayerMove.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormPlayerMove.Designer.cs">
+      <DependentUpon>FormPlayerMove.cs</DependentUpon>
+    </Compile>
     <Compile Include="ListViewJobColumnSorter.cs" />
     <Compile Include="LPMessageBox.cs" />
     <Compile Include="Parameters\ParametersMain.cs" />
@@ -141,6 +160,12 @@
     <EmbeddedResource Include="FormMain.resx">
       <DependentUpon>FormMain.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="FormMission.resx">
+      <DependentUpon>FormMission.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormMoving.resx">
+      <DependentUpon>FormMoving.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FormNewGame.resx">
       <DependentUpon>FormNewGame.cs</DependentUpon>
     </EmbeddedResource>
@@ -153,6 +178,9 @@
     <EmbeddedResource Include="FormPlayerEdition.resx">
       <DependentUpon>FormPlayerEdition.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="FormPlayerMove.resx">
+      <DependentUpon>FormPlayerMove.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
@@ -164,6 +192,7 @@
       <DesignTime>True</DesignTime>
     </Compile>
     <None Include="job_default.ini" />
+    <Content Include="missions.xml" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -393,9 +422,16 @@
   <ItemGroup>
     <None Include="Resources\hat_blue.png" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\dice_red.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\target3.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>
-    <PostBuildEvent>xcopy /R /Y "$(ProjectDir)job_default.ini"  "$(TargetDir)"</PostBuildEvent>
+    <PostBuildEvent>xcopy /R /Y "$(ProjectDir)job_default.ini"  "$(TargetDir)"
+xcopy /R /Y "$(ProjectDir)missions.xml"  "$(TargetDir)"</PostBuildEvent>
   </PropertyGroup>
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

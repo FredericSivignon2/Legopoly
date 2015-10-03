@@ -61,5 +61,10 @@ namespace Legopoly.Data.Items
 
             return "Inconnu";
         }
-    }
+
+		public override string ToString()
+		{
+			return string.Format("{0} ({1})", this.Name, GetDisplayType());
+		}
+	}
 }

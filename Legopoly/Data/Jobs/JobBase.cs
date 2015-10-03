@@ -1,4 +1,5 @@
-﻿using Legopoly.Utils;
+﻿using Legopoly.Data.Missions;
+using Legopoly.Utils;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
@@ -8,6 +9,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Xml.XPath;
+using System.Xml.Linq;
 
 namespace Legopoly.Data.Jobs
 {
@@ -16,8 +19,10 @@ namespace Legopoly.Data.Jobs
     {
         #region Data Members
         private const string defaultValuesFilePath = "job_default.ini";
+		private const string missionValuesFilePath = "missions.xml";
 
-        private Grade[] grades;
+		private Grade[] grades;
+		private List<Mission> missions = new List<Mission>();
 		private int gradeNumber = 0;
         private string name;
 		private Image image;
@@ -121,6 +126,14 @@ namespace Legopoly.Data.Jobs
 				return this.grades[this.gradeNumber].SalaryPerRound;
 			}
 		}
+
+		public Mission[] Missions
+		{
+			get
+			{
+				return this.missions.ToArray<Mission>();
+			}
+		}
 		#endregion
 
 		/// <summary>
@@ -158,8 +171,22 @@ namespace Legopoly.Data.Jobs
             }
         }
 
-        private void InitializeData()
-        {
+		private static string MissionValuesFilePath
+		{
+			get
+			{
+				return Path.Combine(AppDomain.CurrentDomain.BaseDirectory, missionValuesFilePath);
+			}
+		}
+
+		private void InitializeData()
+		{
+			LoadGrads();
+            LoadMissions();
+		}
+
+		private void LoadGrads()
+		{ 
             string filePath = DefaultValuesFilePath;
             if (File.Exists(filePath) == false)
                 throw new FileNotFoundException(string.Format("Le fichier de données\r\n{0}'\r\nest introuvable!", filePath));
@@ -218,5 +245,57 @@ namespace Legopoly.Data.Jobs
 
             this.grades = tmpGrades.ToArray<Grade>();
         }
-    }
+
+		private void LoadMissions()
+		{
+			string filePath = MissionValuesFilePath;
+			if (File.Exists(filePath) == false)
+				throw new FileNotFoundException(string.Format("Le fichier de données\r\n{0}'\r\nest introuvable!", filePath));
+
+			XDocument document = null; 
+
+			try
+			{
+				document = XDocument.Load(filePath);
+			}
+			catch (Exception exp)
+			{
+				throw new Exception(string.Format("Erreur lors du chargement du fichier de configuration\r\n{0}", filePath), exp);
+			}
+
+			XElement xroot = document.Root;
+			XElement xjobRootElement = xroot.XPathSelectElement(this.Name);
+			if (xjobRootElement == null)
+				return; // No corresponding job entry
+
+			XElement xmissionRoot = xjobRootElement.XPathSelectElement("Missions");
+			if (xmissionRoot == null)
+				return;
+
+			IEnumerable<XElement> xmissions = xmissionRoot.XPathSelectElements("Mission");
+			if (xmissions == null || xmissions.Count<XElement>() == 0)
+				return;
+
+			foreach (XElement xmission in xmissions)
+			{
+				Mission mission = new Mission();
+
+				XElement xdescription = xmission.XPathSelectElement("Description");
+				mission.Description = xdescription.Value;
+
+				XElement xminRounds = xmission.XPathSelectElement("MinRounds");
+				mission.MinRounds = Int32.Parse(xminRounds.Value);
+				XElement xmaxRounds = xmission.XPathSelectElement("MaxRounds");
+				mission.MaxRounds = Int32.Parse(xmaxRounds.Value);
+				XElement xgain = xmission.XPathSelectElement("Gain");
+				mission.Gain = Int32.Parse(xgain.Value);
+
+				this.missions.Add(mission);
+			}
+		}
+
+
+
+
+	}
 }
