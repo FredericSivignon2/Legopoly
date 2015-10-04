@@ -11,10 +11,12 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Xml.XPath;
 using System.Xml.Linq;
+using System.Runtime.Serialization;
 
 namespace Legopoly.Data.Jobs
 {
 	[DebuggerDisplay("{Name}, {GradeName}")]
+	[DataContract]
     public abstract class JobBase
     {
         #region Data Members

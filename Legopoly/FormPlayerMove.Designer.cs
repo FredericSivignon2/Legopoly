@@ -33,6 +33,11 @@
 			this.comboBoxVehicles = new System.Windows.Forms.ComboBox();
 			this.buttonCancel = new System.Windows.Forms.Button();
 			this.buttonOK = new System.Windows.Forms.Button();
+			this.buttonRefuel = new System.Windows.Forms.Button();
+			this.labelRefuel = new System.Windows.Forms.Label();
+			this.labelTank = new System.Windows.Forms.Label();
+			this.panelTankLevel = new System.Windows.Forms.Panel();
+			this.labelTankLevelComment = new System.Windows.Forms.Label();
 			this.SuspendLayout();
 			// 
 			// radioButtonFoot
@@ -67,12 +72,13 @@
 			this.comboBoxVehicles.Name = "comboBoxVehicles";
 			this.comboBoxVehicles.Size = new System.Drawing.Size(508, 21);
 			this.comboBoxVehicles.TabIndex = 2;
+			this.comboBoxVehicles.SelectedIndexChanged += new System.EventHandler(this.comboBoxVehicles_SelectedIndexChanged);
 			// 
 			// buttonCancel
 			// 
 			this.buttonCancel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
 			this.buttonCancel.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-			this.buttonCancel.Location = new System.Drawing.Point(471, 109);
+			this.buttonCancel.Location = new System.Drawing.Point(474, 313);
 			this.buttonCancel.Name = "buttonCancel";
 			this.buttonCancel.Size = new System.Drawing.Size(75, 23);
 			this.buttonCancel.TabIndex = 3;
@@ -83,7 +89,7 @@
 			// 
 			this.buttonOK.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
 			this.buttonOK.DialogResult = System.Windows.Forms.DialogResult.OK;
-			this.buttonOK.Location = new System.Drawing.Point(390, 109);
+			this.buttonOK.Location = new System.Drawing.Point(393, 313);
 			this.buttonOK.Name = "buttonOK";
 			this.buttonOK.Size = new System.Drawing.Size(75, 23);
 			this.buttonOK.TabIndex = 4;
@@ -91,12 +97,67 @@
 			this.buttonOK.UseVisualStyleBackColor = true;
 			this.buttonOK.Click += new System.EventHandler(this.buttonOK_Click);
 			// 
+			// buttonRefuel
+			// 
+			this.buttonRefuel.Image = global::Legopoly.Properties.Resources.fuel_dispenser;
+			this.buttonRefuel.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
+			this.buttonRefuel.Location = new System.Drawing.Point(39, 152);
+			this.buttonRefuel.Name = "buttonRefuel";
+			this.buttonRefuel.Size = new System.Drawing.Size(75, 100);
+			this.buttonRefuel.TabIndex = 5;
+			this.buttonRefuel.Text = "Faire le plein d\'essence";
+			this.buttonRefuel.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+			this.buttonRefuel.UseVisualStyleBackColor = true;
+			this.buttonRefuel.Click += new System.EventHandler(this.buttonRefuel_Click);
+			// 
+			// labelRefuel
+			// 
+			this.labelRefuel.AutoSize = true;
+			this.labelRefuel.Location = new System.Drawing.Point(121, 153);
+			this.labelRefuel.Name = "labelRefuel";
+			this.labelRefuel.Size = new System.Drawing.Size(35, 13);
+			this.labelRefuel.TabIndex = 6;
+			this.labelRefuel.Text = "label1";
+			// 
+			// labelTank
+			// 
+			this.labelTank.AutoSize = true;
+			this.labelTank.Location = new System.Drawing.Point(39, 87);
+			this.labelTank.Name = "labelTank";
+			this.labelTank.Size = new System.Drawing.Size(55, 13);
+			this.labelTank.TabIndex = 7;
+			this.labelTank.Text = "Réservoir:";
+			// 
+			// panelTankLevel
+			// 
+			this.panelTankLevel.BackColor = System.Drawing.Color.Silver;
+			this.panelTankLevel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+			this.panelTankLevel.Location = new System.Drawing.Point(100, 85);
+			this.panelTankLevel.Name = "panelTankLevel";
+			this.panelTankLevel.Size = new System.Drawing.Size(446, 22);
+			this.panelTankLevel.TabIndex = 8;
+			this.panelTankLevel.Paint += new System.Windows.Forms.PaintEventHandler(this.panelTankLevel_Paint);
+			// 
+			// labelTankLevelComment
+			// 
+			this.labelTankLevelComment.AutoSize = true;
+			this.labelTankLevelComment.Location = new System.Drawing.Point(42, 120);
+			this.labelTankLevelComment.Name = "labelTankLevelComment";
+			this.labelTankLevelComment.Size = new System.Drawing.Size(172, 13);
+			this.labelTankLevelComment.TabIndex = 9;
+			this.labelTankLevelComment.Text = "-- Commentaire niveau d\'essence --";
+			// 
 			// FormPlayerMove
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-			this.ClientSize = new System.Drawing.Size(559, 144);
+			this.ClientSize = new System.Drawing.Size(562, 348);
 			this.ControlBox = false;
+			this.Controls.Add(this.labelTankLevelComment);
+			this.Controls.Add(this.panelTankLevel);
+			this.Controls.Add(this.labelTank);
+			this.Controls.Add(this.labelRefuel);
+			this.Controls.Add(this.buttonRefuel);
 			this.Controls.Add(this.buttonOK);
 			this.Controls.Add(this.buttonCancel);
 			this.Controls.Add(this.comboBoxVehicles);
@@ -119,5 +180,10 @@
 		private System.Windows.Forms.ComboBox comboBoxVehicles;
 		private System.Windows.Forms.Button buttonCancel;
 		private System.Windows.Forms.Button buttonOK;
+		private System.Windows.Forms.Button buttonRefuel;
+		private System.Windows.Forms.Label labelRefuel;
+		private System.Windows.Forms.Label labelTank;
+		private System.Windows.Forms.Panel panelTankLevel;
+		private System.Windows.Forms.Label labelTankLevelComment;
 	}
 }

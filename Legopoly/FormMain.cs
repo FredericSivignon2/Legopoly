@@ -30,7 +30,16 @@ namespace Legopoly
                         // Start the game
                         Game game = dlg.Game;
 
-                        game.Start(this);
+						GlobalData.Instance.InitializeGame(game);
+						try
+						{
+							game.Start(this);
+						}
+						finally
+						{
+							game.Save();
+						}
+						
                     }
                 }
             }
@@ -40,7 +49,31 @@ namespace Legopoly
             }
         }
 
-        private void buttonQuit_Click(object sender, EventArgs e)
+		private void buttonLoad_Click(object sender, EventArgs e)
+		{
+			this.Hide();
+			try
+			{
+				Game game = Game.Load();
+				GlobalData.Instance.InitializeGame(game);
+
+				try
+				{
+					game.Start(this);
+				}
+				finally
+				{
+					game.Save();
+				}
+			}
+			finally
+			{
+				this.Show();
+			}
+
+		}
+
+		private void buttonQuit_Click(object sender, EventArgs e)
         {
             this.Close();
         }
@@ -54,5 +87,7 @@ namespace Legopoly
             }
 
         }
-    }
+
+		
+	}
 }

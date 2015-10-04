@@ -14,10 +14,13 @@ namespace Legopoly
 {
     public partial class FormPlay : Form
     {
-        private Player player;
+		#region Data Members
+		private Player player;
         private Game game;
+		#endregion
 
-        public FormPlay(Player player, Game game)
+		#region Constructors
+		public FormPlay(Player player, Game game)
         {
             this.player = player;
             this.game = game;
@@ -25,6 +28,7 @@ namespace Legopoly
             InitializeComponent();
             InitializeFormContent();
         }
+		#endregion
 
 		private void ChooseJob()
 		{
@@ -63,6 +67,11 @@ namespace Legopoly
             this.listViewHeritage.Columns.Add("Nom", 220);
             this.listViewHeritage.Columns.Add("Type", 150);
             this.listViewHeritage.Columns.Add("Prix par tour", 100);
+
+			foreach (ItemBase item in this.player.Items)
+			{
+				AddListViewItem(item);
+            }
         }
 
         private void buttonBuyItem_Click(object sender, EventArgs e)
@@ -191,5 +200,12 @@ namespace Legopoly
 		{
 			this.buttonMission.Enabled = this.radioButtonWorking.Checked;
 		}
-    }
+
+		private void buttonStopGame_Click(object sender, EventArgs e)
+		{
+			DialogResult result = LPMessageBox.ShowQuestion("Voulez-vous vraiment quitter le jeu ?");
+			if (result != DialogResult.Yes)
+				this.DialogResult = DialogResult.None;
+		}
+	}
 }

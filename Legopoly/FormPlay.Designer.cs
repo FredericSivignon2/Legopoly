@@ -32,7 +32,6 @@
 			this.listViewHeritage = new System.Windows.Forms.ListView();
 			this.groupBoxHeritage = new System.Windows.Forms.GroupBox();
 			this.buttonSoldItem = new System.Windows.Forms.Button();
-			this.pictureBox1 = new System.Windows.Forms.PictureBox();
 			this.buttonBuyItem = new System.Windows.Forms.Button();
 			this.labelCapital = new System.Windows.Forms.Label();
 			this.groupBoxIdentification = new System.Windows.Forms.GroupBox();
@@ -54,18 +53,19 @@
 			this.radioButtonWorking = new System.Windows.Forms.RadioButton();
 			this.radioButtonOffWork = new System.Windows.Forms.RadioButton();
 			this.labelGrade = new System.Windows.Forms.Label();
-			this.buttonChangeJob = new System.Windows.Forms.Button();
-			this.pictureBoxJob = new System.Windows.Forms.PictureBox();
 			this.buttonMission = new System.Windows.Forms.Button();
 			this.buttonMove = new System.Windows.Forms.Button();
 			this.buttonNextPlayer = new System.Windows.Forms.Button();
 			this.buttonStopGame = new System.Windows.Forms.Button();
+			this.buttonChangeJob = new System.Windows.Forms.Button();
+			this.pictureBoxJob = new System.Windows.Forms.PictureBox();
+			this.pictureBoxCapital = new System.Windows.Forms.PictureBox();
 			this.groupBoxHeritage.SuspendLayout();
-			((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
 			this.groupBoxIdentification.SuspendLayout();
 			this.groupBox1.SuspendLayout();
 			this.groupBoxActivity.SuspendLayout();
 			((System.ComponentModel.ISupportInitialize)(this.pictureBoxJob)).BeginInit();
+			((System.ComponentModel.ISupportInitialize)(this.pictureBoxCapital)).BeginInit();
 			this.SuspendLayout();
 			// 
 			// labelName
@@ -80,9 +80,9 @@
 			// 
 			// listViewHeritage
 			// 
-			this.listViewHeritage.Location = new System.Drawing.Point(6, 81);
+			this.listViewHeritage.Location = new System.Drawing.Point(6, 19);
 			this.listViewHeritage.Name = "listViewHeritage";
-			this.listViewHeritage.Size = new System.Drawing.Size(972, 267);
+			this.listViewHeritage.Size = new System.Drawing.Size(654, 329);
 			this.listViewHeritage.TabIndex = 1;
 			this.listViewHeritage.UseCompatibleStateImageBehavior = false;
 			this.listViewHeritage.View = System.Windows.Forms.View.Details;
@@ -90,7 +90,7 @@
 			// groupBoxHeritage
 			// 
 			this.groupBoxHeritage.Controls.Add(this.buttonSoldItem);
-			this.groupBoxHeritage.Controls.Add(this.pictureBox1);
+			this.groupBoxHeritage.Controls.Add(this.pictureBoxCapital);
 			this.groupBoxHeritage.Controls.Add(this.buttonBuyItem);
 			this.groupBoxHeritage.Controls.Add(this.listViewHeritage);
 			this.groupBoxHeritage.Controls.Add(this.labelCapital);
@@ -103,27 +103,18 @@
 			// 
 			// buttonSoldItem
 			// 
-			this.buttonSoldItem.Location = new System.Drawing.Point(88, 24);
+			this.buttonSoldItem.Location = new System.Drawing.Point(670, 118);
 			this.buttonSoldItem.Name = "buttonSoldItem";
-			this.buttonSoldItem.Size = new System.Drawing.Size(75, 23);
+			this.buttonSoldItem.Size = new System.Drawing.Size(64, 23);
 			this.buttonSoldItem.TabIndex = 3;
 			this.buttonSoldItem.Text = "Vendre";
 			this.buttonSoldItem.UseVisualStyleBackColor = true;
 			// 
-			// pictureBox1
-			// 
-			this.pictureBox1.Image = global::Legopoly.Properties.Resources.money;
-			this.pictureBox1.Location = new System.Drawing.Point(670, 11);
-			this.pictureBox1.Name = "pictureBox1";
-			this.pictureBox1.Size = new System.Drawing.Size(64, 64);
-			this.pictureBox1.TabIndex = 7;
-			this.pictureBox1.TabStop = false;
-			// 
 			// buttonBuyItem
 			// 
-			this.buttonBuyItem.Location = new System.Drawing.Point(7, 24);
+			this.buttonBuyItem.Location = new System.Drawing.Point(670, 89);
 			this.buttonBuyItem.Name = "buttonBuyItem";
-			this.buttonBuyItem.Size = new System.Drawing.Size(75, 23);
+			this.buttonBuyItem.Size = new System.Drawing.Size(64, 23);
 			this.buttonBuyItem.TabIndex = 2;
 			this.buttonBuyItem.Text = "Acheter";
 			this.buttonBuyItem.UseVisualStyleBackColor = true;
@@ -133,7 +124,7 @@
 			// 
 			this.labelCapital.AutoSize = true;
 			this.labelCapital.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.labelCapital.Location = new System.Drawing.Point(740, 33);
+			this.labelCapital.Location = new System.Drawing.Point(740, 34);
 			this.labelCapital.Name = "labelCapital";
 			this.labelCapital.Size = new System.Drawing.Size(156, 31);
 			this.labelCapital.TabIndex = 5;
@@ -334,28 +325,6 @@
 			this.labelGrade.TabIndex = 27;
 			this.labelGrade.Text = "-- grade --";
 			// 
-			// buttonChangeJob
-			// 
-			this.buttonChangeJob.Image = global::Legopoly.Properties.Resources.hat_blue;
-			this.buttonChangeJob.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-			this.buttonChangeJob.Location = new System.Drawing.Point(13, 240);
-			this.buttonChangeJob.Name = "buttonChangeJob";
-			this.buttonChangeJob.Size = new System.Drawing.Size(128, 23);
-			this.buttonChangeJob.TabIndex = 26;
-			this.buttonChangeJob.Text = "Changer de métier";
-			this.buttonChangeJob.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-			this.buttonChangeJob.UseVisualStyleBackColor = true;
-			this.buttonChangeJob.Click += new System.EventHandler(this.buttonChangeJob_Click);
-			// 
-			// pictureBoxJob
-			// 
-			this.pictureBoxJob.Image = global::Legopoly.Properties.Resources.policeman_usa;
-			this.pictureBoxJob.Location = new System.Drawing.Point(13, 69);
-			this.pictureBoxJob.Name = "pictureBoxJob";
-			this.pictureBoxJob.Size = new System.Drawing.Size(128, 128);
-			this.pictureBoxJob.TabIndex = 25;
-			this.pictureBoxJob.TabStop = false;
-			// 
 			// buttonMission
 			// 
 			this.buttonMission.Image = global::Legopoly.Properties.Resources.target3;
@@ -408,6 +377,38 @@
 			this.buttonStopGame.Text = "Arrêter la partie ";
 			this.buttonStopGame.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
 			this.buttonStopGame.UseVisualStyleBackColor = true;
+			this.buttonStopGame.Click += new System.EventHandler(this.buttonStopGame_Click);
+			// 
+			// buttonChangeJob
+			// 
+			this.buttonChangeJob.Image = global::Legopoly.Properties.Resources.hat_blue;
+			this.buttonChangeJob.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+			this.buttonChangeJob.Location = new System.Drawing.Point(13, 240);
+			this.buttonChangeJob.Name = "buttonChangeJob";
+			this.buttonChangeJob.Size = new System.Drawing.Size(128, 23);
+			this.buttonChangeJob.TabIndex = 26;
+			this.buttonChangeJob.Text = "Changer de métier";
+			this.buttonChangeJob.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+			this.buttonChangeJob.UseVisualStyleBackColor = true;
+			this.buttonChangeJob.Click += new System.EventHandler(this.buttonChangeJob_Click);
+			// 
+			// pictureBoxJob
+			// 
+			this.pictureBoxJob.Image = global::Legopoly.Properties.Resources.policeman_usa;
+			this.pictureBoxJob.Location = new System.Drawing.Point(13, 69);
+			this.pictureBoxJob.Name = "pictureBoxJob";
+			this.pictureBoxJob.Size = new System.Drawing.Size(128, 128);
+			this.pictureBoxJob.TabIndex = 25;
+			this.pictureBoxJob.TabStop = false;
+			// 
+			// pictureBoxCapital
+			// 
+			this.pictureBoxCapital.Image = global::Legopoly.Properties.Resources.money;
+			this.pictureBoxCapital.Location = new System.Drawing.Point(670, 19);
+			this.pictureBoxCapital.Name = "pictureBoxCapital";
+			this.pictureBoxCapital.Size = new System.Drawing.Size(64, 64);
+			this.pictureBoxCapital.TabIndex = 7;
+			this.pictureBoxCapital.TabStop = false;
 			// 
 			// FormPlay
 			// 
@@ -428,7 +429,6 @@
 			this.Text = "Tour";
 			this.groupBoxHeritage.ResumeLayout(false);
 			this.groupBoxHeritage.PerformLayout();
-			((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
 			this.groupBoxIdentification.ResumeLayout(false);
 			this.groupBoxIdentification.PerformLayout();
 			this.groupBox1.ResumeLayout(false);
@@ -436,6 +436,7 @@
 			this.groupBoxActivity.ResumeLayout(false);
 			this.groupBoxActivity.PerformLayout();
 			((System.ComponentModel.ISupportInitialize)(this.pictureBoxJob)).EndInit();
+			((System.ComponentModel.ISupportInitialize)(this.pictureBoxCapital)).EndInit();
 			this.ResumeLayout(false);
 
         }
@@ -452,7 +453,7 @@
         private System.Windows.Forms.Label labelCapital;
         private System.Windows.Forms.GroupBox groupBoxIdentification;
         private System.Windows.Forms.Button buttonMove;
-        private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.PictureBox pictureBoxCapital;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label2;

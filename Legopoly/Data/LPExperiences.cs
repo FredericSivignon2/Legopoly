@@ -1,11 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.Serialization;
 using System.Text;
 using System.Threading.Tasks;
 
 namespace Legopoly.Data
 {
+	[DataContract]
     public class LPExperiences
     {
 		public LPExperiences()
@@ -23,11 +25,20 @@ namespace Legopoly.Data
 		}
 
 		#region Public Properties
+		[DataMember]
 		public int Scientific { get; set; } = 0;
-        public int PhysicalFitness { get; set; } = 0;
-        public int ManagerialSkills { get; set; } = 0;
-        public int Creativity { get; set; } = 0;
-        public int Empathy { get; set; } = 0;
+
+		[DataMember]
+		public int PhysicalFitness { get; set; } = 0;
+
+		[DataMember]
+		public int ManagerialSkills { get; set; } = 0;
+
+		[DataMember]
+		public int Creativity { get; set; } = 0;
+
+		[DataMember]
+		public int Empathy { get; set; } = 0;
         #endregion
     }
 }

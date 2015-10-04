@@ -126,29 +126,29 @@ namespace Legopoly
 
 				this.game.Players.Add(player);
 
-				player = new Player()
-				{
-					Name = "Léa"
-				};
-				player.Experiences.Empathy = 2;
-				player.Experiences.Creativity = 10;
-				player.Experiences.PhysicalFitness = 20;
-				player.Experiences.Scientific = 6;
-				player.Experiences.ManagerialSkills = 2;
+				//player = new Player()
+				//{
+				//	Name = "Léa"
+				//};
+				//player.Experiences.Empathy = 2;
+				//player.Experiences.Creativity = 10;
+				//player.Experiences.PhysicalFitness = 20;
+				//player.Experiences.Scientific = 6;
+				//player.Experiences.ManagerialSkills = 2;
 
-				this.game.Players.Add(player);
+				//this.game.Players.Add(player);
 
-				player = new Player()
-				{
-					Name = "Frédéric"
-				};
-				player.Experiences.Empathy = 2;
-				player.Experiences.Creativity = 10;
-				player.Experiences.PhysicalFitness = 20;
-				player.Experiences.Scientific = 6;
-				player.Experiences.ManagerialSkills = 2;
+				//player = new Player()
+				//{
+				//	Name = "Frédéric"
+				//};
+				//player.Experiences.Empathy = 2;
+				//player.Experiences.Creativity = 10;
+				//player.Experiences.PhysicalFitness = 20;
+				//player.Experiences.Scientific = 6;
+				//player.Experiences.ManagerialSkills = 2;
 
-				this.game.Players.Add(player);
+				//this.game.Players.Add(player);
 			}
 			catch (Exception exp)
 			{

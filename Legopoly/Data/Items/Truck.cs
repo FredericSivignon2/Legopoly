@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 namespace Legopoly.Data.Items
 {
     [DataContract]
-    public class Truck : Vehicle
-    {
+    public class Truck : MotorVehicle
+	{
     }
 }

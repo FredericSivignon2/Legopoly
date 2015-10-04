@@ -45,7 +45,8 @@ namespace Legopoly
                 if (item.InitialCost <= this.player.Capital)
                 {
                     ListViewItem lvItem = new ListViewItem(item.Name);
-                    lvItem.Tag = item;
+                    lvItem.Tag = item.Clone();
+					
                     lvItem.SubItems.Add(item.InitialCost.ToString());
                     this.listViewItems.Items.Add(lvItem);
                 }

@@ -293,6 +293,16 @@ namespace Legopoly.Properties {
         /// <summary>
         ///   Recherche une ressource localisée de type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap fuel_dispenser {
+            get {
+                object obj = ResourceManager.GetObject("fuel_dispenser", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une ressource localisée de type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap genius {
             get {
                 object obj = ResourceManager.GetObject("genius", resourceCulture);

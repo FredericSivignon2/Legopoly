@@ -68,6 +68,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Data\GameVehicleData.cs" />
+    <Compile Include="Data\GlobalData.cs" />
+    <Compile Include="Data\Items\Motorbike.cs" />
+    <Compile Include="Data\Items\MotorVehicle.cs" />
     <Compile Include="Data\Jobs\Fireman.cs" />
     <Compile Include="Data\Jobs\Grade.cs" />
     <Compile Include="Data\Jobs\JobBase.cs" />
@@ -80,6 +84,7 @@
     <Compile Include="Data\Missions\Mission.cs" />
     <Compile Include="Data\Player.cs" />
     <Compile Include="Data\Jobs\Policeman.cs" />
+    <Compile Include="Data\PlayerStateData.cs" />
     <Compile Include="FormChooseItem.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -151,6 +156,8 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ThirdParties\IniFileCs.cs" />
     <Compile Include="Utils\IniFileReader.cs" />
+    <None Include="game_data.ini" />
+    <None Include="Resources\fuel_dispenser.png" />
     <EmbeddedResource Include="FormChooseItem.resx">
       <DependentUpon>FormChooseItem.cs</DependentUpon>
     </EmbeddedResource>
@@ -192,7 +199,7 @@
       <DesignTime>True</DesignTime>
     </Compile>
     <None Include="job_default.ini" />
-    <Content Include="missions.xml" />
+    <Content Include="missions_data.xml" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -430,8 +437,11 @@
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>
-    <PostBuildEvent>xcopy /R /Y "$(ProjectDir)job_default.ini"  "$(TargetDir)"
-xcopy /R /Y "$(ProjectDir)missions.xml"  "$(TargetDir)"</PostBuildEvent>
+    <PostBuildEvent>xcopy /R /Y "$(ProjectDir)game_data.ini"  "$(TargetDir)"
+xcopy /R /Y "$(ProjectDir)job_default.ini"  "$(TargetDir)"
+xcopy /R /Y "$(ProjectDir)missions_data.xml"  "$(TargetDir)"
+xcopy /R /Y "$(ProjectDir)items_data.xml"  "$(TargetDir)"
+</PostBuildEvent>
   </PropertyGroup>
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

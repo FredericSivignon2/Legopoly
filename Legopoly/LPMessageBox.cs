@@ -26,6 +26,11 @@ namespace Legopoly
 			return MessageBox.Show(Program.MainForm, message, title, MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2);
 		}
 
+		public static void ShowWarning(string message)
+		{
+			MessageBox.Show(Program.MainForm, message, title, MessageBoxButtons.OK, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button1);
+		}
+
         public static void ShowError(string message, Exception exp = null)
         {
             StringBuilder msg = new StringBuilder(message);

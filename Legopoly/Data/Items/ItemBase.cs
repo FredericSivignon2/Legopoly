@@ -1,4 +1,5 @@
-﻿using System;
+﻿using FoundationLibraries.Xml;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Runtime.Serialization;
@@ -58,6 +59,8 @@ namespace Legopoly.Data.Items
                 return "Voiture";
             if (this is Truck)
                 return "Camion";
+			if (this is Motorbike)
+				return "Moto";
 
             return "Inconnu";
         }
@@ -65,6 +68,14 @@ namespace Legopoly.Data.Items
 		public override string ToString()
 		{
 			return string.Format("{0} ({1})", this.Name, GetDisplayType());
+		}
+
+		public ItemBase Clone()
+		{
+			Type type = this.GetType();
+			string serializedObj = XmlSerializationHelper.HelperUTF8.ToString(type, this);
+
+			return (ItemBase)XmlSerializationHelper.HelperUTF8.FromString(serializedObj, type);
 		}
 	}
 }

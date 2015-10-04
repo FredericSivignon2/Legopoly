@@ -7,37 +7,64 @@ using Legopoly.Data.Items;
 using System.Windows.Forms;
 using Legopoly.Data.Jobs;
 using System.Diagnostics;
+using System.Runtime.Serialization;
 
 namespace Legopoly.Data
 {
 	[DebuggerDisplay("{Name}, {Capital}€")]
+	[DataContract]
 	public class Player
     {
 		private Game game;
+		private PlayerStateData stateData;
 
-        #region Public Properties
-        /// <summary>
-        /// Gets or sets the player Name
-        /// </summary>
-        public string Name { get; set; } = string.Empty;
-        /// <summary>
-        /// Gets or sets the player capital (in € for example)
-        /// </summary>
-        public int Capital { get; set; } = 10000;
-        /// <summary>
-        /// Gets or sets the player experiences information.
-        /// </summary>
-        public LPExperiences Experiences { get; set; } = new LPExperiences();
+		public Player()
+		{
+			this.stateData = new PlayerStateData();
+        }
 
-        public List<ItemBase> Items { get; } = new List<ItemBase>();
-        /// <summary>
-        /// Gets or sets the player Job
-        /// </summary>
-        public JobBase Job { get; set; } = null;
+		#region Public Properties
+		/// <summary>
+		/// Gets or sets the player Name
+		/// </summary>
+		[DataMember]
+		public string Name { get; set; } = string.Empty;
+		/// <summary>
+		/// Gets or sets the player capital (in € for example)
+		/// </summary>
+		[DataMember]
+		public double Capital { get; set; } = 10000.0;
+		/// <summary>
+		/// Gets or sets the player experiences information.
+		/// </summary>
+		[DataMember]
+		public LPExperiences Experiences { get; set; } = new LPExperiences();
+
+		[DataMember]
+		public List<ItemBase> Items { get; private set; } = new List<ItemBase>();
+		/// <summary>
+		/// Gets or sets the player Job
+		/// </summary>
+		[DataMember]
+		public JobBase Job { get; set; } = null;
+
+		[DataMember]
+		public PlayerStateData StateData
+		{
+			get
+			{
+				return this.stateData;
+			}
+			private set
+			{
+				this.stateData = value;
+			}
+		}
 
 		/// <summary>
 		/// Gets or sets a boolean value that indicates whether this player is currently working.
 		/// </summary>
+		[DataMember]
 		public bool Working { get; set; } = false;
         #endregion
 
