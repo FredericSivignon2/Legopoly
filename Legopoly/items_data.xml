@@ -1,0 +1,32 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ArrayOfItemBase xmlns:i="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://schemas.datacontract.org/2004/07/Legopoly.Data.Items">
+	<ItemBase xmlns:d2p1="uri:Legopoly.Data.Items,Legopoly" i:type="d2p1:Home">
+		<CostLostPerRound>0</CostLostPerRound>
+		<CostPerRound>5</CostPerRound>
+		<GainPerRound>0</GainPerRound>
+		<InitialCost>60000</InitialCost>
+		<Name>Maison Toit bleu</Name>
+    <PicturePath>blue_house.jpg</PicturePath>
+	</ItemBase>
+	<ItemBase xmlns:d2p1="uri:Legopoly.Data.Items,Legopoly" i:type="d2p1:Home">
+		<CostLostPerRound>0</CostLostPerRound>
+		<CostPerRound>6</CostPerRound>
+		<GainPerRound>0</GainPerRound>
+		<InitialCost>72000</InitialCost>
+		<Name>Maison Toit rouge</Name>
+    <PicturePath>red_house.jpg</PicturePath>
+	</ItemBase>
+	<ItemBase xmlns:d2p1="uri:Legopoly.Data.Items,Legopoly" i:type="d2p1:Car">
+		<CostLostPerRound>2</CostLostPerRound>
+		<CostPerRound>1</CostPerRound>
+		<GainPerRound>0</GainPerRound>
+		<InitialCost>12000</InitialCost>
+		<Name>Fourgon J20</Name>
+    <PicturePath>van_J20.jpg</PicturePath>
+    <CostPerMove>1</CostPerMove>
+		<MaxMovePerRound>8</MaxMovePerRound>
+		<MinMovePerRound>4</MinMovePerRound>
+		<ConsumptionPerMove>2</ConsumptionPerMove>
+		<TankCapacity>500</TankCapacity>
+	</ItemBase>
+</ArrayOfItemBase>

@@ -51,7 +51,7 @@ namespace Legopoly
             }
 
             UpdateCapitalDisplay();
-            InitializeHeritageList();
+            this.userControlItems1.Items = this.player.Items.ToArray<ItemBase>();
             UpdateExperiencePoints();
             UpdateJobInfo();
 
@@ -62,18 +62,6 @@ namespace Legopoly
 			UpdateMissionButtonEnable();
         }
 
-        private void InitializeHeritageList()
-        {
-            this.listViewHeritage.Columns.Add("Nom", 220);
-            this.listViewHeritage.Columns.Add("Type", 150);
-            this.listViewHeritage.Columns.Add("Prix par tour", 100);
-
-			foreach (ItemBase item in this.player.Items)
-			{
-				AddListViewItem(item);
-            }
-        }
-
         private void buttonBuyItem_Click(object sender, EventArgs e)
         {
             using (FormChooseItem dlg = new FormChooseItem(this.player))
@@ -81,7 +69,8 @@ namespace Legopoly
                 if (dlg.ShowDialog(this) == DialogResult.OK)
                 {
                     ItemBase itemBase = dlg.SelectedItem;
-                    AddListViewItem(itemBase);
+					this.userControlItems1.AddItem(itemBase);
+					this.userControlItems1.Refresh();
 
 					player.Capital -= itemBase.InitialCost;
 					this.player.Items.Add(itemBase);
@@ -89,15 +78,6 @@ namespace Legopoly
 					UpdateCapitalDisplay();
                 }
             }
-        }
-
-        private void AddListViewItem(ItemBase itemBase)
-        {
-            ListViewItem item = new ListViewItem(itemBase.Name);
-
-            item.SubItems.Add(itemBase.GetDisplayType());
-            item.SubItems.Add(itemBase.CostPerRound.ToString());
-            this.listViewHeritage.Items.Add(item);
         }
 
         private void UpdateCapitalDisplay()

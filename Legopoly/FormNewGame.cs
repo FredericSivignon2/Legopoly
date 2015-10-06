@@ -116,7 +116,8 @@ namespace Legopoly
 				this.game = new Game();
 				Player player = new Player()
 				{
-					Name = "Damien"
+					Name = "Damien",
+					Capital = 50000000
 				};
 				player.Experiences.Empathy = 10;
 				player.Experiences.Creativity = 2;

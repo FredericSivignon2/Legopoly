@@ -140,10 +140,6 @@ namespace Legopoly.Data
 			}
 		}
 
-
-
-		Données de véhicle non sauvegardées !!!
-
 		public static Game Load()
 		{
 			string filePath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, gameBackup);

@@ -15,8 +15,7 @@ namespace Legopoly
     public partial class FormChooseItem : Form
     {
         private Player player;
-        private ItemBase selectedItem;
-
+       
         public FormChooseItem(Player player)
         {
             this.player = player;
@@ -29,41 +28,28 @@ namespace Legopoly
         {
             get
             {
-                return this.selectedItem;
+                return this.userControlItems1.SelectedItem;
             }
         }
 
         private void InitializeFormContent()
         {
-            this.listViewItems.Columns.Add("Designation", 220);
-            this.listViewItems.Columns.Add("Prix", 150);
-
+            
             List<ItemBase> allItems = Parameters.ParametersMain.Instance.Shop.Items;
 
             foreach (ItemBase item in allItems)
             {
-                if (item.InitialCost <= this.player.Capital)
-                {
-                    ListViewItem lvItem = new ListViewItem(item.Name);
-                    lvItem.Tag = item.Clone();
-					
-                    lvItem.SubItems.Add(item.InitialCost.ToString());
-                    this.listViewItems.Items.Add(lvItem);
-                }
+				if (item.InitialCost <= this.player.Capital)
+				{
+					// Make a clone, so we won't modify shop property
+					ItemBase newItem = item.Clone();
+					this.userControlItems1.AddItem(newItem);
+				}
             }
+			this.userControlItems1.Refresh();
         }
 
-        private void listViewItems_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            if (this.listViewItems.SelectedItems.Count == 0)
-                return;
-
-            ListViewItem item =  this.listViewItems.SelectedItems[0];
-            this.selectedItem = item.Tag as ItemBase;
-            UpdateDescription();
-        }
-
-        private void UpdateDescription()
+        /*private void UpdateDescription()
         {
             if (this.selectedItem is Car)
             {
@@ -94,6 +80,6 @@ namespace Legopoly
                 Building building = this.selectedItem as Building;
                 this.textBox1.Text = string.Format("Chaque tour, ce batiment vous rapporte {0}€", building.GainPerRound);
             }
-        }
+        }*/
     }
 }

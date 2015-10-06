@@ -24,7 +24,8 @@ namespace Legopoly.Data.Items
 			{
 				this.tankCapacity = value;
 				// Set full level by default
-				FuelLevel = this.tankCapacity;
+				if (FuelLevel == -1)
+					FuelLevel = this.tankCapacity;
 			}
 		}
 

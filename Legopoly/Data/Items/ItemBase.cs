@@ -17,10 +17,11 @@ namespace Legopoly.Data.Items
     [DataContract]
     public class ItemBase
     {
-        /// <summary>
-        /// Gets or sets the item name.
-        /// </summary>
-        [DataMember]
+		#region Public Properties
+		/// <summary>
+		/// Gets or sets the item name.
+		/// </summary>
+		[DataMember]
         public string Name { get; set; }
 
         /// <summary>
@@ -47,7 +48,11 @@ namespace Legopoly.Data.Items
         [DataMember]
         public int GainPerRound { get; set; } = 0;
 
-        public string GetDisplayType()
+		[DataMember]
+		public string PicturePath { get; set; }
+		#endregion
+
+		public string GetDisplayType()
         {
             if (this is Home)
                 return "Habitation";
