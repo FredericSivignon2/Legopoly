@@ -30,6 +30,7 @@ namespace Legopoly.Data
 		private List<Mission> allMissions;
 		private Random rnd;
 		private GameVehicleData vehicleData;
+		private GameJobData jobData;
 		#endregion
 
 		#region Constructor
@@ -38,6 +39,7 @@ namespace Legopoly.Data
             this.players = new List<Player>();
 			this.allMissions = new List<Mission>();
 			this.vehicleData = new GameVehicleData();
+			this.jobData = new GameJobData();
 
 			LoadData();
         }
@@ -74,6 +76,14 @@ namespace Legopoly.Data
 			{
 				return this.vehicleData;
             }
+		}
+
+		public GameJobData JobData
+		{
+			get
+			{
+				return this.jobData;
+			}
 		}
 		#endregion
 
@@ -157,6 +167,7 @@ namespace Legopoly.Data
 			}
 
 			game.vehicleData = new GameVehicleData();
+			game.jobData = new GameJobData();
 			game.LoadData();
             return game;
 		}
@@ -197,9 +208,11 @@ namespace Legopoly.Data
 			if (iniFile.Sections.ContainsKey("Vehicles") == false)
 				throw new Exception(string.Format("Il manque la section 'Vehicles' dans le fichier de configuration\r\n{0}", filePath));
 
-			IniSection section = iniFile.Sections["Vehicles"];
-			this.vehicleData.FuelCost = Double.Parse(section.KeyValues["FuelCost"], CultureInfo.InvariantCulture);
-			
+			IniSection sectionVehicles = iniFile.Sections["Vehicles"];
+			this.vehicleData.FuelCost = Double.Parse(sectionVehicles.KeyValues["FuelCost"], CultureInfo.InvariantCulture);
+
+			IniSection sectionJobs = iniFile.Sections["Jobs"];
+			this.jobData.MaxWorkingRound = Int32.Parse(sectionJobs.KeyValues["MaxWorkingRound"], CultureInfo.InvariantCulture);
 		}
     }
 }

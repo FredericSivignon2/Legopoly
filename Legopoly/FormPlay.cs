@@ -17,6 +17,9 @@ namespace Legopoly
 		#region Data Members
 		private Player player;
         private Game game;
+		private bool initializing = false;
+		private bool missionPerformed = false;
+		private bool movedPerformed = false;
 		#endregion
 
 		#region Constructors
@@ -45,21 +48,34 @@ namespace Legopoly
 
         private void InitializeFormContent()
         {
-            if (this.player.Job == null)
-            {
-				ChooseJob();
-            }
+			this.initializing = true;
+			try
+			{
+				if (this.player.Job == null)
+				{
+					ChooseJob();
+				}
 
-            UpdateCapitalDisplay();
-            this.userControlItems1.Items = this.player.Items.ToArray<ItemBase>();
-            UpdateExperiencePoints();
-            UpdateJobInfo();
+				UpdateCapitalDisplay();
+				this.userControlItems1.Items = this.player.Items.ToArray<ItemBase>();
+				UpdateExperiencePoints();
+				UpdateJobInfo();
 
-			this.radioButtonOffWork.Checked = this.player.Working == false;
-			this.radioButtonWorking.Checked = this.player.Working;
-            this.Text = string.Format("Tour n°{0}", this.game.Round);
+				if (this.player.WorkingRoundLeft == 0 && this.player.Working)
+				{
+					LPMessageBox.ShowMessage("Vous avez passé trop de temps au travail.\r\n\r\nRetournez à votre maison avant toute autre activité.");
+					this.player.Working = false;
+				}
+				this.radioButtonOffWork.Checked = this.player.Working == false;
+				this.radioButtonWorking.Checked = this.player.Working;
+				this.Text = string.Format("Tour n°{0}", this.game.Round);
 
-			UpdateMissionButtonEnable();
+				UpdateButtonsEnable();
+			}
+			finally
+			{
+				this.initializing = false;
+			}
         }
 
         private void buttonBuyItem_Click(object sender, EventArgs e)
@@ -69,6 +85,12 @@ namespace Legopoly
                 if (dlg.ShowDialog(this) == DialogResult.OK)
                 {
                     ItemBase itemBase = dlg.SelectedItem;
+					if (itemBase is MotorVehicle)
+					{
+						MotorVehicle motorVehicle = itemBase as MotorVehicle;
+						// Make a full tank just after buying the vehicle!
+						motorVehicle.FuelLevel = motorVehicle.TankCapacity;
+					}
 					this.userControlItems1.AddItem(itemBase);
 					this.userControlItems1.Refresh();
 
@@ -121,16 +143,22 @@ namespace Legopoly
 
 		private void radioButtonWorking_CheckedChanged(object sender, EventArgs e)
 		{
-			this.player.Working = true;
+			if (this.initializing == false)
+			{
+				this.player.Working = true;
+			}
 			this.pictureBoxJob.Enabled = true;
-			UpdateMissionButtonEnable();
+			UpdateButtonsEnable();
         }
 
 		private void radioButtonOffWork_CheckedChanged(object sender, EventArgs e)
 		{
-			this.player.Working = false;
+			if (this.initializing == false)
+			{
+				this.player.Working = false;
+			}
 			this.pictureBoxJob.Enabled = false;
-			UpdateMissionButtonEnable();
+			UpdateButtonsEnable();
 		}
 
 		private void buttonMove_Click(object sender, EventArgs e)
@@ -140,9 +168,7 @@ namespace Legopoly
 				if (dlg.ShowDialog(this) == DialogResult.OK)
 				{
 					UpdateCapitalDisplay();
-					this.buttonMove.Enabled = false;
-					// If a move has been performed, mission is not allowed
-					this.buttonMission.Enabled = false;
+					this.movedPerformed = true;
 				}
 			}
 		}
@@ -169,23 +195,42 @@ namespace Legopoly
 					this.player.Capital += dlg.Gain;
 					UpdateCapitalDisplay();
 				}
-			} 
+			}
 
 			// If a mission has been performed, a move is not allowed
-			this.buttonMove.Enabled = false;
-			this.buttonMission.Enabled = false;
+			this.missionPerformed = true;
 		}
 
-		private void UpdateMissionButtonEnable()
+		private void UpdateButtonsEnable()
 		{
+			if (this.missionPerformed || this.movedPerformed)
+			{
+				this.buttonMove.Enabled = false;
+				this.buttonMission.Enabled = false;
+				this.buttonSchool.Enabled = false;
+                return;
+			}
+
 			this.buttonMission.Enabled = this.radioButtonWorking.Checked;
-		}
+			this.buttonSchool.Enabled = !this.radioButtonWorking.Checked;
+        }
 
 		private void buttonStopGame_Click(object sender, EventArgs e)
 		{
 			DialogResult result = LPMessageBox.ShowQuestion("Voulez-vous vraiment quitter le jeu ?");
 			if (result != DialogResult.Yes)
 				this.DialogResult = DialogResult.None;
+		}
+
+		private void buttonSchool_Click(object sender, EventArgs e)
+		{
+			using (FormSchool dlg = new FormSchool(this.player))
+			{
+				if (dlg.ShowDialog(this) == DialogResult.OK)
+				{
+
+				}
+			}
 		}
 	}
 }

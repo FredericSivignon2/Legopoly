@@ -38,17 +38,19 @@ namespace Legopoly
 			this.radioButtonVehicle.Checked = this.player.StateData.LastMoveUseVehicle;
 
 			int indexToSelect = 0;
-			foreach (ItemBase item in this.player.Items)
+			if (this.player.Items.Count > 0)
 			{
-				if (item is Vehicle)
+				foreach (ItemBase item in this.player.Items)
 				{
-					int index = this.comboBoxVehicles.Items.Add(item);
-					if (item.Name == this.player.StateData.LastMoveVehicleName)
-						indexToSelect = index;
+					if (item is Vehicle)
+					{
+						int index = this.comboBoxVehicles.Items.Add(item);
+						if (item.Name == this.player.StateData.LastMoveVehicleName)
+							indexToSelect = index;
+					}
 				}
+				this.comboBoxVehicles.SelectedIndex = indexToSelect;
 			}
-			this.comboBoxVehicles.SelectedIndex = indexToSelect;
-
 			if (this.comboBoxVehicles.Items.Count == 0)
 			{
 				this.radioButtonVehicle.Enabled = false;
@@ -68,7 +70,7 @@ namespace Legopoly
             }
 			else
 			{
-				this.labelTankLevelComment.Text = string.Format("Vous pouvez encore parcourir {0} case(s) avec l'essence restante.",
+				this.labelTankLevelComment.Text = string.Format("Vous pouvez encore parcourir {0,4:N0} case(s) avec l'essence restante.",
                     motorVehicle.FuelLevel / motorVehicle.ConsumptionPerMove);
             }
 			this.panelTankLevel.Invalidate();
@@ -83,7 +85,7 @@ namespace Legopoly
             }
 			else
 			{ 
-				this.labelRefuel.Text = string.Format("Faire le plein d'essence vous coûtera {0,5:N0}€", motorVehicle.GetRefuelValue());
+				this.labelRefuel.Text = string.Format("Faire le plein d'essence vous coûtera {0,5:F}€", motorVehicle.GetRefuelValue());
 			}
 		}
 
@@ -209,7 +211,9 @@ namespace Legopoly
 		
 		private void comboBoxVehicles_SelectedIndexChanged(object sender, EventArgs e)
 		{
+			UpdateTankLevel();
 			UpdateRefuelValueDisplay();
+			UpdateControlEnabled();
 		}
 
 		private void buttonRefuel_Click(object sender, EventArgs e)
@@ -253,13 +257,13 @@ namespace Legopoly
 			if (motorVehicle == null)
 				return;
 
-			int currentLevel = motorVehicle.FuelLevel;
-			int maxLevel = motorVehicle.TankCapacity;
+			double currentLevel = motorVehicle.FuelLevel;
+			double maxLevel = motorVehicle.TankCapacity;
 
-			int drawLevel = currentLevel * e.ClipRectangle.Width / maxLevel;
+			int drawLevel = (int)(currentLevel * e.ClipRectangle.Width / maxLevel);
 
-            int red = 255 - currentLevel * 255 / maxLevel;
-			int green = currentLevel * 255 / maxLevel;
+            int red = (int)(255 - currentLevel * 255 / maxLevel);
+			int green = (int)(currentLevel * 255 / maxLevel);
 			int blue = 0;
 			Color color = Color.FromArgb(red, green, blue);
 

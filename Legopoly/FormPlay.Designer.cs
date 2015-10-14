@@ -30,6 +30,7 @@
         {
 			this.labelName = new System.Windows.Forms.Label();
 			this.groupBoxHeritage = new System.Windows.Forms.GroupBox();
+			this.userControlItems1 = new Legopoly.UserControlItems();
 			this.buttonSoldItem = new System.Windows.Forms.Button();
 			this.pictureBoxCapital = new System.Windows.Forms.PictureBox();
 			this.buttonBuyItem = new System.Windows.Forms.Button();
@@ -55,11 +56,11 @@
 			this.labelGrade = new System.Windows.Forms.Label();
 			this.buttonChangeJob = new System.Windows.Forms.Button();
 			this.pictureBoxJob = new System.Windows.Forms.PictureBox();
+			this.buttonSchool = new System.Windows.Forms.Button();
 			this.buttonMission = new System.Windows.Forms.Button();
 			this.buttonMove = new System.Windows.Forms.Button();
 			this.buttonNextPlayer = new System.Windows.Forms.Button();
 			this.buttonStopGame = new System.Windows.Forms.Button();
-			this.userControlItems1 = new Legopoly.UserControlItems();
 			this.groupBoxHeritage.SuspendLayout();
 			((System.ComponentModel.ISupportInitialize)(this.pictureBoxCapital)).BeginInit();
 			this.groupBoxIdentification.SuspendLayout();
@@ -91,6 +92,14 @@
 			this.groupBoxHeritage.TabIndex = 2;
 			this.groupBoxHeritage.TabStop = false;
 			this.groupBoxHeritage.Text = "Patrimoine";
+			// 
+			// userControlItems1
+			// 
+			this.userControlItems1.Items = new Legopoly.Data.Items.ItemBase[0];
+			this.userControlItems1.Location = new System.Drawing.Point(7, 19);
+			this.userControlItems1.Name = "userControlItems1";
+			this.userControlItems1.Size = new System.Drawing.Size(637, 329);
+			this.userControlItems1.TabIndex = 8;
 			// 
 			// buttonSoldItem
 			// 
@@ -347,6 +356,19 @@
 			this.pictureBoxJob.TabIndex = 25;
 			this.pictureBoxJob.TabStop = false;
 			// 
+			// buttonSchool
+			// 
+			this.buttonSchool.Image = global::Legopoly.Properties.Resources.school;
+			this.buttonSchool.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+			this.buttonSchool.Location = new System.Drawing.Point(332, 647);
+			this.buttonSchool.Name = "buttonSchool";
+			this.buttonSchool.Size = new System.Drawing.Size(154, 70);
+			this.buttonSchool.TabIndex = 8;
+			this.buttonSchool.Text = "Université     ";
+			this.buttonSchool.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+			this.buttonSchool.UseVisualStyleBackColor = true;
+			this.buttonSchool.Click += new System.EventHandler(this.buttonSchool_Click);
+			// 
 			// buttonMission
 			// 
 			this.buttonMission.Image = global::Legopoly.Properties.Resources.target3;
@@ -401,19 +423,12 @@
 			this.buttonStopGame.UseVisualStyleBackColor = true;
 			this.buttonStopGame.Click += new System.EventHandler(this.buttonStopGame_Click);
 			// 
-			// userControlItems1
-			// 
-			this.userControlItems1.Items = new Legopoly.Data.Items.ItemBase[0];
-			this.userControlItems1.Location = new System.Drawing.Point(7, 19);
-			this.userControlItems1.Name = "userControlItems1";
-			this.userControlItems1.Size = new System.Drawing.Size(637, 329);
-			this.userControlItems1.TabIndex = 8;
-			// 
 			// FormPlay
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
 			this.ClientSize = new System.Drawing.Size(1008, 729);
+			this.Controls.Add(this.buttonSchool);
 			this.Controls.Add(this.buttonMission);
 			this.Controls.Add(this.buttonMove);
 			this.Controls.Add(this.buttonNextPlayer);
@@ -474,5 +489,6 @@
 		private System.Windows.Forms.TextBox textBoxSalary;
 		private System.Windows.Forms.Button buttonMission;
 		private UserControlItems userControlItems1;
+		private System.Windows.Forms.Button buttonSchool;
 	}
 }

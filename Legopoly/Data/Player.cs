@@ -15,13 +15,19 @@ namespace Legopoly.Data
 	[DataContract]
 	public class Player
     {
+		#region Data Members
 		private Game game;
 		private PlayerStateData stateData;
+		private bool working = false;
+		private int workingRoundLeft = 0;
+		#endregion
 
+		#region Constructors
 		public Player()
 		{
 			this.stateData = new PlayerStateData();
         }
+		#endregion
 
 		#region Public Properties
 		/// <summary>
@@ -65,10 +71,36 @@ namespace Legopoly.Data
 		/// Gets or sets a boolean value that indicates whether this player is currently working.
 		/// </summary>
 		[DataMember]
-		public bool Working { get; set; } = false;
-        #endregion
+		public bool Working
+		{
+			get
+			{
+				return this.working;
+			}
+			set
+			{
+				this.working = value;
+				if (this.working)
+					// The user cannot stay working for more than 'MaxWorkingRound' rounds
+					this.workingRoundLeft = this.game.JobData.MaxWorkingRound;
+            }
+		}
 
-        public bool Play(Form parentForm, Game game)
+		[DataMember]
+		public int WorkingRoundLeft
+		{
+			get
+			{
+				return this.workingRoundLeft;
+            }
+			set
+			{
+				this.workingRoundLeft = value;
+            }
+		}
+		#endregion
+
+		public bool Play(Form parentForm, Game game)
         {
 			this.game = game;
             using (FormPlay play = new FormPlay(this, game))
@@ -84,12 +116,20 @@ namespace Legopoly.Data
 			if (this.Working && this.Job != null)
 			{
 				this.Capital += this.Job.SalaryPerRound;
-				this.Experiences.Creativity += this.game.GetRandomNumber(0, this.Job.MaxExperiencesGainPerRound.Creativity);
-				this.Experiences.Empathy += this.game.GetRandomNumber(0, this.Job.MaxExperiencesGainPerRound.Empathy);
-				this.Experiences.ManagerialSkills += this.game.GetRandomNumber(0, this.Job.MaxExperiencesGainPerRound.ManagerialSkills);
-				this.Experiences.PhysicalFitness += this.game.GetRandomNumber(0, this.Job.MaxExperiencesGainPerRound.PhysicalFitness);
-				this.Experiences.Scientific += this.game.GetRandomNumber(0, this.Job.MaxExperiencesGainPerRound.Scientific);
-			}
+				int gainCreativity = this.game.GetRandomNumber(0, this.Job.MaxExperiencesGainPerRound.Creativity + 1);
+				int gainEmpathy = this.game.GetRandomNumber(0, this.Job.MaxExperiencesGainPerRound.Empathy + 1);
+				int gainManager = this.game.GetRandomNumber(0, this.Job.MaxExperiencesGainPerRound.ManagerialSkills + 1);
+				int gainPhysical = this.game.GetRandomNumber(0, this.Job.MaxExperiencesGainPerRound.PhysicalFitness + 1);
+				int gainScientific = this.game.GetRandomNumber(0, this.Job.MaxExperiencesGainPerRound.Scientific + 1);
+
+				this.Experiences.Creativity += gainCreativity;
+				this.Experiences.Empathy += gainEmpathy;
+				this.Experiences.ManagerialSkills += gainManager;
+				this.Experiences.PhysicalFitness += gainPhysical;
+				this.Experiences.Scientific += gainScientific;
+
+				this.workingRoundLeft--;
+            }
 
 			foreach (ItemBase item in this.Items)
 			{

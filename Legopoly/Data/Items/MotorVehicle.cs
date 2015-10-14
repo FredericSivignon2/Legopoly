@@ -7,13 +7,17 @@ using System.Threading.Tasks;
 
 namespace Legopoly.Data.Items
 {
+	[KnownType(typeof(Car))]
+	[KnownType(typeof(Truck))]
+	[KnownType(typeof(Motorbike))]
+	[KnownType(typeof(ATC))]
 	[DataContract]
 	public class MotorVehicle : Vehicle
 	{
-		private int tankCapacity;
+		private double tankCapacity;
 
 		[DataMember]
-		public int TankCapacity
+		public double TankCapacity
 		{
 			get
 			{
@@ -30,10 +34,10 @@ namespace Legopoly.Data.Items
 		}
 
 		[DataMember]
-		public int FuelLevel { get; set; } = -1;
+		public double FuelLevel { get; set; } = -1;
 
 		[DataMember]
-		public int ConsumptionPerMove { get; set; }
+		public double ConsumptionPerMove { get; set; } = 0.0;
 
 		/// <summary>
 		/// Gets the number of move the vehicle is able to perform with the current fuel level
@@ -42,7 +46,7 @@ namespace Legopoly.Data.Items
 		{
 			get
 			{
-				return FuelLevel / ConsumptionPerMove;
+				return (int)(FuelLevel / ConsumptionPerMove);
             }
 		}
 

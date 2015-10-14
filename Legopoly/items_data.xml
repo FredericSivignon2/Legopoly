@@ -1,32 +1,45 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <ArrayOfItemBase xmlns:i="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://schemas.datacontract.org/2004/07/Legopoly.Data.Items">
 	<ItemBase xmlns:d2p1="uri:Legopoly.Data.Items,Legopoly" i:type="d2p1:Home">
-		<CostLostPerRound>0</CostLostPerRound>
-		<CostPerRound>5</CostPerRound>
-		<GainPerRound>0</GainPerRound>
-		<InitialCost>60000</InitialCost>
+		<CostLostPerRound>0.0</CostLostPerRound>
+		<CostPerRound>1.0</CostPerRound>
+		<GainPerRound>0.0</GainPerRound>
+		<InitialCost>60000.0</InitialCost>
 		<Name>Maison Toit bleu</Name>
     <PicturePath>blue_house.jpg</PicturePath>
 	</ItemBase>
 	<ItemBase xmlns:d2p1="uri:Legopoly.Data.Items,Legopoly" i:type="d2p1:Home">
-		<CostLostPerRound>0</CostLostPerRound>
-		<CostPerRound>6</CostPerRound>
-		<GainPerRound>0</GainPerRound>
-		<InitialCost>72000</InitialCost>
+		<CostLostPerRound>0.0</CostLostPerRound>
+		<CostPerRound>1.2</CostPerRound>
+		<GainPerRound>0.0</GainPerRound>
+		<InitialCost>72000.0</InitialCost>
 		<Name>Maison Toit rouge</Name>
     <PicturePath>red_house.jpg</PicturePath>
 	</ItemBase>
 	<ItemBase xmlns:d2p1="uri:Legopoly.Data.Items,Legopoly" i:type="d2p1:Car">
 		<CostLostPerRound>2</CostLostPerRound>
-		<CostPerRound>1</CostPerRound>
-		<GainPerRound>0</GainPerRound>
-		<InitialCost>12000</InitialCost>
+		<CostPerRound>0.05</CostPerRound>
+		<GainPerRound>0.0</GainPerRound>
+		<InitialCost>12000.0</InitialCost>
 		<Name>Fourgon J20</Name>
     <PicturePath>van_J20.jpg</PicturePath>
-    <CostPerMove>1</CostPerMove>
+    <CostPerMove>0.04</CostPerMove>
 		<MaxMovePerRound>8</MaxMovePerRound>
 		<MinMovePerRound>4</MinMovePerRound>
-		<ConsumptionPerMove>2</ConsumptionPerMove>
-		<TankCapacity>500</TankCapacity>
+		<ConsumptionPerMove>0.7</ConsumptionPerMove>
+		<TankCapacity>80.0</TankCapacity>
 	</ItemBase>
+  <ItemBase xmlns:d2p1="uri:Legopoly.Data.Items,Legopoly" i:type="d2p1:ATC">
+    <CostLostPerRound>0.02</CostLostPerRound>
+    <CostPerRound>0.001</CostPerRound>
+    <GainPerRound>0.0</GainPerRound>
+    <InitialCost>3400.0</InitialCost>
+    <Name>ATC 350S</Name>
+    <PicturePath>atc_350S_white.jpg</PicturePath>
+    <CostPerMove>0.001</CostPerMove>
+    <MaxMovePerRound>5</MaxMovePerRound>
+    <MinMovePerRound>2</MinMovePerRound>
+    <ConsumptionPerMove>0.12</ConsumptionPerMove>
+    <TankCapacity>9.0</TankCapacity>
+  </ItemBase>
 </ArrayOfItemBase>

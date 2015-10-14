@@ -14,6 +14,7 @@ namespace Legopoly.Data.Items
     [KnownType(typeof(Bicycle))]
     [KnownType(typeof(Car))]
     [KnownType(typeof(Truck))]
+	[KnownType(typeof(ATC))]
     [DataContract]
     public class ItemBase
     {
@@ -28,25 +29,25 @@ namespace Legopoly.Data.Items
         /// The initial cost of the item when a Player want to buy it.
         /// </summary>
         [DataMember]
-        public int InitialCost { get; set; } = 0;
+        public double InitialCost { get; set; } = 0.0;
 
         /// <summary>
         /// The amount of money that decriese 
         /// </summary>
         [DataMember]
-        public int CostLostPerRound { get; set; } = 0;
+        public double CostLostPerRound { get; set; } = 0.0;
 
         /// <summary>
         /// Gets or sets the amount of money needed to keep this item, per round.
         /// </summary>
         [DataMember]
-        public int CostPerRound { get; set; } = 0;
+        public double CostPerRound { get; set; } = 0.0;
 
         /// <summary>
         /// Gets or sets the amount of money win per round.
         /// </summary>
         [DataMember]
-        public int GainPerRound { get; set; } = 0;
+        public double GainPerRound { get; set; } = 0.0;
 
 		[DataMember]
 		public string PicturePath { get; set; }
@@ -66,6 +67,8 @@ namespace Legopoly.Data.Items
                 return "Camion";
 			if (this is Motorbike)
 				return "Moto";
+			if (this is ATC)
+				return "ATC";
 
             return "Inconnu";
         }

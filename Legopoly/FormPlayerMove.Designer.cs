@@ -115,9 +115,9 @@
 			this.labelRefuel.AutoSize = true;
 			this.labelRefuel.Location = new System.Drawing.Point(121, 153);
 			this.labelRefuel.Name = "labelRefuel";
-			this.labelRefuel.Size = new System.Drawing.Size(35, 13);
+			this.labelRefuel.Size = new System.Drawing.Size(51, 13);
 			this.labelRefuel.TabIndex = 6;
-			this.labelRefuel.Text = "label1";
+			this.labelRefuel.Text = "-- refuel --";
 			// 
 			// labelTank
 			// 

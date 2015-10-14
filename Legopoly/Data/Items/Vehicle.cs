@@ -10,7 +10,9 @@ namespace Legopoly.Data.Items
     [KnownType(typeof(Bicycle))]
     [KnownType(typeof(Car))]
     [KnownType(typeof(Truck))]
-    [DataContract]
+	[KnownType(typeof(Motorbike))]
+	[KnownType(typeof(ATC))]
+	[DataContract]
     public class Vehicle : ItemBase
     {
         /// <summary>
@@ -29,6 +31,6 @@ namespace Legopoly.Data.Items
         /// Gets or sets the cost when the Player move the item of one space.
         /// </summary>
         [DataMember]
-        public int CostPerMove { get; set; } = 0;
+        public double CostPerMove { get; set; } = 0.0;
     }
 }

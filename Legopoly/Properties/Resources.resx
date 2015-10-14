@@ -274,8 +274,14 @@
   <data name="robber" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\robber.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="school" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\school.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="schoolboy" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\schoolboy.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="school_32" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\school_32.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="scientist" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\scientist.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>

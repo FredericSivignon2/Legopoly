@@ -68,8 +68,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Data\GameJobData.cs" />
     <Compile Include="Data\GameVehicleData.cs" />
     <Compile Include="Data\GlobalData.cs" />
+    <Compile Include="Data\Items\ATC.cs" />
     <Compile Include="Data\Items\Motorbike.cs" />
     <Compile Include="Data\Items\MotorVehicle.cs" />
     <Compile Include="Data\Jobs\Fireman.cs" />
@@ -85,6 +87,7 @@
     <Compile Include="Data\Player.cs" />
     <Compile Include="Data\Jobs\Policeman.cs" />
     <Compile Include="Data\PlayerStateData.cs" />
+    <Compile Include="Data\Schools\Course.cs" />
     <Compile Include="FormChooseItem.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -148,6 +151,18 @@
     <Compile Include="FormPlayerMove.Designer.cs">
       <DependentUpon>FormPlayerMove.cs</DependentUpon>
     </Compile>
+    <Compile Include="FormRoundSummary.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormRoundSummary.Designer.cs">
+      <DependentUpon>FormRoundSummary.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormSchool.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormSchool.Designer.cs">
+      <DependentUpon>FormSchool.cs</DependentUpon>
+    </Compile>
     <Compile Include="ListViewJobColumnSorter.cs" />
     <Compile Include="LPMessageBox.cs" />
     <Compile Include="Parameters\ParametersMain.cs" />
@@ -162,6 +177,15 @@
       <DependentUpon>UserControlItems.cs</DependentUpon>
     </Compile>
     <Compile Include="Utils\IniFileReader.cs" />
+    <Content Include="school_data.xml" />
+    <None Include="Resources\school_32.png" />
+    <None Include="Resources\school.png" />
+    <EmbeddedResource Include="FormRoundSummary.resx">
+      <DependentUpon>FormRoundSummary.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormSchool.resx">
+      <DependentUpon>FormSchool.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="UserControlItems.resx">
       <DependentUpon>UserControlItems.cs</DependentUpon>
     </EmbeddedResource>
@@ -453,6 +477,7 @@
 xcopy /R /Y "$(ProjectDir)job_default.ini"  "$(TargetDir)"
 xcopy /R /Y "$(ProjectDir)missions_data.xml"  "$(TargetDir)"
 xcopy /R /Y "$(ProjectDir)items_data.xml"  "$(TargetDir)"
+xcopy /R /Y "$(ProjectDir)school_data.xml"  "$(TargetDir)"
 
 
 mkdir "$(TargetDir)Pictures"

@@ -1,0 +1,14 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ArrayOfCourse xmlns:i="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://schemas.datacontract.org/2004/07/Legopoly.Data.Schools">
+	<Course>
+		<Cost>45</Cost>
+		<Experiences xmlns:d3p1="http://schemas.datacontract.org/2004/07/Legopoly.Data">
+			<d3p1:Creativity>0</d3p1:Creativity>
+			<d3p1:Empathy>0</d3p1:Empathy>
+			<d3p1:ManagerialSkills>0</d3p1:ManagerialSkills>
+			<d3p1:PhysicalFitness>1</d3p1:PhysicalFitness>
+			<d3p1:Scientific>0</d3p1:Scientific>
+		</Experiences>
+		<Name>Cours de sport.</Name>
+	</Course>
+</ArrayOfCourse>
