@@ -123,7 +123,7 @@ namespace Legopoly.Data
 
 		public void Save()
 		{
-			if (LPMessageBox.ShowQuestion("Voulez vous sauver le jeu ?") != DialogResult.Yes)
+			if (LPMessageBox.ShowQuestion("Veux-tu sauver le jeu ?") != DialogResult.Yes)
 				return;
 
 			string filePath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, gameBackup);

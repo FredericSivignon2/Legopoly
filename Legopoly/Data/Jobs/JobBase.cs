@@ -21,7 +21,7 @@ namespace Legopoly.Data.Jobs
     {
         #region Data Members
         private const string defaultValuesFilePath = "job_default.ini";
-		private const string missionValuesFilePath = "missions.xml";
+		private const string missionValuesFilePath = "missions_data.xml";
 
 		private Grade[] grades;
 		private List<Mission> missions = new List<Mission>();
@@ -274,10 +274,10 @@ namespace Legopoly.Data.Jobs
 			if (xmissionRoot == null)
 				return;
 
-			IEnumerable<XElement> xmissions = xmissionRoot.XPathSelectElements("Mission");
+			IEnumerable<XElement> xmissions = xmissionRoot.Elements(); // XPathSelectElements("Mission");
 			if (xmissions == null || xmissions.Count<XElement>() == 0)
 				return;
-
+			
 			foreach (XElement xmission in xmissions)
 			{
 				Mission mission = new Mission();

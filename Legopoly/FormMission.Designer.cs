@@ -129,6 +129,7 @@
 			this.buttonSuccess.TabIndex = 12;
 			this.buttonSuccess.Text = "Mission Réussie";
 			this.buttonSuccess.UseVisualStyleBackColor = true;
+			this.buttonSuccess.Click += new System.EventHandler(this.buttonSuccess_Click);
 			// 
 			// FormMission
 			// 

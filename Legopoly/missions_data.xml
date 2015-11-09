@@ -2,30 +2,57 @@
 <JobsWithMissions>
 	<Pompier>
 		<Missions>
-			<Mission>
+      <Mission>
 				<Description>Une personne s'est blessée devant la gare. Va la chercher et emmène la à l'hopital.</Description>
 				<MinRounds>8</MinRounds>
 				<MaxRounds>12</MaxRounds>
 				<Gain>20</Gain>
 			</Mission>
-		</Missions>
-		<Missions>
-			<Mission>
+		  <Mission>
 				<Description>Une personne s'est blessée devant le parc de la gare. Va la chercher et emmène la à l'hopital.</Description>
 				<MinRounds>8</MinRounds>
 				<MaxRounds>12</MaxRounds>
 				<Gain>20</Gain>
 			</Mission>
-		</Missions>
-		<Missions>
-			<Mission>
+		
+      <Mission>
 				<Description>Une personne a fait un malaise devant la gare. Va la secourir.</Description>
 				<MinRounds>8</MinRounds>
 				<MaxRounds>12</MaxRounds>
 				<Gain>10</Gain>
 			</Mission>
+
+      <Mission>
+        <Description>Incendie au premier étage du grand magasin. Va vite l'éteindre !</Description>
+        <MinRounds>8</MinRounds>
+        <MaxRounds>11</MaxRounds>
+        <Gain>150</Gain>
+      </Mission>
+
+      <Mission>
+        <Description>Incendie à l'usine. Va vite l'éteindre !</Description>
+        <MinRounds>8</MinRounds>
+        <MaxRounds>11</MaxRounds>
+        <Gain>150</Gain>
+      </Mission>
+
+      <Mission>
+        <Description>Incendie à la prison. Va vite l'éteindre !</Description>
+        <MinRounds>8</MinRounds>
+        <MaxRounds>12</MaxRounds>
+        <Gain>150</Gain>
+      </Mission>
+
+      <Mission>
+        <Description>Incendie à la Mairie. Va vite l'éteindre !</Description>
+        <MinRounds>8</MinRounds>
+        <MaxRounds>11</MaxRounds>
+        <Gain>300</Gain>
+      </Mission>
+      
 		</Missions>
 	</Pompier>
+  
 	<Policier>
 		<Missions>
 			<Mission>
@@ -34,9 +61,8 @@
 				<MaxRounds>12</MaxRounds>
 				<Gain>30</Gain>
 			</Mission>
-		</Missions>
-		<Missions>
-			<Mission>
+		
+      <Mission>
 				<Description>Un vol s'est déroulé au 5 rue du Vélux. Va relever les empruntes.</Description>
 				<MinRounds>8</MinRounds>
 				<MaxRounds>10</MaxRounds>

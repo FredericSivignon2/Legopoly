@@ -70,7 +70,7 @@ namespace Legopoly
             }
 			else
 			{
-				this.labelTankLevelComment.Text = string.Format("Vous pouvez encore parcourir {0,4:N0} case(s) avec l'essence restante.",
+				this.labelTankLevelComment.Text = string.Format("Tu peux encore parcourir {0,4:N0} case(s) avec l'essence restante.",
                     motorVehicle.FuelLevel / motorVehicle.ConsumptionPerMove);
             }
 			this.panelTankLevel.Invalidate();
@@ -85,7 +85,7 @@ namespace Legopoly
             }
 			else
 			{ 
-				this.labelRefuel.Text = string.Format("Faire le plein d'essence vous coûtera {0,5:F}€", motorVehicle.GetRefuelValue());
+				this.labelRefuel.Text = string.Format("Faire le plein d'essence te coûtera {0,5:F}€", motorVehicle.GetRefuelValue());
 			}
 		}
 
@@ -158,7 +158,7 @@ namespace Legopoly
 				MotorVehicle motorVehicle = vehicle as MotorVehicle;
 				if (motorVehicle != null && motorVehicle.NumberOfMoveLeft < 40)
                 {
-					LPMessageBox.ShowWarning("Attention ! Vous n'avez plus beaucoup d'essence dans votre véhicule.\r\nIl ne vous reste moins de 40 cases d'autonomie.\r\nAllez prochainement à la station service !");
+					LPMessageBox.ShowWarning("Attention ! Tu n'as plus beaucoup d'essence dans votre véhicule.\r\nIl te reste moins de 40 cases d'autonomie.\r\nVa prochainement à la station service !");
 				}
 
 				for (int i = 0; i < number; i++)
@@ -167,9 +167,9 @@ namespace Legopoly
 					if (player.Capital - vehicle.CostPerMove < 0)
 					{
 						if (i == 0)
-							LPMessageBox.ShowExclamation("Impossible de vous déplacer !\r\n Vous n'avez plus d'argent pour payer les frais de déplacement.");
+							LPMessageBox.ShowExclamation("Impossible de te déplacer !\r\n Tu n'aa plus d'argent pour payer les frais de déplacement.");
 						else
-							LPMessageBox.ShowExclamation("Votre déplacement a été limité !\r\nVous n'avez plus assez d'argent pour vous déplacer plus.");
+							LPMessageBox.ShowExclamation("Ton déplacement a été limité !\r\nTu n'as plus assez d'argent pour te déplacer plus.");
 						number = i;
 						break;
 					}
@@ -185,9 +185,9 @@ namespace Legopoly
 						if (motorVehicle.FuelLevel - motorVehicle.ConsumptionPerMove < 0)
 						{
 							if (i == 0)
-								LPMessageBox.ShowExclamation("Impossible de vous déplacer !\r\n Vous n'avez plus d'essence dans votre véhicule.");
+								LPMessageBox.ShowExclamation("Impossible de te déplacer !\r\n Tu n'as plus d'essence dans ton véhicule.");
 							else
-								LPMessageBox.ShowExclamation("Votre déplacement a été limité !\r\nVous n'avez plus assez d'essence dans votre véhicule.");
+								LPMessageBox.ShowExclamation("Ton déplacement a été limité !\r\nTu n'as plus assez d'essence dans ton véhicule.");
 							number = i;
 							break;
 						}
@@ -228,7 +228,7 @@ namespace Legopoly
 				double cost = motorVehicle.GetRefuelValue();
 				if (this.player.Capital - cost < 0)
 				{
-					LPMessageBox.ShowExclamation("Vous n'avez plus assez d'argent pour refaire le plein de se véhicule !");
+					LPMessageBox.ShowExclamation("Tu n'as plus assez d'argent pour refaire le plein de ce véhicule !");
 					return;
 				}
 

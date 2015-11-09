@@ -29,6 +29,7 @@ Cours d'arts (50€) + 1 point d'expérience (créativité)
 
 		List<Course> courses = null;
         private Player player;
+		private Course selectedCourse;
 		#endregion
 
 		public FormSchool(Player player)
@@ -37,23 +38,6 @@ Cours d'arts (50€) + 1 point d'expérience (créativité)
 
 			InitializeComponent();
 			InitializeContent();
-
-			List<Course> courses = new List<Course>();
-			Course course = new Course()
-			{
-				Name = "Cours de sport.",
-				Cost = 45.0,
-				Experiences = new LPExperiences()
-				{
-					Creativity = 0,
-					Empathy = 0,
-					ManagerialSkills = 0,
-					PhysicalFitness = 1,
-					Scientific = 0
-				}
-			};
-			courses.Add(course);
-           
 		}
 
 		private void InitializeContent()
@@ -73,30 +57,36 @@ Cours d'arts (50€) + 1 point d'expérience (créativité)
 
 			foreach (Course course in this.courses)
 			{
-				this.comboBox1.Items.Add(course);
+				this.comboBoxCourses.Items.Add(course);
 			}
 
-			this.comboBox1.SelectedIndex = 0;
+			this.comboBoxCourses.SelectedIndex = 0;
 		}
 
 		private void buttonOK_Click(object sender, EventArgs e)
 		{
-			switch (this.comboBox1.SelectedIndex)
-			{
-				case 0:
-					//this.player.Experiences.
-					break;
-				case 1:
-					break;
-				case 2:
-					break;
-				case 3:
-					break;
-				case 4:
-					break;
-				default:
-					break;
-			}
+			this.player.Capital -= this.selectedCourse.Cost;
+			this.player.Experiences.Creativity += this.selectedCourse.Experiences.Creativity;
+			this.player.Experiences.Empathy += this.selectedCourse.Experiences.Empathy;
+			this.player.Experiences.ManagerialSkills += this.selectedCourse.Experiences.ManagerialSkills;
+			this.player.Experiences.PhysicalFitness += this.selectedCourse.Experiences.PhysicalFitness;
+			this.player.Experiences.Scientific += this.selectedCourse.Experiences.Scientific;
+		}
+
+		private void comboBoxCourses_SelectedIndexChanged(object sender, EventArgs e)
+		{
+			this.selectedCourse = this.comboBoxCourses.SelectedItem as Course;
+			if (this.selectedCourse == null)
+				return;
+
+			this.textBoxPrice.Text = string.Format("{0,4:N0}", this.selectedCourse.Cost);
+			this.textBoxCreativity.Text = this.selectedCourse.Experiences.Creativity.ToString();
+			this.textBoxEmpathy.Text = this.selectedCourse.Experiences.Empathy.ToString();
+			this.textBoxFitness.Text = this.selectedCourse.Experiences.PhysicalFitness.ToString();
+			this.textBoxManagement.Text = this.selectedCourse.Experiences.ManagerialSkills.ToString();
+			this.textBoxScientific.Text = this.selectedCourse.Experiences.Scientific.ToString();
+
+
 		}
 	}
 }

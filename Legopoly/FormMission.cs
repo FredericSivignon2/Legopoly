@@ -18,7 +18,7 @@ namespace Legopoly
 		private Player player;
 		private Game game;
 		private int roundLeft;
-		private int gain;
+		private double gain;
 
 		public FormMission(Mission mission, Player player, Game game)
 		{
@@ -31,7 +31,7 @@ namespace Legopoly
 			InitializeFormContent();
 		}
 
-		public int Gain
+		public double Gain
 		{
 			get
 			{
@@ -91,6 +91,11 @@ namespace Legopoly
 					this.DialogResult = DialogResult.None;
 				}
 			}
+		}
+
+		private void buttonSuccess_Click(object sender, EventArgs e)
+		{
+
 		}
 	}
 }

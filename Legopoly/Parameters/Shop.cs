@@ -21,8 +21,15 @@ namespace Legopoly.Parameters
         /// </summary>
         public Shop()
         {
-			ItemBase[] items = XmlSerializationHelper.HelperUTF8.FromFile<ItemBase[]>(DataFilePath);
-			Items.AddRange(items);
+			try
+			{
+				ItemBase[] items = XmlSerializationHelper.HelperUTF8.FromFile<ItemBase[]>(DataFilePath);
+				Items.AddRange(items);
+			}
+			catch (Exception exp)
+			{
+				LPMessageBox.ShowError("Impossible de charger le magasin en mémoire.\r\nVérifiez la validité du fichier: " + DataFilePath);
+			}
 
 			//string str = XmlSerializationHelper.HelperUTF8.ToString<ItemBase[]>(this.Items.ToArray<ItemBase>());
 			

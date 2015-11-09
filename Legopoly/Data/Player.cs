@@ -14,19 +14,21 @@ namespace Legopoly.Data
 	[DebuggerDisplay("{Name}, {Capital}€")]
 	[DataContract]
 	public class Player
-    {
+	{
 		#region Data Members
 		private Game game;
 		private PlayerStateData stateData;
 		private bool working = false;
 		private int workingRoundLeft = 0;
+		private double capital = 10000.0;
+		private JobBase job;
 		#endregion
 
 		#region Constructors
 		public Player()
 		{
 			this.stateData = new PlayerStateData();
-        }
+		}
 		#endregion
 
 		#region Public Properties
@@ -39,7 +41,21 @@ namespace Legopoly.Data
 		/// Gets or sets the player capital (in € for example)
 		/// </summary>
 		[DataMember]
-		public double Capital { get; set; } = 10000.0;
+		public double Capital
+		{
+			get
+			{
+				return this.capital;
+			}
+
+			set
+			{
+				if (value < 0.0)
+					throw new NoMoneyException("Tu n'as pas assez d'argent !");
+
+				this.capital = value;
+			}
+		}
 		/// <summary>
 		/// Gets or sets the player experiences information.
 		/// </summary>
@@ -47,12 +63,25 @@ namespace Legopoly.Data
 		public LPExperiences Experiences { get; set; } = new LPExperiences();
 
 		[DataMember]
-		public List<ItemBase> Items { get; private set; } = new List<ItemBase>();
+		public List<ItemBase> Items
+		{
+			get; private set;
+		} = new List<ItemBase>();
 		/// <summary>
 		/// Gets or sets the player Job
 		/// </summary>
 		[DataMember]
-		public JobBase Job { get; set; } = null;
+		public JobBase Job
+		{
+			get
+			{
+				return this.job;
+			}
+			set
+			{
+				this.job = value;
+			}
+		}
 
 		[DataMember]
 		public PlayerStateData StateData
@@ -83,7 +112,7 @@ namespace Legopoly.Data
 				if (this.working)
 					// The user cannot stay working for more than 'MaxWorkingRound' rounds
 					this.workingRoundLeft = this.game.JobData.MaxWorkingRound;
-            }
+			}
 		}
 
 		[DataMember]
@@ -92,24 +121,24 @@ namespace Legopoly.Data
 			get
 			{
 				return this.workingRoundLeft;
-            }
+			}
 			set
 			{
 				this.workingRoundLeft = value;
-            }
+			}
 		}
 		#endregion
 
 		public bool Play(Form parentForm, Game game)
-        {
+		{
 			this.game = game;
-            using (FormPlay play = new FormPlay(this, game))
-            {
-                if (play.ShowDialog(parentForm) != DialogResult.OK)
-                    return false;
-            }
-            return true;
-        }
+			using (FormPlay play = new FormPlay(this, game))
+			{
+				if (play.ShowDialog(parentForm) != DialogResult.OK)
+					return false;
+			}
+			return true;
+		}
 
 		public void ProcessEndOfRound()
 		{
@@ -129,7 +158,7 @@ namespace Legopoly.Data
 				this.Experiences.Scientific += gainScientific;
 
 				this.workingRoundLeft--;
-            }
+			}
 
 			foreach (ItemBase item in this.Items)
 			{
@@ -137,5 +166,5 @@ namespace Legopoly.Data
 
 			}
 		}
-    }
+	}
 }

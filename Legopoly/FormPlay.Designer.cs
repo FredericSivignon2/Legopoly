@@ -32,7 +32,6 @@
 			this.groupBoxHeritage = new System.Windows.Forms.GroupBox();
 			this.userControlItems1 = new Legopoly.UserControlItems();
 			this.buttonSoldItem = new System.Windows.Forms.Button();
-			this.pictureBoxCapital = new System.Windows.Forms.PictureBox();
 			this.buttonBuyItem = new System.Windows.Forms.Button();
 			this.labelCapital = new System.Windows.Forms.Label();
 			this.groupBoxIdentification = new System.Windows.Forms.GroupBox();
@@ -54,19 +53,21 @@
 			this.radioButtonWorking = new System.Windows.Forms.RadioButton();
 			this.radioButtonOffWork = new System.Windows.Forms.RadioButton();
 			this.labelGrade = new System.Windows.Forms.Label();
-			this.buttonChangeJob = new System.Windows.Forms.Button();
-			this.pictureBoxJob = new System.Windows.Forms.PictureBox();
+			this.buttonGame = new System.Windows.Forms.Button();
 			this.buttonSchool = new System.Windows.Forms.Button();
 			this.buttonMission = new System.Windows.Forms.Button();
 			this.buttonMove = new System.Windows.Forms.Button();
 			this.buttonNextPlayer = new System.Windows.Forms.Button();
 			this.buttonStopGame = new System.Windows.Forms.Button();
+			this.buttonChangeJob = new System.Windows.Forms.Button();
+			this.pictureBoxJob = new System.Windows.Forms.PictureBox();
+			this.pictureBoxCapital = new System.Windows.Forms.PictureBox();
 			this.groupBoxHeritage.SuspendLayout();
-			((System.ComponentModel.ISupportInitialize)(this.pictureBoxCapital)).BeginInit();
 			this.groupBoxIdentification.SuspendLayout();
 			this.groupBox1.SuspendLayout();
 			this.groupBoxActivity.SuspendLayout();
 			((System.ComponentModel.ISupportInitialize)(this.pictureBoxJob)).BeginInit();
+			((System.ComponentModel.ISupportInitialize)(this.pictureBoxCapital)).BeginInit();
 			this.SuspendLayout();
 			// 
 			// labelName
@@ -109,15 +110,6 @@
 			this.buttonSoldItem.TabIndex = 3;
 			this.buttonSoldItem.Text = "Vendre";
 			this.buttonSoldItem.UseVisualStyleBackColor = true;
-			// 
-			// pictureBoxCapital
-			// 
-			this.pictureBoxCapital.Image = global::Legopoly.Properties.Resources.money;
-			this.pictureBoxCapital.Location = new System.Drawing.Point(660, 19);
-			this.pictureBoxCapital.Name = "pictureBoxCapital";
-			this.pictureBoxCapital.Size = new System.Drawing.Size(64, 64);
-			this.pictureBoxCapital.TabIndex = 7;
-			this.pictureBoxCapital.TabStop = false;
 			// 
 			// buttonBuyItem
 			// 
@@ -334,6 +326,86 @@
 			this.labelGrade.TabIndex = 27;
 			this.labelGrade.Text = "-- grade --";
 			// 
+			// buttonGame
+			// 
+			this.buttonGame.Image = global::Legopoly.Properties.Resources.gambling_chips2_64;
+			this.buttonGame.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+			this.buttonGame.Location = new System.Drawing.Point(390, 647);
+			this.buttonGame.Name = "buttonGame";
+			this.buttonGame.Size = new System.Drawing.Size(120, 70);
+			this.buttonGame.TabIndex = 9;
+			this.buttonGame.Text = "Jeux ";
+			this.buttonGame.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+			this.buttonGame.UseVisualStyleBackColor = true;
+			this.buttonGame.Click += new System.EventHandler(this.buttonGame_Click);
+			// 
+			// buttonSchool
+			// 
+			this.buttonSchool.Image = global::Legopoly.Properties.Resources.school;
+			this.buttonSchool.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+			this.buttonSchool.Location = new System.Drawing.Point(264, 647);
+			this.buttonSchool.Name = "buttonSchool";
+			this.buttonSchool.Size = new System.Drawing.Size(120, 70);
+			this.buttonSchool.TabIndex = 8;
+			this.buttonSchool.Text = "Université";
+			this.buttonSchool.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+			this.buttonSchool.UseVisualStyleBackColor = true;
+			this.buttonSchool.Click += new System.EventHandler(this.buttonSchool_Click);
+			// 
+			// buttonMission
+			// 
+			this.buttonMission.Image = global::Legopoly.Properties.Resources.target3;
+			this.buttonMission.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+			this.buttonMission.Location = new System.Drawing.Point(138, 647);
+			this.buttonMission.Name = "buttonMission";
+			this.buttonMission.Size = new System.Drawing.Size(120, 70);
+			this.buttonMission.TabIndex = 7;
+			this.buttonMission.Text = "Mission   ";
+			this.buttonMission.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+			this.buttonMission.UseVisualStyleBackColor = true;
+			this.buttonMission.Click += new System.EventHandler(this.buttonMission_Click);
+			// 
+			// buttonMove
+			// 
+			this.buttonMove.Image = global::Legopoly.Properties.Resources.dice_red;
+			this.buttonMove.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+			this.buttonMove.Location = new System.Drawing.Point(12, 647);
+			this.buttonMove.Name = "buttonMove";
+			this.buttonMove.Size = new System.Drawing.Size(120, 70);
+			this.buttonMove.TabIndex = 0;
+			this.buttonMove.Text = "Se déplacer";
+			this.buttonMove.TextAlign = System.Drawing.ContentAlignment.BottomRight;
+			this.buttonMove.UseVisualStyleBackColor = true;
+			this.buttonMove.Click += new System.EventHandler(this.buttonMove_Click);
+			// 
+			// buttonNextPlayer
+			// 
+			this.buttonNextPlayer.DialogResult = System.Windows.Forms.DialogResult.OK;
+			this.buttonNextPlayer.Image = global::Legopoly.Properties.Resources.ok;
+			this.buttonNextPlayer.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+			this.buttonNextPlayer.Location = new System.Drawing.Point(750, 647);
+			this.buttonNextPlayer.Name = "buttonNextPlayer";
+			this.buttonNextPlayer.Size = new System.Drawing.Size(120, 70);
+			this.buttonNextPlayer.TabIndex = 3;
+			this.buttonNextPlayer.Text = "Tour OK ";
+			this.buttonNextPlayer.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+			this.buttonNextPlayer.UseVisualStyleBackColor = true;
+			this.buttonNextPlayer.Click += new System.EventHandler(this.buttonNextPlayer_Click);
+			// 
+			// buttonStopGame
+			// 
+			this.buttonStopGame.DialogResult = System.Windows.Forms.DialogResult.Cancel;
+			this.buttonStopGame.Image = global::Legopoly.Properties.Resources.sign_stop;
+			this.buttonStopGame.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+			this.buttonStopGame.Location = new System.Drawing.Point(876, 647);
+			this.buttonStopGame.Name = "buttonStopGame";
+			this.buttonStopGame.Size = new System.Drawing.Size(120, 70);
+			this.buttonStopGame.TabIndex = 4;
+			this.buttonStopGame.Text = "Arrêter";
+			this.buttonStopGame.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+			this.buttonStopGame.UseVisualStyleBackColor = true;
+			this.buttonStopGame.Click += new System.EventHandler(this.buttonStopGame_Click);
+			// 
 			// buttonChangeJob
 			// 
 			this.buttonChangeJob.Image = global::Legopoly.Properties.Resources.hat_blue;
@@ -356,78 +428,21 @@
 			this.pictureBoxJob.TabIndex = 25;
 			this.pictureBoxJob.TabStop = false;
 			// 
-			// buttonSchool
+			// pictureBoxCapital
 			// 
-			this.buttonSchool.Image = global::Legopoly.Properties.Resources.school;
-			this.buttonSchool.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-			this.buttonSchool.Location = new System.Drawing.Point(332, 647);
-			this.buttonSchool.Name = "buttonSchool";
-			this.buttonSchool.Size = new System.Drawing.Size(154, 70);
-			this.buttonSchool.TabIndex = 8;
-			this.buttonSchool.Text = "Université     ";
-			this.buttonSchool.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-			this.buttonSchool.UseVisualStyleBackColor = true;
-			this.buttonSchool.Click += new System.EventHandler(this.buttonSchool_Click);
-			// 
-			// buttonMission
-			// 
-			this.buttonMission.Image = global::Legopoly.Properties.Resources.target3;
-			this.buttonMission.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-			this.buttonMission.Location = new System.Drawing.Point(172, 647);
-			this.buttonMission.Name = "buttonMission";
-			this.buttonMission.Size = new System.Drawing.Size(154, 70);
-			this.buttonMission.TabIndex = 7;
-			this.buttonMission.Text = "Mission         ";
-			this.buttonMission.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-			this.buttonMission.UseVisualStyleBackColor = true;
-			this.buttonMission.Click += new System.EventHandler(this.buttonMission_Click);
-			// 
-			// buttonMove
-			// 
-			this.buttonMove.Image = global::Legopoly.Properties.Resources.dice_red;
-			this.buttonMove.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-			this.buttonMove.Location = new System.Drawing.Point(12, 647);
-			this.buttonMove.Name = "buttonMove";
-			this.buttonMove.Size = new System.Drawing.Size(154, 70);
-			this.buttonMove.TabIndex = 0;
-			this.buttonMove.Text = "Se déplacer  ";
-			this.buttonMove.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-			this.buttonMove.UseVisualStyleBackColor = true;
-			this.buttonMove.Click += new System.EventHandler(this.buttonMove_Click);
-			// 
-			// buttonNextPlayer
-			// 
-			this.buttonNextPlayer.DialogResult = System.Windows.Forms.DialogResult.OK;
-			this.buttonNextPlayer.Image = global::Legopoly.Properties.Resources.ok;
-			this.buttonNextPlayer.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-			this.buttonNextPlayer.Location = new System.Drawing.Point(682, 647);
-			this.buttonNextPlayer.Name = "buttonNextPlayer";
-			this.buttonNextPlayer.Size = new System.Drawing.Size(154, 70);
-			this.buttonNextPlayer.TabIndex = 3;
-			this.buttonNextPlayer.Text = "Tour OK      ";
-			this.buttonNextPlayer.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-			this.buttonNextPlayer.UseVisualStyleBackColor = true;
-			this.buttonNextPlayer.Click += new System.EventHandler(this.buttonNextPlayer_Click);
-			// 
-			// buttonStopGame
-			// 
-			this.buttonStopGame.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-			this.buttonStopGame.Image = global::Legopoly.Properties.Resources.sign_stop;
-			this.buttonStopGame.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-			this.buttonStopGame.Location = new System.Drawing.Point(842, 647);
-			this.buttonStopGame.Name = "buttonStopGame";
-			this.buttonStopGame.Size = new System.Drawing.Size(154, 70);
-			this.buttonStopGame.TabIndex = 4;
-			this.buttonStopGame.Text = "Arrêter la partie ";
-			this.buttonStopGame.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-			this.buttonStopGame.UseVisualStyleBackColor = true;
-			this.buttonStopGame.Click += new System.EventHandler(this.buttonStopGame_Click);
+			this.pictureBoxCapital.Image = global::Legopoly.Properties.Resources.money;
+			this.pictureBoxCapital.Location = new System.Drawing.Point(660, 19);
+			this.pictureBoxCapital.Name = "pictureBoxCapital";
+			this.pictureBoxCapital.Size = new System.Drawing.Size(64, 64);
+			this.pictureBoxCapital.TabIndex = 7;
+			this.pictureBoxCapital.TabStop = false;
 			// 
 			// FormPlay
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
 			this.ClientSize = new System.Drawing.Size(1008, 729);
+			this.Controls.Add(this.buttonGame);
 			this.Controls.Add(this.buttonSchool);
 			this.Controls.Add(this.buttonMission);
 			this.Controls.Add(this.buttonMove);
@@ -443,7 +458,6 @@
 			this.Text = "Tour";
 			this.groupBoxHeritage.ResumeLayout(false);
 			this.groupBoxHeritage.PerformLayout();
-			((System.ComponentModel.ISupportInitialize)(this.pictureBoxCapital)).EndInit();
 			this.groupBoxIdentification.ResumeLayout(false);
 			this.groupBoxIdentification.PerformLayout();
 			this.groupBox1.ResumeLayout(false);
@@ -451,6 +465,7 @@
 			this.groupBoxActivity.ResumeLayout(false);
 			this.groupBoxActivity.PerformLayout();
 			((System.ComponentModel.ISupportInitialize)(this.pictureBoxJob)).EndInit();
+			((System.ComponentModel.ISupportInitialize)(this.pictureBoxCapital)).EndInit();
 			this.ResumeLayout(false);
 
         }
@@ -490,5 +505,6 @@
 		private System.Windows.Forms.Button buttonMission;
 		private UserControlItems userControlItems1;
 		private System.Windows.Forms.Button buttonSchool;
+		private System.Windows.Forms.Button buttonGame;
 	}
 }

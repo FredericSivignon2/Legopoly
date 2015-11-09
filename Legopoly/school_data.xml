@@ -11,4 +11,15 @@
 		</Experiences>
 		<Name>Cours de sport.</Name>
 	</Course>
+  <Course>
+    <Cost>55</Cost>
+    <Experiences xmlns:d3p1="http://schemas.datacontract.org/2004/07/Legopoly.Data">
+      <d3p1:Creativity>1</d3p1:Creativity>
+      <d3p1:Empathy>0</d3p1:Empathy>
+      <d3p1:ManagerialSkills>0</d3p1:ManagerialSkills>
+      <d3p1:PhysicalFitness>0</d3p1:PhysicalFitness>
+      <d3p1:Scientific>0</d3p1:Scientific>
+    </Experiences>
+    <Name>Cours d'arts de premier niveau.</Name>
+  </Course>
 </ArrayOfCourse>

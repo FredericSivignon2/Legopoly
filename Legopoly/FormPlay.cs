@@ -63,7 +63,7 @@ namespace Legopoly
 
 				if (this.player.WorkingRoundLeft == 0 && this.player.Working)
 				{
-					LPMessageBox.ShowMessage("Vous avez passé trop de temps au travail.\r\n\r\nRetournez à votre maison avant toute autre activité.");
+					LPMessageBox.ShowMessage("Tu as passé trop de temps au travail.\r\n\r\nRetournes à ton domicile avant toute autre activité.");
 					this.player.Working = false;
 				}
 				this.radioButtonOffWork.Checked = this.player.Working == false;
@@ -217,18 +217,37 @@ namespace Legopoly
 
 		private void buttonStopGame_Click(object sender, EventArgs e)
 		{
-			DialogResult result = LPMessageBox.ShowQuestion("Voulez-vous vraiment quitter le jeu ?");
+			DialogResult result = LPMessageBox.ShowQuestion("Veux-tu vraiment quitter le jeu ?");
 			if (result != DialogResult.Yes)
 				this.DialogResult = DialogResult.None;
 		}
 
 		private void buttonSchool_Click(object sender, EventArgs e)
 		{
-			using (FormSchool dlg = new FormSchool(this.player))
+			try
+			{
+				using (FormSchool dlg = new FormSchool(this.player))
+				{
+					if (dlg.ShowDialog(this) == DialogResult.OK)
+					{
+
+					}
+				}
+			}
+			catch (NoMoneyException exp)
+			{
+				LPMessageBox.ShowError(exp.Message);
+			}
+		}
+
+		private void buttonGame_Click(object sender, EventArgs e)
+		{
+			using (FormGame dlg = new FormGame(this.game, this.player))
 			{
 				if (dlg.ShowDialog(this) == DialogResult.OK)
 				{
-
+					this.buttonGame.Enabled = false;
+					UpdateCapitalDisplay();
 				}
 			}
 		}
