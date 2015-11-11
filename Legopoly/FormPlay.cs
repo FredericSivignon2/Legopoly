@@ -20,6 +20,8 @@ namespace Legopoly
 		private bool initializing = false;
 		private bool missionPerformed = false;
 		private bool movedPerformed = false;
+		private bool schoolPerformed = false;
+		private bool gamePerformed = false;
 		#endregion
 
 		#region Constructors
@@ -169,6 +171,7 @@ namespace Legopoly
 				{
 					UpdateCapitalDisplay();
 					this.movedPerformed = true;
+					UpdateButtonsEnable();
 				}
 			}
 		}
@@ -192,22 +195,24 @@ namespace Legopoly
 			{
 				if (dlg.ShowDialog(this) == DialogResult.OK)
 				{
+					// If a mission has been performed, a move is not allowed
+					this.missionPerformed = true;
 					this.player.Capital += dlg.Gain;
 					UpdateCapitalDisplay();
 				}
 			}
 
-			// If a mission has been performed, a move is not allowed
-			this.missionPerformed = true;
-		}
+			UpdateButtonsEnable();
+        }
 
 		private void UpdateButtonsEnable()
 		{
-			if (this.missionPerformed || this.movedPerformed)
+			if (this.missionPerformed || this.movedPerformed || this.schoolPerformed || this.gamePerformed)
 			{
 				this.buttonMove.Enabled = false;
 				this.buttonMission.Enabled = false;
 				this.buttonSchool.Enabled = false;
+				this.buttonGame.Enabled = false;
                 return;
 			}
 
@@ -230,7 +235,7 @@ namespace Legopoly
 				{
 					if (dlg.ShowDialog(this) == DialogResult.OK)
 					{
-
+						this.schoolPerformed = true;
 					}
 				}
 			}
@@ -238,6 +243,7 @@ namespace Legopoly
 			{
 				LPMessageBox.ShowError(exp.Message);
 			}
+			UpdateButtonsEnable();
 		}
 
 		private void buttonGame_Click(object sender, EventArgs e)
@@ -246,10 +252,11 @@ namespace Legopoly
 			{
 				if (dlg.ShowDialog(this) == DialogResult.OK)
 				{
-					this.buttonGame.Enabled = false;
+					this.gamePerformed = true;
 					UpdateCapitalDisplay();
 				}
 			}
+			UpdateButtonsEnable();
 		}
 	}
 }
