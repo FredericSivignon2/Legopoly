@@ -62,6 +62,7 @@ namespace Legopoly
 				this.userControlItems1.Items = this.player.Items.ToArray<ItemBase>();
 				UpdateExperiencePoints();
 				UpdateJobInfo();
+				UpdatePlayerState();
 
 				if (this.player.WorkingRoundLeft == 0 && this.player.Working)
 				{
@@ -80,33 +81,16 @@ namespace Legopoly
 			}
         }
 
-        private void buttonBuyItem_Click(object sender, EventArgs e)
-        {
-            using (FormChooseItem dlg = new FormChooseItem(this.player))
-            {
-                if (dlg.ShowDialog(this) == DialogResult.OK)
-                {
-                    ItemBase itemBase = dlg.SelectedItem;
-					if (itemBase is MotorVehicle)
-					{
-						MotorVehicle motorVehicle = itemBase as MotorVehicle;
-						// Make a full tank just after buying the vehicle!
-						motorVehicle.FuelLevel = motorVehicle.TankCapacity;
-					}
-					this.userControlItems1.AddItem(itemBase);
-					this.userControlItems1.Refresh();
-
-					player.Capital -= itemBase.InitialCost;
-					this.player.Items.Add(itemBase);
-
-					UpdateCapitalDisplay();
-                }
-            }
-        }
+		private void UpdatePlayerState()
+		{
+			this.progressBarTiredness.Minimum = 0;
+			this.progressBarTiredness.Maximum = this.game.JobData.MaxWorkingRound;
+			this.progressBarTiredness.Value = this.player.WorkingRoundLeft;
+		}
 
         private void UpdateCapitalDisplay()
         {
-            this.labelCapital.Text = string.Format("{0,20:N0}€", this.player.Capital);
+            this.labelCapital.Text = string.Format("{0:C2}", this.player.Capital);
         }
 
         private void UpdateExperiencePoints()
@@ -218,7 +202,9 @@ namespace Legopoly
 
 			this.buttonMission.Enabled = this.radioButtonWorking.Checked;
 			this.buttonSchool.Enabled = !this.radioButtonWorking.Checked;
-        }
+			this.buttonGame.Enabled = !this.radioButtonWorking.Checked;
+			this.buttonSleep.Enabled = !this.radioButtonWorking.Checked;
+		}
 
 		private void buttonStopGame_Click(object sender, EventArgs e)
 		{
@@ -257,6 +243,58 @@ namespace Legopoly
 				}
 			}
 			UpdateButtonsEnable();
+		}
+
+		private void buttonSleep_Click(object sender, EventArgs e)
+		{
+			if (LPMessageBox.ShowQuestion("Tu dois être rentré chez toi pour dormir.\r\n\r\nOk ?") == DialogResult.Yes)
+			{
+				this.player.Sleep(this.game);
+				UpdatePlayerState();
+			}
+		}
+
+		private void buttonBuyItem_Click(object sender, EventArgs e)
+		{
+			using (FormChooseItem dlg = new FormChooseItem(this.player))
+			{
+				if (dlg.ShowDialog(this) == DialogResult.OK)
+				{
+					ItemBase itemBase = dlg.SelectedItem;
+					if (itemBase is MotorVehicle)
+					{
+						MotorVehicle motorVehicle = itemBase as MotorVehicle;
+						// Make a full tank just after buying the vehicle!
+						motorVehicle.FuelLevel = motorVehicle.TankCapacity;
+					}
+					this.userControlItems1.AddItem(itemBase);
+					this.userControlItems1.Refresh();
+
+					player.Capital -= itemBase.InitialCost;
+					this.player.Items.Add(itemBase);
+
+					UpdateCapitalDisplay();
+				}
+			}
+		}
+
+		private void buttonSoldItem_Click(object sender, EventArgs e)
+		{
+			ItemBase item = this.userControlItems1.SelectedItem;
+			if (item == null)
+				return;
+
+			if (LPMessageBox.ShowQuestion(string.Format("Es-tu sur de vouloir vendre '{0}' ?", item.Name)) != DialogResult.Yes)
+				return;
+
+					
+			this.userControlItems1.RemoveItem(item);
+			this.userControlItems1.Refresh();
+
+			player.Capital += item.CurrentCost;
+			this.player.Items.Remove(item);
+
+			UpdateCapitalDisplay();
 		}
 	}
 }

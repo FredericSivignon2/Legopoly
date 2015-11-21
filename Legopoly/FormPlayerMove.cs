@@ -49,11 +49,14 @@ namespace Legopoly
 							indexToSelect = index;
 					}
 				}
-				this.comboBoxVehicles.SelectedIndex = indexToSelect;
 			}
 			if (this.comboBoxVehicles.Items.Count == 0)
 			{
 				this.radioButtonVehicle.Enabled = false;
+			}
+			else
+			{
+				this.comboBoxVehicles.SelectedIndex = indexToSelect;
 			}
 
 			UpdateTankLevel();

@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+			System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormMain));
 			this.pictureBox1 = new System.Windows.Forms.PictureBox();
 			this.buttonNew = new System.Windows.Forms.Button();
 			this.buttonLoad = new System.Windows.Forms.Button();
@@ -101,9 +102,9 @@
 			this.Controls.Add(this.buttonLoad);
 			this.Controls.Add(this.buttonNew);
 			this.Controls.Add(this.pictureBox1);
+			this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
 			this.MaximizeBox = false;
 			this.Name = "FormMain";
-			this.ShowIcon = false;
 			this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
 			this.Text = "LEGOPoly";
 			((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();

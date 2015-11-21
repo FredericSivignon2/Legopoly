@@ -25,19 +25,20 @@ namespace Legopoly.Data
         private int round = 1;
         [DataMember]
         private List<Player> players;
-
-		private List<JobBase> allJobs;
-		private List<Mission> allMissions;
-		private Random rnd;
+		[DataMember]
 		private GameVehicleData vehicleData;
+		[DataMember]
 		private GameJobData jobData;
+
+		// No need to serialize and better to be able to update it each time we continue a previously saved game
+		private List<JobBase> allJobs;
+		private Random rnd;		
 		#endregion
 
 		#region Constructor
 		public Game()
         {
             this.players = new List<Player>();
-			this.allMissions = new List<Mission>();
 			this.vehicleData = new GameVehicleData();
 			this.jobData = new GameJobData();
 
@@ -98,8 +99,12 @@ namespace Legopoly.Data
         public void Start(Form parentForm)
         {
 			InitializeAllJobs();
+			foreach (Player player in this.players)
+			{
+				player.Sleep(this);
+			}
 
-            for (;;)
+			for (;;)
             {
                 
                 foreach (Player player in this.players)
@@ -165,10 +170,6 @@ namespace Legopoly.Data
 			{
 				LPMessageBox.ShowError("Impossible de sauvegarder le jeu courant.", exp);
 			}
-
-			game.vehicleData = new GameVehicleData();
-			game.jobData = new GameJobData();
-			game.LoadData();
             return game;
 		}
 		#endregion

@@ -443,6 +443,16 @@ namespace Legopoly.Properties {
         /// <summary>
         ///   Recherche une ressource localisée de type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap moon_half_64 {
+            get {
+                object obj = ResourceManager.GetObject("moon_half_64", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une ressource localisée de type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap motorcyclist {
             get {
                 object obj = ResourceManager.GetObject("motorcyclist", resourceCulture);

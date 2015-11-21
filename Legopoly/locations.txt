@@ -1,0 +1,19 @@
+﻿devant la gare
+devant le grand magasin
+devant le coiffeur
+devant le bar
+devant le Pet Shop
+devant l'usine
+devant la banque
+devant le parc de la gare
+devant le cinéma
+devant la Mairie
+devant l'ancienne caserne des pompiers
+devant l'université
+au 1 rue Yoda
+au 2 rue Yoda
+au 1 rue Han Solo
+au 2 rue Han Solo
+au 3 rue Han Solo
+au 4 rue Han Solo
+au 1 avenue Lando Calrissian

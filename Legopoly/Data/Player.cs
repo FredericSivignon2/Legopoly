@@ -28,7 +28,7 @@ namespace Legopoly.Data
 		public Player()
 		{
 			this.stateData = new PlayerStateData();
-		}
+        }
 		#endregion
 
 		#region Public Properties
@@ -109,9 +109,6 @@ namespace Legopoly.Data
 			set
 			{
 				this.working = value;
-				if (this.working)
-					// The user cannot stay working for more than 'MaxWorkingRound' rounds
-					this.workingRoundLeft = this.game.JobData.MaxWorkingRound;
 			}
 		}
 
@@ -128,6 +125,12 @@ namespace Legopoly.Data
 			}
 		}
 		#endregion
+
+		public void Sleep(Game game)
+		{
+			if (game.JobData != null)
+				this.workingRoundLeft = game.JobData.MaxWorkingRound;
+		}
 
 		public bool Play(Form parentForm, Game game)
 		{
@@ -163,8 +166,10 @@ namespace Legopoly.Data
 			foreach (ItemBase item in this.Items)
 			{
 				this.Capital -= item.CostPerRound;
+				this.Capital += item.GainPerRound;
 
-			}
+				item.CurrentCost -= item.CostLostPerRound;
+            }
 		}
 	}
 }

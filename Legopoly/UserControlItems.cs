@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using Legopoly.Data.Items;
 using System.IO;
+using System.Diagnostics.Contracts;
 
 namespace Legopoly
 {
@@ -56,6 +57,12 @@ namespace Legopoly
 		{
 			this.items.Add(item);
         }
+
+		public void RemoveItem(ItemBase item)
+		{
+			bool result = this.items.Remove(item);
+			Contract.Assert(result);
+		}
 
 		public void Refresh()
 		{

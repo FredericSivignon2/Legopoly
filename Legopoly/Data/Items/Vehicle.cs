@@ -32,5 +32,15 @@ namespace Legopoly.Data.Items
         /// </summary>
         [DataMember]
         public double CostPerMove { get; set; } = 0.0;
-    }
+
+		public override string ToString()
+		{
+			StringBuilder result = new StringBuilder(base.ToString());
+			result.AppendLine();
+			result.AppendLine(string.Format("Vitesse: {0} à {1} cases par tour.", MinMovePerRound, MaxMovePerRound));
+			result.AppendLine(string.Format("Prix par déplacement: {0:C4}", CostPerMove));
+
+			return result.ToString();
+		}
+	}
 }

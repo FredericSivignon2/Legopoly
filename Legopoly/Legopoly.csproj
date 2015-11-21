@@ -185,6 +185,9 @@
     </Compile>
     <Compile Include="Utils\IniFileReader.cs" />
     <None Include="Resources\gambling_chips2_64.png" />
+    <Content Include="locations.txt" />
+    <None Include="Resources\moon_half_64.png" />
+    <Content Include="Resources\building_block.ico" />
     <Content Include="school_data.xml" />
     <None Include="Resources\school_32.png" />
     <None Include="Resources\school.png" />
@@ -489,6 +492,7 @@ xcopy /R /Y "$(ProjectDir)job_default.ini"  "$(TargetDir)"
 xcopy /R /Y "$(ProjectDir)missions_data.xml"  "$(TargetDir)"
 xcopy /R /Y "$(ProjectDir)items_data.xml"  "$(TargetDir)"
 xcopy /R /Y "$(ProjectDir)school_data.xml"  "$(TargetDir)"
+xcopy /R /Y "$(ProjectDir)locations.txt"  "$(TargetDir)"
 
 
 mkdir "$(TargetDir)Pictures"

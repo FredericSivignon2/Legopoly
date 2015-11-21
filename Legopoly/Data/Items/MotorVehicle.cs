@@ -54,5 +54,14 @@ namespace Legopoly.Data.Items
 		{
 			return (this.TankCapacity - this.FuelLevel) * GlobalData.Instance.CurrentGame.VehicleData.FuelCost;
 		}
+
+		public override string ToString()
+		{
+			StringBuilder result = new StringBuilder(base.ToString());
+			result.AppendLine(string.Format("Réservoir: {0} litres", (int)TankCapacity));
+			result.AppendLine(string.Format("Autonomie maximum: {0} cases", (int)Math.Floor(TankCapacity / ConsumptionPerMove)));
+
+			return result.ToString();
+		}
 	}
 }

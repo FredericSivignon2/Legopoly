@@ -31,6 +31,9 @@ namespace Legopoly.Data.Items
         [DataMember]
         public double InitialCost { get; set; } = 0.0;
 
+		[DataMember]
+		public double CurrentCost { get; set; } = 0.0;
+
         /// <summary>
         /// The amount of money that decriese 
         /// </summary>
@@ -44,7 +47,7 @@ namespace Legopoly.Data.Items
         public double CostPerRound { get; set; } = 0.0;
 
         /// <summary>
-        /// Gets or sets the amount of money win per round.
+        /// Gets or sets the amount of money win per round (for example, if the item is the "PetShop", you will gain something)
         /// </summary>
         [DataMember]
         public double GainPerRound { get; set; } = 0.0;
@@ -75,7 +78,16 @@ namespace Legopoly.Data.Items
 
 		public override string ToString()
 		{
-			return string.Format("{0} ({1})", this.Name, GetDisplayType());
+			StringBuilder result = new StringBuilder(string.Format("{0} ({1}){2}", this.Name, GetDisplayType(), Environment.NewLine));
+			result.AppendLine();
+			result.AppendLine(string.Format("Valeur d'achat: {0:C2}", InitialCost));
+			result.AppendLine(string.Format("Valeur actuelle de vente: {0:C2}", CurrentCost));
+
+			result.AppendLine();
+			result.AppendLine(string.Format("Coût par tour: {0:C2}", CostPerRound));
+			result.AppendLine(string.Format("Gain par tour: {0:C2}", GainPerRound));
+
+			return result.ToString();
 		}
 
 		public ItemBase Clone()

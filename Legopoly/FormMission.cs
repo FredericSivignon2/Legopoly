@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -14,6 +15,8 @@ namespace Legopoly
 {
 	public partial class FormMission : Form
 	{
+		private const string locationsFileName = "locations.txt";
+
 		private Mission mission;
 		private Player player;
 		private Game game;
@@ -41,7 +44,7 @@ namespace Legopoly
 
 		private void InitializeFormContent()
 		{
-			this.labelMissionDescription.Text = this.mission.Description;
+			this.labelMissionDescription.Text = GetMissionDescription();
 			UpdateRoundLeftDisplay();
 			ComputeGain();
 			UpdateGainDisplay();
@@ -96,6 +99,23 @@ namespace Legopoly
 		private void buttonSuccess_Click(object sender, EventArgs e)
 		{
 
+		}
+
+		private string GetMissionDescription()
+		{
+			if (this.mission.Description.Contains("{0}"))
+			{
+				string locationsPath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, locationsFileName);
+				if (File.Exists(locationsPath) == false)
+					throw new InvalidOperationException(string.Format("Le fichier {0} est introuvable!", locationsPath));
+
+				string[] locations = File.ReadAllLines(locationsPath);
+				string location = locations[this.game.GetRandomNumber(0, locations.Length - 1)];
+
+				return string.Format(this.mission.Description, location);
+			}
+			else
+				return this.mission.Description;
 		}
 	}
 }
