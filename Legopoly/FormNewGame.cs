@@ -117,7 +117,7 @@ namespace Legopoly
 				Player player = new Player()
 				{
 					Name = "Damien",
-					Capital = 100000
+					Capital = 20000
 				};
 				player.Experiences.Empathy = 10;
 				player.Experiences.Creativity = 2;
@@ -127,29 +127,31 @@ namespace Legopoly
 
 				this.game.Players.Add(player);
 
-				//player = new Player()
-				//{
-				//	Name = "Léa"
-				//};
-				//player.Experiences.Empathy = 2;
-				//player.Experiences.Creativity = 10;
-				//player.Experiences.PhysicalFitness = 20;
-				//player.Experiences.Scientific = 6;
-				//player.Experiences.ManagerialSkills = 2;
+				player = new Player()
+				{
+					Name = "Léa",
+					Capital = 20000
+				};
+				player.Experiences.Empathy = 2;
+				player.Experiences.Creativity = 10;
+				player.Experiences.PhysicalFitness = 20;
+				player.Experiences.Scientific = 6;
+				player.Experiences.ManagerialSkills = 2;
 
-				//this.game.Players.Add(player);
+				this.game.Players.Add(player);
 
-				//player = new Player()
-				//{
-				//	Name = "Frédéric"
-				//};
-				//player.Experiences.Empathy = 2;
-				//player.Experiences.Creativity = 10;
-				//player.Experiences.PhysicalFitness = 20;
-				//player.Experiences.Scientific = 6;
-				//player.Experiences.ManagerialSkills = 2;
+				player = new Player()
+				{
+					Name = "Frédéric",
+					Capital = 20000
+				};
+				player.Experiences.Empathy = 2;
+				player.Experiences.Creativity = 10;
+				player.Experiences.PhysicalFitness = 20;
+				player.Experiences.Scientific = 6;
+				player.Experiences.ManagerialSkills = 2;
 
-				//this.game.Players.Add(player);
+				this.game.Players.Add(player);
 			}
 			catch (Exception exp)
 			{

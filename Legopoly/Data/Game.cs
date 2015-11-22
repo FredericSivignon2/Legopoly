@@ -29,6 +29,8 @@ namespace Legopoly.Data
 		private GameVehicleData vehicleData;
 		[DataMember]
 		private GameJobData jobData;
+		[DataMember]
+		private PlayerData playerData;
 
 		// No need to serialize and better to be able to update it each time we continue a previously saved game
 		private List<JobBase> allJobs;
@@ -41,6 +43,7 @@ namespace Legopoly.Data
             this.players = new List<Player>();
 			this.vehicleData = new GameVehicleData();
 			this.jobData = new GameJobData();
+			this.playerData = new PlayerData();
 
 			LoadData();
         }
@@ -214,6 +217,10 @@ namespace Legopoly.Data
 
 			IniSection sectionJobs = iniFile.Sections["Jobs"];
 			this.jobData.MaxWorkingRound = Int32.Parse(sectionJobs.KeyValues["MaxWorkingRound"], CultureInfo.InvariantCulture);
+			this.jobData.SalaryFactor = Int32.Parse(sectionJobs.KeyValues["SalaryFactor"], CultureInfo.InvariantCulture);
+
+			IniSection sectionPlayers = iniFile.Sections["Players"];
+			this.playerData.DefaultCapital = Int32.Parse(sectionPlayers.KeyValues["DefaultCapital"], CultureInfo.InvariantCulture);
 		}
     }
 }

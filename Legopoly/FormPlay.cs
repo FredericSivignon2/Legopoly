@@ -108,7 +108,7 @@ namespace Legopoly
 				this.player.Job == null ? "Inactif" : this.player.Job.Name);
 			this.labelGrade.Text = this.player.Job == null ? string.Empty : this.player.Job.GradeName;
 			this.pictureBoxJob.Image = this.player.Job == null ? null : this.player.Job.Image;
-			this.textBoxSalary.Text = string.Format("{0,10:N0}€", this.player.Job.SalaryPerRound);
+			this.textBoxSalary.Text = string.Format("{0:C2}", this.player.Job.SalaryPerRound * this.game.JobData.SalaryFactor);
 		}
 
 		private void buttonChangeJob_Click(object sender, EventArgs e)
@@ -230,6 +230,7 @@ namespace Legopoly
 				LPMessageBox.ShowError(exp.Message);
 			}
 			UpdateButtonsEnable();
+			UpdateExperiencePoints();
 		}
 
 		private void buttonGame_Click(object sender, EventArgs e)
@@ -295,6 +296,45 @@ namespace Legopoly
 			this.player.Items.Remove(item);
 
 			UpdateCapitalDisplay();
+		}
+
+		private void buttonSaleTo_Click(object sender, EventArgs e)
+		{
+			ItemBase item = this.userControlItems1.SelectedItem;
+			if (item == null)
+				return;
+
+			Player targetPlayer = null;
+			using (FormChoosePlayer dlg = new FormChoosePlayer(this.game, this.player))
+			{
+				if (dlg.ShowDialog(this) != DialogResult.OK)
+					return;
+
+				targetPlayer = dlg.SelectedPlayer;
+            }
+
+			if (targetPlayer == null)
+				return;
+
+			if (LPMessageBox.ShowQuestion(string.Format("Es-tu sur de vouloir vendre '{0}' à {1} ?", item.Name, targetPlayer.Name)) != DialogResult.Yes)
+				return;
+
+			if (targetPlayer.Capital < item.CurrentCost)
+			{
+				LPMessageBox.ShowWarning(string.Format("{0} n'a pas assez d'argent pour vous acheter '{1}' !", targetPlayer.Name, item.Name));
+				return;
+			}
+
+			this.userControlItems1.RemoveItem(item);
+			this.userControlItems1.Refresh();
+
+			player.Capital += item.CurrentCost;
+			this.player.Items.Remove(item);
+
+			UpdateCapitalDisplay();
+			// Update target player capital and items list
+			targetPlayer.Items.Add(item);
+			targetPlayer.Capital -= item.CurrentCost;
 		}
 	}
 }

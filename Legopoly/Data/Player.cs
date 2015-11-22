@@ -147,7 +147,7 @@ namespace Legopoly.Data
 		{
 			if (this.Working && this.Job != null)
 			{
-				this.Capital += this.Job.SalaryPerRound;
+				this.Capital += this.Job.SalaryPerRound * this.game.JobData.SalaryFactor;
 				int gainCreativity = this.game.GetRandomNumber(0, this.Job.MaxExperiencesGainPerRound.Creativity + 1);
 				int gainEmpathy = this.game.GetRandomNumber(0, this.Job.MaxExperiencesGainPerRound.Empathy + 1);
 				int gainManager = this.game.GetRandomNumber(0, this.Job.MaxExperiencesGainPerRound.ManagerialSkills + 1);
@@ -170,6 +170,11 @@ namespace Legopoly.Data
 
 				item.CurrentCost -= item.CostLostPerRound;
             }
+		}
+
+		public override string ToString()
+		{
+			return this.Name;
 		}
 	}
 }

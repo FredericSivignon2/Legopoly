@@ -133,7 +133,16 @@ namespace Legopoly.Data.Jobs
 		{
 			get
 			{
-				return this.missions.ToArray<Mission>();
+				// Take missions for which the current grade is allowed to perform
+				Grade grade = this.grades[this.gradeNumber];
+				List<Mission> allowedMissions = new List<Mission>();
+				foreach (Mission mission in this.missions)
+				{
+					if (grade.Level >= mission.MinLevel)
+						allowedMissions.Add(mission);
+				}
+
+				return allowedMissions.ToArray<Mission>();
 			}
 		}
 		#endregion
@@ -239,8 +248,8 @@ namespace Legopoly.Data.Jobs
                         Creativity = Convert.ToInt32(values[8]),
                         Empathy = Convert.ToInt32(values[9])
                     },
-                    SalaryPerRound = Convert.ToInt32(values[10])
-
+                    SalaryPerRound = Convert.ToInt32(values[10]),
+					Level = Convert.ToInt32(values[11])
                 };
                 tmpGrades.Add(grade);
             }

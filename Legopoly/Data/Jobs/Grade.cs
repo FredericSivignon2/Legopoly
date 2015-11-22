@@ -26,6 +26,7 @@ namespace Legopoly.Data.Jobs
 			this.MinimalExperiences = new LPExperiences(grade.MinimalExperiences);
 			this.MaxExperiencesGainPerRound = new LPExperiences(grade.MaxExperiencesGainPerRound);
 			this.SalaryPerRound = grade.SalaryPerRound;
+			this.Level = grade.Level;
         }
 
 		public string Name { get; set; }
@@ -43,5 +44,10 @@ namespace Legopoly.Data.Jobs
         /// Salary per round when the player is present at his Job (and only when he is present!!!)
         /// </summary>
         public int SalaryPerRound { get; set; }
+
+		/// <summary>
+		/// Gets or sets the grade level (something like levels in RPG games)
+		/// </summary>
+		public int Level { get; set; }
     }
 }

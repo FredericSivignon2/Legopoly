@@ -51,6 +51,8 @@
     <Name>5 ave. Luke Skywalker</Name>
     <PicturePath>5avenueLuke.jpg</PicturePath>
   </ItemBase>
+  
+  <!-- Commerces et entreprises -->
   <ItemBase xmlns:d2p1="uri:Legopoly.Data.Items,Legopoly" i:type="d2p1:Home">
     <CostLostPerRound>0.0</CostLostPerRound>
     <CostPerRound>16.2</CostPerRound>
@@ -59,6 +61,24 @@
     <Name>6 ave. Luke Skywalker</Name>
     <PicturePath>5avenueLuke.jpg</PicturePath>
   </ItemBase>
+  <ItemBase xmlns:d2p1="uri:Legopoly.Data.Items,Legopoly" i:type="d2p1:Home">
+    <CostLostPerRound>0.0</CostLostPerRound>
+    <CostPerRound>18.2</CostPerRound>
+    <GainPerRound>682.0</GainPerRound>
+    <InitialCost>152000.0</InitialCost>
+    <Name>7 ave. Luke Skywalker</Name>
+    <PicturePath>7avenueLuke.jpg</PicturePath>
+  </ItemBase>
+  <ItemBase xmlns:d2p1="uri:Legopoly.Data.Items,Legopoly" i:type="d2p1:Home">
+    <CostLostPerRound>0.0</CostLostPerRound>
+    <CostPerRound>25.8</CostPerRound>
+    <GainPerRound>983.0</GainPerRound>
+    <InitialCost>210000.0</InitialCost>
+    <Name>11 ave. Luke Skywalker</Name>
+    <PicturePath>11avenueLuke.jpg</PicturePath>
+  </ItemBase>
+  
+  
   
   <!-- Voitures -->
   <ItemBase xmlns:d2p1="uri:Legopoly.Data.Items,Legopoly" i:type="d2p1:Car">
@@ -80,7 +100,7 @@
     <GainPerRound>0.0</GainPerRound>
     <InitialCost>11300.0</InitialCost>
     <Name>Myra TT</Name>
-    <PicturePath>mira_TT.jpg</PicturePath>
+    <PicturePath>myra_TT.jpg</PicturePath>
     <CostPerMove>0.032</CostPerMove>
     <MaxMovePerRound>12</MaxMovePerRound>
     <MinMovePerRound>6</MinMovePerRound>

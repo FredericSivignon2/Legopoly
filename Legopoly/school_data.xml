@@ -12,6 +12,17 @@
 		<Name>Cours de sport.</Name>
 	</Course>
   <Course>
+    <Cost>180</Cost>
+    <Experiences xmlns:d3p1="http://schemas.datacontract.org/2004/07/Legopoly.Data">
+      <d3p1:Creativity>0</d3p1:Creativity>
+      <d3p1:Empathy>0</d3p1:Empathy>
+      <d3p1:ManagerialSkills>0</d3p1:ManagerialSkills>
+      <d3p1:PhysicalFitness>4</d3p1:PhysicalFitness>
+      <d3p1:Scientific>0</d3p1:Scientific>
+    </Experiences>
+    <Name>Cours de sport intensif.</Name>
+  </Course>
+  <Course>
     <Cost>55</Cost>
     <Experiences xmlns:d3p1="http://schemas.datacontract.org/2004/07/Legopoly.Data">
       <d3p1:Creativity>1</d3p1:Creativity>
@@ -21,5 +32,126 @@
       <d3p1:Scientific>0</d3p1:Scientific>
     </Experiences>
     <Name>Cours d'arts de premier niveau.</Name>
+  </Course>
+  <Course>
+    <Cost>60</Cost>
+    <Experiences xmlns:d3p1="http://schemas.datacontract.org/2004/07/Legopoly.Data">
+      <d3p1:Creativity>0</d3p1:Creativity>
+      <d3p1:Empathy>0</d3p1:Empathy>
+      <d3p1:ManagerialSkills>1</d3p1:ManagerialSkills>
+      <d3p1:PhysicalFitness>0</d3p1:PhysicalFitness>
+      <d3p1:Scientific>0</d3p1:Scientific>
+    </Experiences>
+    <Name>Cours de management de premier niveau.</Name>
+  </Course>
+  <Course>
+    <Cost>170</Cost>
+    <Experiences xmlns:d3p1="http://schemas.datacontract.org/2004/07/Legopoly.Data">
+      <d3p1:Creativity>0</d3p1:Creativity>
+      <d3p1:Empathy>0</d3p1:Empathy>
+      <d3p1:ManagerialSkills>3</d3p1:ManagerialSkills>
+      <d3p1:PhysicalFitness>0</d3p1:PhysicalFitness>
+      <d3p1:Scientific>0</d3p1:Scientific>
+    </Experiences>
+    <Name>Cours de management avancé.</Name>
+  </Course>
+  <Course>
+    <Cost>350</Cost>
+    <Experiences xmlns:d3p1="http://schemas.datacontract.org/2004/07/Legopoly.Data">
+      <d3p1:Creativity>0</d3p1:Creativity>
+      <d3p1:Empathy>0</d3p1:Empathy>
+      <d3p1:ManagerialSkills>8</d3p1:ManagerialSkills>
+      <d3p1:PhysicalFitness>0</d3p1:PhysicalFitness>
+      <d3p1:Scientific>0</d3p1:Scientific>
+    </Experiences>
+    <Name>Cours de management intensif.</Name>
+  </Course>
+  <Course>
+    <Cost>62</Cost>
+    <Experiences xmlns:d3p1="http://schemas.datacontract.org/2004/07/Legopoly.Data">
+      <d3p1:Creativity>0</d3p1:Creativity>
+      <d3p1:Empathy>0</d3p1:Empathy>
+      <d3p1:ManagerialSkills>0</d3p1:ManagerialSkills>
+      <d3p1:PhysicalFitness>0</d3p1:PhysicalFitness>
+      <d3p1:Scientific>1</d3p1:Scientific>
+    </Experiences>
+    <Name>Cours de sciences de premier niveau.</Name>
+  </Course>
+  <Course>
+    <Cost>170</Cost>
+    <Experiences xmlns:d3p1="http://schemas.datacontract.org/2004/07/Legopoly.Data">
+      <d3p1:Creativity>0</d3p1:Creativity>
+      <d3p1:Empathy>0</d3p1:Empathy>
+      <d3p1:ManagerialSkills>0</d3p1:ManagerialSkills>
+      <d3p1:PhysicalFitness>0</d3p1:PhysicalFitness>
+      <d3p1:Scientific>3</d3p1:Scientific>
+    </Experiences>
+    <Name>Cours de sciences avancé.</Name>
+  </Course>
+  <Course>
+    <Cost>370</Cost>
+    <Experiences xmlns:d3p1="http://schemas.datacontract.org/2004/07/Legopoly.Data">
+      <d3p1:Creativity>0</d3p1:Creativity>
+      <d3p1:Empathy>0</d3p1:Empathy>
+      <d3p1:ManagerialSkills>0</d3p1:ManagerialSkills>
+      <d3p1:PhysicalFitness>0</d3p1:PhysicalFitness>
+      <d3p1:Scientific>6</d3p1:Scientific>
+    </Experiences>
+    <Name>Cours de sciences intensif.</Name>
+  </Course>
+  <Course>
+    <Cost>50</Cost>
+    <Experiences xmlns:d3p1="http://schemas.datacontract.org/2004/07/Legopoly.Data">
+      <d3p1:Creativity>0</d3p1:Creativity>
+      <d3p1:Empathy>1</d3p1:Empathy>
+      <d3p1:ManagerialSkills>0</d3p1:ManagerialSkills>
+      <d3p1:PhysicalFitness>0</d3p1:PhysicalFitness>
+      <d3p1:Scientific>0</d3p1:Scientific>
+    </Experiences>
+    <Name>Cours de spiritualité de premier niveau.</Name>
+  </Course>
+  <Course>
+    <Cost>160</Cost>
+    <Experiences xmlns:d3p1="http://schemas.datacontract.org/2004/07/Legopoly.Data">
+      <d3p1:Creativity>0</d3p1:Creativity>
+      <d3p1:Empathy>3</d3p1:Empathy>
+      <d3p1:ManagerialSkills>0</d3p1:ManagerialSkills>
+      <d3p1:PhysicalFitness>0</d3p1:PhysicalFitness>
+      <d3p1:Scientific>0</d3p1:Scientific>
+    </Experiences>
+    <Name>Cours de spiritualité avancé.</Name>
+  </Course>
+  <Course>
+    <Cost>750</Cost>
+    <Experiences xmlns:d3p1="http://schemas.datacontract.org/2004/07/Legopoly.Data">
+      <d3p1:Creativity>2</d3p1:Creativity>
+      <d3p1:Empathy>1</d3p1:Empathy>
+      <d3p1:ManagerialSkills>2</d3p1:ManagerialSkills>
+      <d3p1:PhysicalFitness>1</d3p1:PhysicalFitness>
+      <d3p1:Scientific>2</d3p1:Scientific>
+    </Experiences>
+    <Name>Cours multi-disciplines niveau 1.</Name>
+  </Course>
+  <Course>
+    <Cost>1600</Cost>
+    <Experiences xmlns:d3p1="http://schemas.datacontract.org/2004/07/Legopoly.Data">
+      <d3p1:Creativity>3</d3p1:Creativity>
+      <d3p1:Empathy>2</d3p1:Empathy>
+      <d3p1:ManagerialSkills>5</d3p1:ManagerialSkills>
+      <d3p1:PhysicalFitness>3</d3p1:PhysicalFitness>
+      <d3p1:Scientific>6</d3p1:Scientific>
+    </Experiences>
+    <Name>Cours multi-disciplines niveau 2.</Name>
+  </Course>
+  <Course>
+    <Cost>3500</Cost>
+    <Experiences xmlns:d3p1="http://schemas.datacontract.org/2004/07/Legopoly.Data">
+      <d3p1:Creativity>5</d3p1:Creativity>
+      <d3p1:Empathy>4</d3p1:Empathy>
+      <d3p1:ManagerialSkills>10</d3p1:ManagerialSkills>
+      <d3p1:PhysicalFitness>8</d3p1:PhysicalFitness>
+      <d3p1:Scientific>12</d3p1:Scientific>
+    </Experiences>
+    <Name>Cours multi-disciplines niveau 3.</Name>
   </Course>
 </ArrayOfCourse>

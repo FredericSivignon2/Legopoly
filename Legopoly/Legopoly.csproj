@@ -86,6 +86,7 @@
     <Compile Include="Data\Missions\Mission.cs" />
     <Compile Include="Data\Player.cs" />
     <Compile Include="Data\Jobs\Policeman.cs" />
+    <Compile Include="Data\PlayerData.cs" />
     <Compile Include="Data\PlayerStateData.cs" />
     <Compile Include="Data\Schools\Course.cs" />
     <Compile Include="FormChooseItem.cs">
@@ -99,6 +100,12 @@
     </Compile>
     <Compile Include="FormChooseJob.Designer.cs">
       <DependentUpon>FormChooseJob.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormChoosePlayer.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormChoosePlayer.Designer.cs">
+      <DependentUpon>FormChoosePlayer.cs</DependentUpon>
     </Compile>
     <Compile Include="FormGame.cs">
       <SubType>Form</SubType>
@@ -191,6 +198,9 @@
     <Content Include="school_data.xml" />
     <None Include="Resources\school_32.png" />
     <None Include="Resources\school.png" />
+    <EmbeddedResource Include="FormChoosePlayer.resx">
+      <DependentUpon>FormChoosePlayer.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FormGame.resx">
       <DependentUpon>FormGame.cs</DependentUpon>
     </EmbeddedResource>
