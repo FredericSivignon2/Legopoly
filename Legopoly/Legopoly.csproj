@@ -84,6 +84,7 @@
     <Compile Include="Data\Items\Car.cs" />
     <Compile Include="Data\Items\Truck.cs" />
     <Compile Include="Data\Missions\Mission.cs" />
+    <Compile Include="Data\Missions\MissionVehicle.cs" />
     <Compile Include="Data\Player.cs" />
     <Compile Include="Data\Jobs\Policeman.cs" />
     <Compile Include="Data\PlayerData.cs" />
@@ -194,6 +195,7 @@
     <None Include="Resources\gambling_chips2_64.png" />
     <Content Include="locations.txt" />
     <None Include="Resources\moon_half_64.png" />
+    <Content Include="missions_vehicles.xml" />
     <Content Include="Resources\building_block.ico" />
     <Content Include="school_data.xml" />
     <None Include="Resources\school_32.png" />

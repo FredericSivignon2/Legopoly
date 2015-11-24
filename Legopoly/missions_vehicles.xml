@@ -1,0 +1,24 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ArrayOfMissionVehicle xmlns:i="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://schemas.datacontract.org/2004/07/Legopoly.Data.Missions">
+  
+  <MissionVehicle>
+    <ForJobName>Pompier</ForJobName>
+    <MaxMovePerRound>10</MaxMovePerRound>
+    <MaxPassengers>1</MaxPassengers>
+    <MinMovePerRound>4</MinMovePerRound>
+    <MinimumGradeLevel>1</MinimumGradeLevel>
+    <Name>Voiture TOTO</Name>
+    <PicturePath></PicturePath>
+  </MissionVehicle>
+  
+  <MissionVehicle>
+    <ForJobName>Pompier</ForJobName>
+    <MaxMovePerRound>10</MaxMovePerRound>
+    <MaxPassengers>1</MaxPassengers>
+    <MinMovePerRound>4</MinMovePerRound>
+    <MinimumGradeLevel>1</MinimumGradeLevel>
+    <Name>Camion A</Name>
+    <PicturePath></PicturePath>
+  </MissionVehicle>
+
+</ArrayOfMissionVehicle>

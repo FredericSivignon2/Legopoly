@@ -117,4 +117,8 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="labelnotes.Text" xml:space="preserve">
+    <value>Notes sur les véhicules: Choisis en début de mission le véhicule le plus adapté à ta mission. Tu ne peux changer de véhicule une fois la mission démarrée (Après le 1er déplacement).
+Une fois ta mission terminée (réussie ou non), reviens à ton point de départ (caserne, employeur etc.) sans utiliser de dès (après avoir cliqué sur Mission Réussie ou Annuler la Mission).</value>
+  </data>
 </root>

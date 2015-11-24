@@ -1,5 +1,6 @@
 ﻿using Legopoly.Data;
 using Legopoly.Data.Items;
+using Legopoly.Data.Missions;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -174,8 +175,11 @@ namespace Legopoly
 				return;
 			}
 
-			int missionIndex = this.game.GetRandomNumber(0, this.player.Job.Missions.Length - 1);
-			using (FormMission dlg = new FormMission(this.player.Job.Missions[missionIndex], this.player, this.game))
+			// Gets missions allowed for current user level (level defined at Grade level)
+			Mission[] allowedMissions = this.player.Job.Missions;
+
+			int missionIndex = this.game.GetRandomNumber(0, allowedMissions.Length - 1);
+			using (FormMission dlg = new FormMission(allowedMissions[missionIndex], this.player, this.game))
 			{
 				if (dlg.ShowDialog(this) == DialogResult.OK)
 				{

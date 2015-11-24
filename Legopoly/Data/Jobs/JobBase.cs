@@ -226,7 +226,7 @@ namespace Legopoly.Data.Jobs
 					throw new Exception(string.Format("Valeur incorrecte dans le fichier de configuration\r\n{0}\r\npour la clef '{1}' dans la section '{2}'.", filePath, keyName, this.name));
 
 				string[] values = value.Split(new char[] { ',' });
-				if (values.Length != 11)
+				if (values.Length != 12)
 					throw new Exception(string.Format("Nombre de valeurs incorrect dans le fichier de configuration\r\n{0}\r\npour la clef '{1}' dans la section '{2}'.", filePath, keyName, this.name));
 
                 Grade grade = new Grade()
