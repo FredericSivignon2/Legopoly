@@ -72,8 +72,11 @@
     <Compile Include="Data\GameVehicleData.cs" />
     <Compile Include="Data\GlobalData.cs" />
     <Compile Include="Data\Items\ATC.cs" />
+    <Compile Include="Data\Items\Factory.cs" />
     <Compile Include="Data\Items\Motorbike.cs" />
     <Compile Include="Data\Items\MotorVehicle.cs" />
+    <Compile Include="Data\Items\Restaurant.cs" />
+    <Compile Include="Data\Items\Shop.cs" />
     <Compile Include="Data\Jobs\Fireman.cs" />
     <Compile Include="Data\Jobs\Grade.cs" />
     <Compile Include="Data\Jobs\JobBase.cs" />
@@ -90,6 +93,7 @@
     <Compile Include="Data\PlayerData.cs" />
     <Compile Include="Data\PlayerStateData.cs" />
     <Compile Include="Data\Schools\Course.cs" />
+    <Compile Include="Data\Thiefs\Thief.cs" />
     <Compile Include="FormChooseItem.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -177,6 +181,12 @@
     <Compile Include="FormSchool.Designer.cs">
       <DependentUpon>FormSchool.cs</DependentUpon>
     </Compile>
+    <Compile Include="FormThief.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormThief.Designer.cs">
+      <DependentUpon>FormThief.cs</DependentUpon>
+    </Compile>
     <Compile Include="NoMoneyException.cs" />
     <Compile Include="ListViewJobColumnSorter.cs" />
     <Compile Include="LPMessageBox.cs" />
@@ -192,12 +202,49 @@
       <DependentUpon>UserControlItems.cs</DependentUpon>
     </Compile>
     <Compile Include="Utils\IniFileReader.cs" />
+    <Content Include="thiefs.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <None Include="Resources\gambling_chips2_64.png" />
-    <Content Include="locations.txt" />
+    <Content Include="locations.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <None Include="Resources\moon_half_64.png" />
-    <Content Include="missions_vehicles.xml" />
+    <Content Include="missions_vehicles.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Pictures\11avenueLuke.jpg" />
+    <Content Include="Pictures\1rueYoda.jpg" />
+    <Content Include="Pictures\2rueHanSolo.jpg" />
+    <Content Include="Pictures\2rueYoda.jpg" />
+    <Content Include="Pictures\5avenueLuke.jpg" />
+    <Content Include="Pictures\6avenueLuke.jpg" />
+    <Content Include="Pictures\7avenueLuke.jpg" />
+    <Content Include="Pictures\atc_350S_white.jpg" />
+    <Content Include="Pictures\auto_police01.jpg" />
+    <Content Include="Pictures\auto_police02.jpg" />
+    <Content Include="Pictures\blue_house.jpg" />
+    <Content Include="Pictures\car_fireman1.jpg" />
+    <Content Include="Pictures\helo_police1.jpg" />
+    <Content Include="Pictures\helo_police2.jpg" />
+    <Content Include="Pictures\Kart_F1.jpg" />
+    <Content Include="Pictures\mini_mock_750.jpg" />
+    <Content Include="Pictures\mini_pickup_C1.jpg" />
+    <Content Include="Pictures\moto_police01.jpg" />
+    <Content Include="Pictures\moto_police02.jpg" />
+    <Content Include="Pictures\myra_1100S.jpg" />
+    <Content Include="Pictures\myra_TT.jpg" />
+    <Content Include="Pictures\red_house.jpg" />
+    <Content Include="Pictures\Rover_Sport.jpg" />
+    <Content Include="Pictures\truck_fireman1.jpg" />
+    <Content Include="Pictures\truck_fireman2.jpg" />
+    <Content Include="Pictures\van_J20.jpg" />
+    <Content Include="Pictures\van_police1.jpg" />
     <Content Include="Resources\building_block.ico" />
-    <Content Include="school_data.xml" />
+    <Content Include="school_data.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <None Include="Resources\school_32.png" />
     <None Include="Resources\school.png" />
     <EmbeddedResource Include="FormChoosePlayer.resx">
@@ -212,10 +259,15 @@
     <EmbeddedResource Include="FormSchool.resx">
       <DependentUpon>FormSchool.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="FormThief.resx">
+      <DependentUpon>FormThief.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="UserControlItems.resx">
       <DependentUpon>UserControlItems.cs</DependentUpon>
     </EmbeddedResource>
-    <None Include="game_data.ini" />
+    <None Include="game_data.ini">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
     <None Include="Resources\fuel_dispenser.png" />
     <EmbeddedResource Include="FormChooseItem.resx">
       <DependentUpon>FormChooseItem.cs</DependentUpon>
@@ -257,11 +309,17 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
-    <None Include="job_default.ini" />
+    <None Include="job_default.ini">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
     <Content Include="items_data.xml">
       <SubType>Designer</SubType>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="missions_data.xml" />
+    <Content Include="missions_data.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      <SubType>Designer</SubType>
+    </Content>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -499,16 +557,12 @@
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>
-    <PostBuildEvent>xcopy /R /Y "$(ProjectDir)game_data.ini"  "$(TargetDir)"
-xcopy /R /Y "$(ProjectDir)job_default.ini"  "$(TargetDir)"
-xcopy /R /Y "$(ProjectDir)missions_data.xml"  "$(TargetDir)"
-xcopy /R /Y "$(ProjectDir)items_data.xml"  "$(TargetDir)"
-xcopy /R /Y "$(ProjectDir)school_data.xml"  "$(TargetDir)"
-xcopy /R /Y "$(ProjectDir)locations.txt"  "$(TargetDir)"
+    <PostBuildEvent>
+IF NOT EXIST  "$(TargetDir)Pictures" (
+    mkdir "$(TargetDir)Pictures"
+)
 
-
-mkdir "$(TargetDir)Pictures"
-xcopy /R /Y "$(SolutionDir)Photos/blue_house.jpg" "$(TargetDir)Pictures"
+xcopy /R /Y "$(ProjectDir)Pictures\*.jpg" "$(TargetDir)Pictures"
 </PostBuildEvent>
   </PropertyGroup>
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

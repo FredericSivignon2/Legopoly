@@ -89,6 +89,14 @@ namespace Legopoly.Data
 				return this.jobData;
 			}
 		}
+
+		public PlayerData PlayerData
+		{
+			get
+			{
+				return this.playerData;
+			}
+		}
 		#endregion
 
 		#region Public Methods

@@ -56,24 +56,9 @@ namespace Legopoly.Data.Items
 		public string PicturePath { get; set; }
 		#endregion
 
-		public string GetDisplayType()
+		public virtual string GetDisplayType()
         {
-            if (this is Home)
-                return "Habitation";
-            if (this is Building)
-                return "Batiment";
-            if (this is Bicycle)
-                return "Bicyclette";
-            if (this is Car)
-                return "Voiture";
-            if (this is Truck)
-                return "Camion";
-			if (this is Motorbike)
-				return "Moto";
-			if (this is ATC)
-				return "ATC";
-
-            return "Inconnu";
+			return string.Empty;
         }
 
 		public override string ToString()

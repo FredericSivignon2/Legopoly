@@ -43,6 +43,7 @@
     <Name>2 rue Yoda</Name>
     <PicturePath>2rueYoda.jpg</PicturePath>
   </ItemBase>
+  
   <ItemBase xmlns:d2p1="uri:Legopoly.Data.Items,Legopoly" i:type="d2p1:Home">
     <CostLostPerRound>0.0</CostLostPerRound>
     <CostPerRound>15.2</CostPerRound>
@@ -52,24 +53,16 @@
     <PicturePath>5avenueLuke.jpg</PicturePath>
   </ItemBase>
   
-  <!-- Commerces et entreprises -->
-  <ItemBase xmlns:d2p1="uri:Legopoly.Data.Items,Legopoly" i:type="d2p1:Home">
+  <!-- Magasins -->
+  <ItemBase xmlns:d2p1="uri:Legopoly.Data.Items,Legopoly" i:type="d2p1:Shop">
     <CostLostPerRound>0.0</CostLostPerRound>
     <CostPerRound>16.2</CostPerRound>
     <GainPerRound>235.0</GainPerRound>
     <InitialCost>94000.0</InitialCost>
     <Name>6 ave. Luke Skywalker</Name>
-    <PicturePath>5avenueLuke.jpg</PicturePath>
+    <PicturePath>6avenueLuke.jpg</PicturePath>
   </ItemBase>
-  <ItemBase xmlns:d2p1="uri:Legopoly.Data.Items,Legopoly" i:type="d2p1:Home">
-    <CostLostPerRound>0.0</CostLostPerRound>
-    <CostPerRound>18.2</CostPerRound>
-    <GainPerRound>682.0</GainPerRound>
-    <InitialCost>152000.0</InitialCost>
-    <Name>7 ave. Luke Skywalker</Name>
-    <PicturePath>7avenueLuke.jpg</PicturePath>
-  </ItemBase>
-  <ItemBase xmlns:d2p1="uri:Legopoly.Data.Items,Legopoly" i:type="d2p1:Home">
+  <ItemBase xmlns:d2p1="uri:Legopoly.Data.Items,Legopoly" i:type="d2p1:Shop">
     <CostLostPerRound>0.0</CostLostPerRound>
     <CostPerRound>25.8</CostPerRound>
     <GainPerRound>983.0</GainPerRound>
@@ -77,9 +70,17 @@
     <Name>11 ave. Luke Skywalker</Name>
     <PicturePath>11avenueLuke.jpg</PicturePath>
   </ItemBase>
-  
-  
-  
+
+  <!-- Restaurants -->
+  <ItemBase xmlns:d2p1="uri:Legopoly.Data.Items,Legopoly" i:type="d2p1:Restaurant">
+    <CostLostPerRound>0.0</CostLostPerRound>
+    <CostPerRound>18.2</CostPerRound>
+    <GainPerRound>682.0</GainPerRound>
+    <InitialCost>152000.0</InitialCost>
+    <Name>7 ave. Luke Skywalker</Name>
+    <PicturePath>7avenueLuke.jpg</PicturePath>
+  </ItemBase>
+
   <!-- Voitures -->
   <ItemBase xmlns:d2p1="uri:Legopoly.Data.Items,Legopoly" i:type="d2p1:Car">
     <CostLostPerRound>0.15</CostLostPerRound>

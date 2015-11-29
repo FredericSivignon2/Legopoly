@@ -10,5 +10,9 @@ namespace Legopoly.Data.Items
     [DataContract]
     public class Truck : MotorVehicle
 	{
-    }
+		public override string GetDisplayType()
+		{
+			return "Camion";
+		}
+	}
 }

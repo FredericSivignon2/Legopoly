@@ -48,5 +48,29 @@ namespace Legopoly.Data.Missions
 
 		[DataMember]
 		public string PicturePath { get; set; }
+
+		[DataMember]
+		public double PercentCostPerMission { get; set; }
+
+		public override string ToString()
+		{
+			return this.Name;
+		}
+
+		public string Description
+		{
+			get
+			{
+				StringBuilder description = new StringBuilder(this.Name);
+				description.AppendLine();
+				description.AppendLine();
+				description.AppendLine(string.Format("Tu dois avoir au minimum un métier de niveau {0}.", MinimumGradeLevel));
+				description.AppendLine(string.Format("Vitesse: {0} à {1} cases par tour.", MinMovePerRound, MaxMovePerRound));
+				description.AppendLine(string.Format("Nombre de passagers: {0}", MaxPassengers));
+				description.AppendLine(string.Format("Retenue sur le gain de la mission: {0:N2}%", PercentCostPerMission));
+
+				return description.ToString();
+			}
+		}
 	}
 }

@@ -7,18 +7,108 @@
     <MaxPassengers>1</MaxPassengers>
     <MinMovePerRound>4</MinMovePerRound>
     <MinimumGradeLevel>1</MinimumGradeLevel>
-    <Name>Voiture TOTO</Name>
-    <PicturePath></PicturePath>
+    <Name>P10</Name>
+    <PercentCostPerMission>5.0</PercentCostPerMission>
+    <PicturePath>car_fireman1.jpg</PicturePath>
   </MissionVehicle>
   
   <MissionVehicle>
     <ForJobName>Pompier</ForJobName>
-    <MaxMovePerRound>10</MaxMovePerRound>
+    <MaxMovePerRound>6</MaxMovePerRound>
     <MaxPassengers>1</MaxPassengers>
+    <MinMovePerRound>2</MinMovePerRound>
+    <MinimumGradeLevel>1</MinimumGradeLevel>
+    <Name>G360</Name>
+    <PercentCostPerMission>10.0</PercentCostPerMission>
+    <PicturePath>truck_fireman1.jpg</PicturePath>
+  </MissionVehicle>
+
+  <MissionVehicle>
+    <ForJobName>Pompier</ForJobName>
+    <MaxMovePerRound>7</MaxMovePerRound>
+    <MaxPassengers>1</MaxPassengers>
+    <MinMovePerRound>3</MinMovePerRound>
+    <MinimumGradeLevel>1</MinimumGradeLevel>
+    <Name>GX340</Name>
+    <PercentCostPerMission>9.0</PercentCostPerMission>
+    <PicturePath>truck_fireman2.jpg</PicturePath>
+  </MissionVehicle>
+
+  <MissionVehicle>
+    <ForJobName>Policier</ForJobName>
+    <MaxMovePerRound>11</MaxMovePerRound>
+    <MaxPassengers>0</MaxPassengers>
     <MinMovePerRound>4</MinMovePerRound>
     <MinimumGradeLevel>1</MinimumGradeLevel>
-    <Name>Camion A</Name>
-    <PicturePath></PicturePath>
+    <Name>BRAMS C3</Name>
+    <PercentCostPerMission>5.0</PercentCostPerMission>
+    <PicturePath>auto_police01.jpg</PicturePath>
+  </MissionVehicle>
+
+  <MissionVehicle>
+    <ForJobName>Policier</ForJobName>
+    <MaxMovePerRound>10</MaxMovePerRound>
+    <MaxPassengers>1</MaxPassengers>
+    <MinMovePerRound>3</MinMovePerRound>
+    <MinimumGradeLevel>1</MinimumGradeLevel>
+    <Name>BRAMS C5</Name>
+    <PercentCostPerMission>6.0</PercentCostPerMission>
+    <PicturePath>auto_police02.jpg</PicturePath>
+  </MissionVehicle>
+
+  <MissionVehicle>
+    <ForJobName>Policier</ForJobName>
+    <MaxMovePerRound>25</MaxMovePerRound>
+    <MaxPassengers>0</MaxPassengers>
+    <MinMovePerRound>12</MinMovePerRound>
+    <MinimumGradeLevel>3</MinimumGradeLevel>
+    <Name>H108P</Name>
+    <PercentCostPerMission>25.0</PercentCostPerMission>
+    <PicturePath>helo_police1.jpg</PicturePath>
+  </MissionVehicle>
+
+  <MissionVehicle>
+    <ForJobName>Policier</ForJobName>
+    <MaxMovePerRound>23</MaxMovePerRound>
+    <MaxPassengers>0</MaxPassengers>
+    <MinMovePerRound>10</MinMovePerRound>
+    <MinimumGradeLevel>3</MinimumGradeLevel>
+    <Name>H130P</Name>
+    <PercentCostPerMission>24.0</PercentCostPerMission>
+    <PicturePath>helo_police2.jpg</PicturePath>
+  </MissionVehicle>
+
+  <MissionVehicle>
+    <ForJobName>Policier</ForJobName>
+    <MaxMovePerRound>8</MaxMovePerRound>
+    <MaxPassengers>2</MaxPassengers>
+    <MinMovePerRound>3</MinMovePerRound>
+    <MinimumGradeLevel>1</MinimumGradeLevel>
+    <Name>BRAMS V20</Name>
+    <PercentCostPerMission>9.0</PercentCostPerMission>
+    <PicturePath>van_police1.jpg</PicturePath>
+  </MissionVehicle>
+
+  <MissionVehicle>
+    <ForJobName>Policier</ForJobName>
+    <MaxMovePerRound>13</MaxMovePerRound>
+    <MaxPassengers>0</MaxPassengers>
+    <MinMovePerRound>6</MinMovePerRound>
+    <MinimumGradeLevel>2</MinimumGradeLevel>
+    <Name>SUZO S1000</Name>
+    <PercentCostPerMission>2.7</PercentCostPerMission>
+    <PicturePath>moto_police01.jpg</PicturePath>
+  </MissionVehicle>
+
+  <MissionVehicle>
+    <ForJobName>Policier</ForJobName>
+    <MaxMovePerRound>12</MaxMovePerRound>
+    <MaxPassengers>0</MaxPassengers>
+    <MinMovePerRound>5</MinMovePerRound>
+    <MinimumGradeLevel>2</MinimumGradeLevel>
+    <Name>SUZO S850</Name>
+    <PercentCostPerMission>2.3</PercentCostPerMission>
+    <PicturePath>moto_police02.jpg</PicturePath>
   </MissionVehicle>
 
 </ArrayOfMissionVehicle>

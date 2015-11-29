@@ -7,11 +7,15 @@ using System.Threading.Tasks;
 
 namespace Legopoly.Data.Items
 {
-    /// <summary>
-    /// A home, a house.
-    /// </summary>
-    [DataContract]
-    public class Home : ItemBase
-    {
-    }
+	/// <summary>
+	/// A home, a house.
+	/// </summary>
+	[DataContract]
+	public class Home : Building
+	{
+		public override string GetDisplayType()
+		{
+			return "Habitation";
+		}
+	}
 }

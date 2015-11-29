@@ -117,7 +117,7 @@ namespace Legopoly
 				Player player = new Player()
 				{
 					Name = "Damien",
-					Capital = 20000
+					Capital = this.game.PlayerData.DefaultCapital
 				};
 				player.Experiences.Empathy = 10;
 				player.Experiences.Creativity = 2;
@@ -130,7 +130,7 @@ namespace Legopoly
 				player = new Player()
 				{
 					Name = "Léa",
-					Capital = 20000
+					Capital = this.game.PlayerData.DefaultCapital
 				};
 				player.Experiences.Empathy = 2;
 				player.Experiences.Creativity = 10;
@@ -143,7 +143,7 @@ namespace Legopoly
 				player = new Player()
 				{
 					Name = "Frédéric",
-					Capital = 20000
+					Capital = this.game.PlayerData.DefaultCapital
 				};
 				player.Experiences.Empathy = 2;
 				player.Experiences.Creativity = 10;

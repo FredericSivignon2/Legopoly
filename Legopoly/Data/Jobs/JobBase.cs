@@ -96,6 +96,17 @@ namespace Legopoly.Data.Jobs
             }
         }
 
+		public int GradeLevel
+		{
+			get
+			{
+				if (grades == null)
+					return 0;
+
+				return this.grades[this.gradeNumber].Level;
+			}
+		}
+
 		public LPExperiences MinimalExperiences
 		{
 			get

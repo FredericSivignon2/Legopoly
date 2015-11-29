@@ -7,12 +7,12 @@ using System.Threading.Tasks;
 
 namespace Legopoly.Data.Items
 {
-    [DataContract]
-    public class Bicycle : Vehicle
-    {
+	[DataContract]
+	public class Factory : Building
+	{
 		public override string GetDisplayType()
 		{
-			return "Bicyclette";
+			return "Usine";
 		}
 	}
 }

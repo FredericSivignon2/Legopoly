@@ -42,8 +42,10 @@
 			this.labelnotes = new System.Windows.Forms.Label();
 			this.groupBoxData = new System.Windows.Forms.GroupBox();
 			this.groupBoxMove = new System.Windows.Forms.GroupBox();
-			this.listBoxVehicles = new System.Windows.Forms.ListBox();
 			this.pictureBox1 = new System.Windows.Forms.PictureBox();
+			this.listBoxVehicles = new System.Windows.Forms.ListBox();
+			this.textBoxDescription = new System.Windows.Forms.TextBox();
+			this.labelAccess = new System.Windows.Forms.Label();
 			this.groupBoxData.SuspendLayout();
 			this.groupBoxMove.SuspendLayout();
 			((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -61,7 +63,7 @@
 			// 
 			this.buttonCancel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
 			this.buttonCancel.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-			this.buttonCancel.Location = new System.Drawing.Point(769, 437);
+			this.buttonCancel.Location = new System.Drawing.Point(769, 566);
 			this.buttonCancel.Name = "buttonCancel";
 			this.buttonCancel.Size = new System.Drawing.Size(117, 23);
 			this.buttonCancel.TabIndex = 4;
@@ -120,7 +122,7 @@
 			// 
 			this.buttonMove.Image = global::Legopoly.Properties.Resources.dice_red;
 			this.buttonMove.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-			this.buttonMove.Location = new System.Drawing.Point(625, 82);
+			this.buttonMove.Location = new System.Drawing.Point(714, 68);
 			this.buttonMove.Name = "buttonMove";
 			this.buttonMove.Size = new System.Drawing.Size(154, 70);
 			this.buttonMove.TabIndex = 11;
@@ -133,7 +135,7 @@
 			// 
 			this.buttonSuccess.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
 			this.buttonSuccess.DialogResult = System.Windows.Forms.DialogResult.OK;
-			this.buttonSuccess.Location = new System.Drawing.Point(646, 437);
+			this.buttonSuccess.Location = new System.Drawing.Point(646, 566);
 			this.buttonSuccess.Name = "buttonSuccess";
 			this.buttonSuccess.Size = new System.Drawing.Size(117, 23);
 			this.buttonSuccess.TabIndex = 12;
@@ -153,7 +155,7 @@
 			// labelnotes
 			// 
 			this.labelnotes.AutoSize = true;
-			this.labelnotes.Location = new System.Drawing.Point(6, 220);
+			this.labelnotes.Location = new System.Drawing.Point(6, 349);
 			this.labelnotes.Name = "labelnotes";
 			this.labelnotes.Size = new System.Drawing.Size(865, 26);
 			this.labelnotes.TabIndex = 14;
@@ -178,8 +180,11 @@
 			// 
 			// groupBoxMove
 			// 
-			this.groupBoxMove.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+			this.groupBoxMove.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+			this.groupBoxMove.Controls.Add(this.labelAccess);
+			this.groupBoxMove.Controls.Add(this.textBoxDescription);
 			this.groupBoxMove.Controls.Add(this.pictureBox1);
 			this.groupBoxMove.Controls.Add(this.listBoxVehicles);
 			this.groupBoxMove.Controls.Add(this.labelChoose);
@@ -187,32 +192,52 @@
 			this.groupBoxMove.Controls.Add(this.labelnotes);
 			this.groupBoxMove.Location = new System.Drawing.Point(12, 182);
 			this.groupBoxMove.Name = "groupBoxMove";
-			this.groupBoxMove.Size = new System.Drawing.Size(874, 249);
+			this.groupBoxMove.Size = new System.Drawing.Size(874, 378);
 			this.groupBoxMove.TabIndex = 16;
 			this.groupBoxMove.TabStop = false;
 			this.groupBoxMove.Text = "Déplacements";
 			// 
-			// listBoxVehicles
-			// 
-			this.listBoxVehicles.FormattingEnabled = true;
-			this.listBoxVehicles.Location = new System.Drawing.Point(15, 44);
-			this.listBoxVehicles.Name = "listBoxVehicles";
-			this.listBoxVehicles.Size = new System.Drawing.Size(241, 147);
-			this.listBoxVehicles.TabIndex = 15;
-			// 
 			// pictureBox1
 			// 
+			this.pictureBox1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
 			this.pictureBox1.Location = new System.Drawing.Point(263, 44);
 			this.pictureBox1.Name = "pictureBox1";
 			this.pictureBox1.Size = new System.Drawing.Size(200, 150);
 			this.pictureBox1.TabIndex = 16;
 			this.pictureBox1.TabStop = false;
 			// 
+			// listBoxVehicles
+			// 
+			this.listBoxVehicles.FormattingEnabled = true;
+			this.listBoxVehicles.Location = new System.Drawing.Point(15, 44);
+			this.listBoxVehicles.Name = "listBoxVehicles";
+			this.listBoxVehicles.Size = new System.Drawing.Size(241, 290);
+			this.listBoxVehicles.TabIndex = 15;
+			this.listBoxVehicles.SelectedIndexChanged += new System.EventHandler(this.listBoxVehicles_SelectedIndexChanged);
+			// 
+			// textBoxDescription
+			// 
+			this.textBoxDescription.Location = new System.Drawing.Point(263, 201);
+			this.textBoxDescription.Multiline = true;
+			this.textBoxDescription.Name = "textBoxDescription";
+			this.textBoxDescription.ReadOnly = true;
+			this.textBoxDescription.Size = new System.Drawing.Size(200, 133);
+			this.textBoxDescription.TabIndex = 17;
+			// 
+			// labelAccess
+			// 
+			this.labelAccess.Location = new System.Drawing.Point(469, 44);
+			this.labelAccess.Name = "labelAccess";
+			this.labelAccess.Size = new System.Drawing.Size(399, 21);
+			this.labelAccess.TabIndex = 18;
+			this.labelAccess.Text = "Sélectionnes un véhicule avant de te déplacer...";
+			this.labelAccess.TextAlign = System.Drawing.ContentAlignment.TopRight;
+			// 
 			// FormMission
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-			this.ClientSize = new System.Drawing.Size(898, 472);
+			this.ClientSize = new System.Drawing.Size(898, 601);
 			this.ControlBox = false;
 			this.Controls.Add(this.groupBoxMove);
 			this.Controls.Add(this.groupBoxData);
@@ -250,5 +275,7 @@
 		private System.Windows.Forms.GroupBox groupBoxMove;
 		private System.Windows.Forms.ListBox listBoxVehicles;
 		private System.Windows.Forms.PictureBox pictureBox1;
+		private System.Windows.Forms.TextBox textBoxDescription;
+		private System.Windows.Forms.Label labelAccess;
 	}
 }

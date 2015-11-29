@@ -340,5 +340,16 @@ namespace Legopoly
 			targetPlayer.Items.Add(item);
 			targetPlayer.Capital -= item.CurrentCost;
 		}
+
+		private void buttonThief_Click(object sender, EventArgs e)
+		{
+			using (FormThief form = new FormThief(this.game, this.player))
+			{
+				if (form.ShowDialog(this) == DialogResult.OK)
+				{
+
+				}
+			}
+		}
 	}
 }
