@@ -32,9 +32,10 @@
 			this.labelNotes = new System.Windows.Forms.Label();
 			this.labelSelection = new System.Windows.Forms.Label();
 			this.labelType = new System.Windows.Forms.Label();
-			this.comboBox1 = new System.Windows.Forms.ComboBox();
-			this.userControlItems2 = new Legopoly.UserControlItems();
+			this.comboBoxThiefType = new System.Windows.Forms.ComboBox();
+			this.userControlItems1 = new Legopoly.UserControlItems();
 			this.buttonThief = new System.Windows.Forms.Button();
+			this.labelDescription = new System.Windows.Forms.Label();
 			this.SuspendLayout();
 			// 
 			// labelNotes
@@ -65,22 +66,23 @@
 			this.labelType.TabIndex = 3;
 			this.labelType.Text = "Sélectionnes le type de vol que tu veux perpétrer:";
 			// 
-			// comboBox1
+			// comboBoxThiefType
 			// 
-			this.comboBox1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-			this.comboBox1.FormattingEnabled = true;
-			this.comboBox1.Location = new System.Drawing.Point(16, 82);
-			this.comboBox1.Name = "comboBox1";
-			this.comboBox1.Size = new System.Drawing.Size(293, 21);
-			this.comboBox1.TabIndex = 4;
+			this.comboBoxThiefType.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+			this.comboBoxThiefType.FormattingEnabled = true;
+			this.comboBoxThiefType.Location = new System.Drawing.Point(16, 82);
+			this.comboBoxThiefType.Name = "comboBoxThiefType";
+			this.comboBoxThiefType.Size = new System.Drawing.Size(293, 21);
+			this.comboBoxThiefType.TabIndex = 4;
+			this.comboBoxThiefType.SelectedIndexChanged += new System.EventHandler(this.comboBoxThiefType_SelectedIndexChanged);
 			// 
 			// userControlItems2
 			// 
-			this.userControlItems2.Items = new Legopoly.Data.Items.ItemBase[0];
-			this.userControlItems2.Location = new System.Drawing.Point(16, 145);
-			this.userControlItems2.Name = "userControlItems2";
-			this.userControlItems2.Size = new System.Drawing.Size(700, 398);
-			this.userControlItems2.TabIndex = 5;
+			this.userControlItems1.Items = new Legopoly.Data.Items.ItemBase[0];
+			this.userControlItems1.Location = new System.Drawing.Point(16, 145);
+			this.userControlItems1.Name = "userControlItems2";
+			this.userControlItems1.Size = new System.Drawing.Size(700, 398);
+			this.userControlItems1.TabIndex = 5;
 			// 
 			// buttonThief
 			// 
@@ -93,14 +95,23 @@
 			this.buttonThief.Text = "    Voler !";
 			this.buttonThief.UseVisualStyleBackColor = true;
 			// 
+			// labelDescription
+			// 
+			this.labelDescription.Location = new System.Drawing.Point(315, 82);
+			this.labelDescription.Name = "labelDescription";
+			this.labelDescription.Size = new System.Drawing.Size(398, 46);
+			this.labelDescription.TabIndex = 7;
+			this.labelDescription.Text = "Description...";
+			// 
 			// FormThief
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
 			this.ClientSize = new System.Drawing.Size(725, 644);
+			this.Controls.Add(this.labelDescription);
 			this.Controls.Add(this.buttonThief);
-			this.Controls.Add(this.userControlItems2);
-			this.Controls.Add(this.comboBox1);
+			this.Controls.Add(this.userControlItems1);
+			this.Controls.Add(this.comboBoxThiefType);
 			this.Controls.Add(this.labelType);
 			this.Controls.Add(this.labelSelection);
 			this.Controls.Add(this.labelNotes);
@@ -109,6 +120,7 @@
 			this.MaximizeBox = false;
 			this.MinimizeBox = false;
 			this.Name = "FormThief";
+			this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
 			this.Text = "Voler";
 			this.ResumeLayout(false);
 			this.PerformLayout();
@@ -121,8 +133,8 @@
 		private System.Windows.Forms.Label labelSelection;
 		private UserControlItems userControlItems1;
 		private System.Windows.Forms.Label labelType;
-		private System.Windows.Forms.ComboBox comboBox1;
-		private UserControlItems userControlItems2;
+		private System.Windows.Forms.ComboBox comboBoxThiefType;
 		private System.Windows.Forms.Button buttonThief;
+		private System.Windows.Forms.Label labelDescription;
 	}
 }

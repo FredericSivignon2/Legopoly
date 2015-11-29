@@ -1,5 +1,6 @@
 ﻿using FoundationLibraries.Xml;
 using Legopoly.Data;
+using Legopoly.Data.Items;
 using Legopoly.Data.Thiefs;
 using System;
 using System.Collections.Generic;
@@ -47,8 +48,31 @@ namespace Legopoly
 
 			foreach (Thief thief in this._thiefs)
 			{
-				this.comboBox1.Items.Add(thief);
+				this.comboBoxThiefType.Items.Add(thief);
 			}
+			this.comboBoxThiefType.SelectedIndex = 0;
+
+			// Items
+			ItemBase[] items = ItemBase.GetAllItems();
+			this.userControlItems1.Items = items;
+		}
+
+		private void UpdateThiefDescription()
+		{
+			Thief thief = this.comboBoxThiefType.SelectedItem as Thief;
+			if (thief == null)
+			{
+				this.labelDescription.Text = string.Empty;
+				return;
+			}
+			this.labelDescription.Text = thief.Description;
+		}
+		#endregion
+
+		#region Event Handlers
+		private void comboBoxThiefType_SelectedIndexChanged(object sender, EventArgs e)
+		{
+			UpdateThiefDescription();
 		}
 		#endregion
 	}

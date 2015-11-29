@@ -14,22 +14,13 @@ namespace Legopoly.Parameters
     [DataContract]
     public class Shop
     {
-		private const string itemsDataFilePath = "items_data.xml";
-
+		
         /// <summary>
         /// 
         /// </summary>
         public Shop()
         {
-			try
-			{
-				ItemBase[] items = XmlSerializationHelper.HelperUTF8.FromFile<ItemBase[]>(DataFilePath);
-				Items.AddRange(items);
-			}
-			catch (Exception exp)
-			{
-				LPMessageBox.ShowError("Impossible de charger le magasin en mémoire.\r\nVérifiez la validité du fichier: " + DataFilePath);
-			}
+			Items.AddRange(ItemBase.GetAllItems());
 
 			//string str = XmlSerializationHelper.HelperUTF8.ToString<ItemBase[]>(this.Items.ToArray<ItemBase>());
 			
@@ -42,14 +33,5 @@ namespace Legopoly.Parameters
 
         [DataMember]
         public List<ItemBase> Items { get; set; } = new List<ItemBase>();
-
-
-		private static string DataFilePath
-		{
-			get
-			{
-				return Path.Combine(AppDomain.CurrentDomain.BaseDirectory, itemsDataFilePath);
-			}
-		}
 	}
 }

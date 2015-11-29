@@ -31,8 +31,8 @@
 
   <Thief>
     <Description>Vol d'une banque.</Description>
-    <Name>Vol </Name>
-    <PercentRisk>70.0</PercentRisk>
+    <Name>Vol d'une banque, pour voleur très expérimenté uniquement !!!</Name>
+    <PercentRisk>95.0</PercentRisk>
     <StoleItem>false</StoleItem>
   </Thief>
   

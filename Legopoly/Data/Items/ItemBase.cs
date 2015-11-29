@@ -1,6 +1,7 @@
 ﻿using FoundationLibraries.Xml;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Runtime.Serialization;
 using System.Text;
@@ -18,6 +19,8 @@ namespace Legopoly.Data.Items
     [DataContract]
     public class ItemBase
     {
+		private const string itemsDataFilePath = "items_data.xml";
+		
 		#region Public Properties
 		/// <summary>
 		/// Gets or sets the item name.
@@ -81,6 +84,28 @@ namespace Legopoly.Data.Items
 			string serializedObj = XmlSerializationHelper.HelperUTF8.ToString(type, this);
 
 			return (ItemBase)XmlSerializationHelper.HelperUTF8.FromString(serializedObj, type);
+		}
+
+		public static ItemBase[] GetAllItems()
+		{
+			try
+			{
+				ItemBase[] items = XmlSerializationHelper.HelperUTF8.FromFile<ItemBase[]>(DataFilePath);
+				return items;
+			}
+			catch (Exception exp)
+			{
+				LPMessageBox.ShowError("Impossible de charger la liste des items en mémoire.\r\nVérifiez la validité du fichier: " + DataFilePath, exp);
+				return new ItemBase[0];
+			}
+		}
+
+		private static string DataFilePath
+		{
+			get
+			{
+				return Path.Combine(AppDomain.CurrentDomain.BaseDirectory, itemsDataFilePath);
+			}
 		}
 	}
 }
