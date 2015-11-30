@@ -73,20 +73,27 @@ namespace Legopoly
 		#region Private Methods
 		private void UpdateInfoDisplay()
 		{
-			this.listViewHeritage.Items.Clear();
-			this.listViewHeritage.Columns.Clear();
-
-			if (this.items == null || this.items.Count == 0)
-				return;
-
-			this.listViewHeritage.Columns.Add("Nom", 220);
-			this.listViewHeritage.Columns.Add("Type", 150);
-
-			foreach (ItemBase item in this.items)
+			this.listViewHeritage.BeginUpdate();
+			try
 			{
-				AddListViewItem(item);
-			}
+				this.listViewHeritage.Items.Clear();
+				this.listViewHeritage.Columns.Clear();
 
+				if (this.items == null || this.items.Count == 0)
+					return;
+
+				this.listViewHeritage.Columns.Add("Nom", 220);
+				this.listViewHeritage.Columns.Add("Type", 150);
+
+				foreach (ItemBase item in this.items)
+				{
+					AddListViewItem(item);
+				}
+			}
+			finally
+			{
+				this.listViewHeritage.EndUpdate();
+			}
 		}
 
 		private void AddListViewItem(ItemBase itemBase)

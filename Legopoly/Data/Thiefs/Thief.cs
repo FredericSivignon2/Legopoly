@@ -23,6 +23,12 @@ namespace Legopoly.Data.Thiefs
 		public double PercentRisk { get; set; }
 
 		/// <summary>
+		/// If true, this Thief represents a bank holdup
+		/// </summary>
+		[DataMember]
+		public bool BankHoldUp { get; set; }
+
+		/// <summary>
 		/// If true, it means that the entire item will be stolen. Meaning that, if this
 		/// item belongs to another player, this player loose it. Otherwise, if false but
 		/// the item also belongs to a user, this user loose the money win by the thief

@@ -9,14 +9,20 @@ using System.Threading.Tasks;
 
 namespace Legopoly.Data.Items
 {
-    [KnownType(typeof(Home))]
-    [KnownType(typeof(Building))]
-    [KnownType(typeof(Vehicle))]
-    [KnownType(typeof(Bicycle))]
-    [KnownType(typeof(Car))]
-    [KnownType(typeof(Truck))]
 	[KnownType(typeof(ATC))]
-    [DataContract]
+	[KnownType(typeof(Bank))]
+	[KnownType(typeof(Bicycle))]
+	[KnownType(typeof(Building))]
+	[KnownType(typeof(Car))]
+	[KnownType(typeof(Factory))]
+	[KnownType(typeof(Home))]
+	[KnownType(typeof(Motorbike))]
+	[KnownType(typeof(MotorVehicle))]
+	[KnownType(typeof(Restaurant))]
+	[KnownType(typeof(Shop))]
+	[KnownType(typeof(Truck))]
+	[KnownType(typeof(Vehicle))]
+	[DataContract]
     public class ItemBase
     {
 		private const string itemsDataFilePath = "items_data.xml";

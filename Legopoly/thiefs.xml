@@ -2,6 +2,7 @@
 <ArrayOfThief xmlns:i="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://schemas.datacontract.org/2004/07/Legopoly.Data.Thiefs">
   
   <Thief>
+    <BankHoldUp>false</BankHoldUp>
     <Description>Vol rapide où tu prends l'argent ou les bijoux que tu trouves dans l'endroit sélectionné, sans trainer sur les lieux.</Description>
     <Name>Vol rapide d'argent ou de bijoux</Name>
     <PercentRisk>2.0</PercentRisk>
@@ -9,6 +10,7 @@
   </Thief>
   
   <Thief>
+    <BankHoldUp>false</BankHoldUp>
     <Description>Vol d'une bicyclette, d'une moto, d'un ATC, d'une voiture ou d'un camion.</Description>
     <Name>Vol d'un véhicule</Name>
     <PercentRisk>8.0</PercentRisk>
@@ -16,22 +18,25 @@
   </Thief>
   
   <Thief>
+    <BankHoldUp>false</BankHoldUp>
     <Description>Vol long où tu prends l'argent ou les bijoux que tu trouves dans l'endroit sélectionné en recherchant dans tous les endroits du lieu.</Description>
     <Name>Vol d'argent ou de bijoux avec fouille complète</Name>
-    <PercentRisk>15.0</PercentRisk>
+    <PercentRisk>30.0</PercentRisk>
     <StoleItem>false</StoleItem>
   </Thief>
   
   <Thief>
+    <BankHoldUp>false</BankHoldUp>
     <Description>Vol long où tu prends l'argent, les bijoux mais aussi du mobilier, des ordinateurs etc. que tu trouves dans l'endroit sélectionné.</Description>
     <Name>Vol de gros volumes de biens</Name>
-    <PercentRisk>30.0</PercentRisk>
+    <PercentRisk>60.0</PercentRisk>
     <StoleItem>false</StoleItem>
   </Thief>
 
   <Thief>
-    <Description>Vol d'une banque.</Description>
-    <Name>Vol d'une banque, pour voleur très expérimenté uniquement !!!</Name>
+    <BankHoldUp>true</BankHoldUp>
+    <Description>Vol d'une banque. Pour voleur très expérimenté uniquement !!!</Description>
+    <Name>Vol d'une banque</Name>
     <PercentRisk>95.0</PercentRisk>
     <StoleItem>false</StoleItem>
   </Thief>

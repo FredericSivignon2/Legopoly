@@ -23,6 +23,7 @@ namespace Legopoly
 		private bool movedPerformed = false;
 		private bool schoolPerformed = false;
 		private bool gamePerformed = false;
+		private bool thiefPerformed = false;
 		#endregion
 
 		#region Constructors
@@ -60,7 +61,7 @@ namespace Legopoly
 				}
 
 				UpdateCapitalDisplay();
-				this.userControlItems1.Items = this.player.Items.ToArray<ItemBase>();
+				UpdatePlayerItemList();
 				UpdateExperiencePoints();
 				UpdateJobInfo();
 				UpdatePlayerState();
@@ -82,6 +83,11 @@ namespace Legopoly
 			}
         }
 
+		private void UpdatePlayerItemList()
+		{
+			this.userControlItems1.Items = this.player.Items.ToArray<ItemBase>();
+		}
+
 		private void UpdatePlayerState()
 		{
 			this.progressBarTiredness.Minimum = 0;
@@ -101,15 +107,26 @@ namespace Legopoly
             this.textBoxFitness.Text = string.Format("{0,10:N0}", this.player.Experiences.PhysicalFitness);
             this.textBoxManagement.Text = string.Format("{0,10:N0}", this.player.Experiences.ManagerialSkills);
             this.textBoxScientific.Text = string.Format("{0,10:N0}", this.player.Experiences.Scientific);
+			this.textBoxThief.Text = string.Format("{0,10:N0}", this.player.Experiences.Thief);
         }
 
         private void UpdateJobInfo()
         {
-			this.labelName.Text = string.Format("{0}, {1}", this.player.Name,
-				this.player.Job == null ? "Inactif" : this.player.Job.Name);
-			this.labelGrade.Text = this.player.Job == null ? string.Empty : this.player.Job.GradeName;
-			this.pictureBoxJob.Image = this.player.Job == null ? null : this.player.Job.Image;
-			this.textBoxSalary.Text = string.Format("{0:C2}", this.player.Job.SalaryPerRound * this.game.JobData.SalaryFactor);
+			if (this.player.JailDays > 0)
+			{
+				this.labelName.Text = string.Format("{0}, EN PRISON !", this.player.Name);
+				this.labelGrade.Text = string.Empty;
+				this.pictureBoxJob.Image = global::Legopoly.Properties.Resources.robber_128;
+				this.textBoxSalary.Text = "0.00 €";
+            }
+			else
+			{
+				this.labelName.Text = string.Format("{0}, {1}", this.player.Name,
+					this.player.Job == null ? "Inactif" : this.player.Job.Name);
+				this.labelGrade.Text = this.player.Job == null ? string.Empty : this.player.Job.GradeName;
+				this.pictureBoxJob.Image = this.player.Job == null ? null : this.player.Job.Image;
+				this.textBoxSalary.Text = string.Format("{0:C2}", this.player.Job.SalaryPerRound * this.game.JobData.SalaryFactor);
+			}
 		}
 
 		private void buttonChangeJob_Click(object sender, EventArgs e)
@@ -195,12 +212,28 @@ namespace Legopoly
 
 		private void UpdateButtonsEnable()
 		{
-			if (this.missionPerformed || this.movedPerformed || this.schoolPerformed || this.gamePerformed)
+			if (this.player.JailDays > 0)
+			{
+				this.groupBoxHeritage.Enabled = false;
+				this.groupBoxIdentification.Enabled = false;
+				this.radioButtonOffWork.Enabled = false;
+				this.groupBoxState.Enabled = false;
+				this.buttonSleep.Enabled = false;
+				this.buttonMove.Enabled = false;
+				this.buttonMission.Enabled = false;
+				this.buttonSchool.Enabled = false;
+				this.buttonGame.Enabled = false;
+				this.buttonThief.Enabled = false;
+				return;
+			}
+
+			if (this.missionPerformed || this.movedPerformed || this.schoolPerformed || this.gamePerformed || this.thiefPerformed)
 			{
 				this.buttonMove.Enabled = false;
 				this.buttonMission.Enabled = false;
 				this.buttonSchool.Enabled = false;
 				this.buttonGame.Enabled = false;
+				this.buttonThief.Enabled = false;
                 return;
 			}
 
@@ -208,6 +241,7 @@ namespace Legopoly
 			this.buttonSchool.Enabled = !this.radioButtonWorking.Checked;
 			this.buttonGame.Enabled = !this.radioButtonWorking.Checked;
 			this.buttonSleep.Enabled = !this.radioButtonWorking.Checked;
+			this.buttonThief.Enabled = !this.radioButtonWorking.Checked;
 		}
 
 		private void buttonStopGame_Click(object sender, EventArgs e)
@@ -347,8 +381,24 @@ namespace Legopoly
 			{
 				if (form.ShowDialog(this) == DialogResult.OK)
 				{
+					this.thiefPerformed = true;
+                    UpdateExperiencePoints();
+					UpdateCapitalDisplay();
+					UpdateButtonsEnable();
+					UpdatePlayerItemList();
+                }
+			}
+		}
 
-				}
+		private void FormPlay_Shown(object sender, EventArgs e)
+		{
+			if (this.player.JailDays > 0)
+			{
+				if (this.player.JailDays == 1)
+					LPMessageBox.ShowExclamation("Tu es en prison, passes ton tour.\r\n\r\nIl te reste 1 tour à passer en prison.");
+				else
+					LPMessageBox.ShowExclamation(string.Format(
+						"Tu es en prison, passes ton tour.\r\n\r\nIl te reste {0} tours à passer en prison.", this.player.JailDays));
 			}
 		}
 	}

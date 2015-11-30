@@ -23,6 +23,9 @@ namespace Legopoly
 		private Game _game;
 		private Player _player;
 		private Thief[] _thiefs;
+		private ItemBase[] _items;
+		private int _jailDelay = 0;
+		private double _fine = 0.0;
 		#endregion
 
 		#region Constructor
@@ -36,9 +39,29 @@ namespace Legopoly
 		}
 		#endregion
 
+		#region Public Properties
+		public int JailDelay
+		{
+			get
+			{
+				return this._jailDelay;
+			}
+		}
+
+		public double Fine
+		{
+			get
+			{
+				return this._fine;
+			}
+		}
+		#endregion
+
 		#region Private Methods
 		private void InitializeFormContent()
 		{
+			this._items = ItemBase.GetAllItems();
+
 			// Load Thief file
 			string filePath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, thiefFileName);
 			if (File.Exists(filePath) == false)
@@ -52,9 +75,6 @@ namespace Legopoly
 			}
 			this.comboBoxThiefType.SelectedIndex = 0;
 
-			// Items
-			ItemBase[] items = ItemBase.GetAllItems();
-			this.userControlItems1.Items = items;
 		}
 
 		private void UpdateThiefDescription()
@@ -67,13 +87,172 @@ namespace Legopoly
 			}
 			this.labelDescription.Text = thief.Description;
 		}
+
+		private void UpdateItemDisplay()
+		{
+			List<ItemBase> items = new List<ItemBase>(this._items.Length);
+			Thief thief = this.comboBoxThiefType.SelectedItem as Thief;
+
+			foreach (ItemBase item in this._items)
+			{
+				Type itemType = item.GetType();
+
+				if (thief.StoleItem)
+				{
+					if (itemType.IsSubclassOf(typeof(Vehicle)))
+						items.Add(item);
+				}
+				else
+					if (thief.BankHoldUp)
+					{
+					if (item is Bank)
+						items.Add(item);
+				}
+					else
+					{
+						items.Add(item);
+					}
+			}
+			this.userControlItems1.Items = items.ToArray<ItemBase>();
+		}
 		#endregion
 
 		#region Event Handlers
 		private void comboBoxThiefType_SelectedIndexChanged(object sender, EventArgs e)
 		{
 			UpdateThiefDescription();
+			UpdateItemDisplay();
 		}
+
+		private void buttonThief_Click(object sender, EventArgs e)
+		{
+			Thief thief = this.comboBoxThiefType.SelectedItem as Thief;
+			if (thief == null)
+				return;
+
+			ItemBase item = this.userControlItems1.SelectedItem;
+			if (item == null)
+				return;
+
+			double percentRisk = thief.PercentRisk - (double)this._player.Experiences.Thief;
+			if (percentRisk < 2.0)
+				percentRisk = 2.0;
+
+			int random = this._game.GetRandomNumber(0, 100);
+			if (random <= Math.Round(percentRisk))
+			{
+				ComputeCatchedValues();
+
+				LPMessageBox.ShowExclamation(string.Format(
+					"Tu t'es fait attraper ! Va en prison pour '{0}' tours.\r\n\r\nTu dois également payer {1:C2}.",
+					this._jailDelay, this._fine));
+
+				this._player.Capital -= this._fine;
+				this._player.JailDays = this._jailDelay;
+			}
+			else
+			{
+				double stolenMoney = GetStolenMoney(item, thief);
+				bool playerProcessed = false;
+
+				// Go through all players to see if they have to be stolen or not
+				foreach (Player player in this._game.Players)
+				{
+					if (player.Name == this._player.Name)
+						continue;
+
+					if (player.IsOwning(item))
+					{
+						if (thief.StoleItem)
+						{
+							player.Items.Remove(item);
+							this._player.Items.Add(item);
+							playerProcessed = true;
+							LPMessageBox.ShowMessage(string.Format("Tu as dérobé '{0}' à {1} !", item.Name, player.Name));
+							break;
+						}
+						else
+						{
+							LPMessageBox.ShowMessage(string.Format("Tu as dérobé {0:C2} à {1} !", stolenMoney, player.Name));
+							player.Capital -= stolenMoney;
+							this._player.Capital += stolenMoney;
+							playerProcessed = true;
+							break;
+						}
+					}
+				}
+
+				if (playerProcessed == false)
+				{
+					if (thief.StoleItem)
+					{
+						this._player.Items.Add(item);
+						LPMessageBox.ShowMessage(string.Format("Tu as volé '{0}' !", item.Name));
+					}
+					else
+					{
+						LPMessageBox.ShowMessage(string.Format("Tu as dérobé {0:C2} !", stolenMoney));
+						this._player.Capital += stolenMoney;
+					}
+				}
+
+			}
+
+			this._player.Experiences.Thief++;
+			this.DialogResult = DialogResult.OK;
+		}
+
+		private double GetStolenMoney(ItemBase item, Thief thief)
+		{
+			int maxRatio = Convert.ToInt32(10.0 * thief.PercentRisk);
+
+			int ratio = this._game.GetRandomNumber(1, maxRatio);
+			double money = item.InitialCost * ratio / 5000;
+
+			return money;
+		}
+
+		private void ComputeCatchedValues()
+		{
+			if (this._player.Experiences.Thief == 0)
+			{
+				this._jailDelay = 2;
+				this._fine = 0.0;
+				return;
+			}
+
+			if (this._player.Experiences.Thief < 5)
+			{
+				this._jailDelay = 3;
+				this._fine = 500.0;
+				return;
+			}
+
+			if (this._player.Experiences.Thief < 10)
+			{
+				this._jailDelay = 4;
+				this._fine = 1000.0;
+				return;
+			}
+
+			if (this._player.Experiences.Thief < 20)
+			{
+				this._jailDelay = 8;
+				this._fine = 10000.0;
+				return;
+			}
+
+			if (this._player.Experiences.Thief < 40)
+			{
+				this._jailDelay = 10;
+				this._fine = 20000.0;
+				return;
+			}
+
+			this._fine = 50000.0;
+			this._jailDelay = 20;
+		}
+
 		#endregion
 	}
 }

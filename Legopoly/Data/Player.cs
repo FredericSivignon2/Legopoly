@@ -22,6 +22,7 @@ namespace Legopoly.Data
 		private int workingRoundLeft = 0;
 		private double capital = 10000.0;
 		private JobBase job;
+		private int jailDays = 0;
 		#endregion
 
 		#region Constructors
@@ -63,10 +64,10 @@ namespace Legopoly.Data
 		public LPExperiences Experiences { get; set; } = new LPExperiences();
 
 		[DataMember]
-		public List<ItemBase> Items
+		public ItemBaseCollection Items
 		{
 			get; private set;
-		} = new List<ItemBase>();
+		} = new ItemBaseCollection();
 		/// <summary>
 		/// Gets or sets the player Job
 		/// </summary>
@@ -124,7 +125,31 @@ namespace Legopoly.Data
 				this.workingRoundLeft = value;
 			}
 		}
+
+		[DataMember]
+		public int JailDays
+		{
+			get
+			{
+				return this.jailDays;
+            }
+			set
+			{
+				this.jailDays = value;
+            }
+		}
 		#endregion
+
+		public bool IsOwning(ItemBase item)
+		{
+			foreach (ItemBase curItem in this.Items)
+			{
+				if (curItem.Name == item.Name)
+					return true;
+			}
+
+			return false;
+		}
 
 		public void Sleep(Game game)
 		{
@@ -145,7 +170,7 @@ namespace Legopoly.Data
 
 		public void ProcessEndOfRound()
 		{
-			if (this.Working && this.Job != null)
+			if (this.Working && this.Job != null && this.jailDays == 0)
 			{
 				this.Capital += this.Job.SalaryPerRound * this.game.JobData.SalaryFactor;
 				int gainCreativity = this.game.GetRandomNumber(0, this.Job.MaxExperiencesGainPerRound.Creativity + 1);
@@ -170,6 +195,11 @@ namespace Legopoly.Data
 
 				item.CurrentCost -= item.CostLostPerRound;
             }
+
+			if (this.jailDays > 0)
+			{
+				this.jailDays--;
+			}
 		}
 
 		public override string ToString()

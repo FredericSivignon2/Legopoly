@@ -42,6 +42,8 @@
 			this.labeltiredness = new System.Windows.Forms.Label();
 			this.progressBarTiredness = new System.Windows.Forms.ProgressBar();
 			this.groupBox1 = new System.Windows.Forms.GroupBox();
+			this.textBoxThief = new System.Windows.Forms.TextBox();
+			this.labelThief = new System.Windows.Forms.Label();
 			this.label1 = new System.Windows.Forms.Label();
 			this.label3 = new System.Windows.Forms.Label();
 			this.label4 = new System.Windows.Forms.Label();
@@ -184,9 +186,9 @@
 			// 
 			this.groupBoxState.Controls.Add(this.labeltiredness);
 			this.groupBoxState.Controls.Add(this.progressBarTiredness);
-			this.groupBoxState.Location = new System.Drawing.Point(985, 20);
+			this.groupBoxState.Location = new System.Drawing.Point(985, 17);
 			this.groupBoxState.Name = "groupBoxState";
-			this.groupBoxState.Size = new System.Drawing.Size(179, 243);
+			this.groupBoxState.Size = new System.Drawing.Size(179, 246);
 			this.groupBoxState.TabIndex = 32;
 			this.groupBoxState.TabStop = false;
 			this.groupBoxState.Text = "Etat";
@@ -209,6 +211,8 @@
 			// 
 			// groupBox1
 			// 
+			this.groupBox1.Controls.Add(this.textBoxThief);
+			this.groupBox1.Controls.Add(this.labelThief);
 			this.groupBox1.Controls.Add(this.label1);
 			this.groupBox1.Controls.Add(this.label3);
 			this.groupBox1.Controls.Add(this.label4);
@@ -225,6 +229,23 @@
 			this.groupBox1.TabIndex = 31;
 			this.groupBox1.TabStop = false;
 			this.groupBox1.Text = "Expériences Cumulée";
+			// 
+			// textBoxThief
+			// 
+			this.textBoxThief.Location = new System.Drawing.Point(501, 59);
+			this.textBoxThief.Name = "textBoxThief";
+			this.textBoxThief.ReadOnly = true;
+			this.textBoxThief.Size = new System.Drawing.Size(77, 20);
+			this.textBoxThief.TabIndex = 26;
+			// 
+			// labelThief
+			// 
+			this.labelThief.AutoSize = true;
+			this.labelThief.Location = new System.Drawing.Point(398, 62);
+			this.labelThief.Name = "labelThief";
+			this.labelThief.Size = new System.Drawing.Size(40, 13);
+			this.labelThief.TabIndex = 25;
+			this.labelThief.Text = "Voleur:";
 			// 
 			// label1
 			// 
@@ -539,6 +560,7 @@
 			this.Name = "FormPlay";
 			this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
 			this.Text = "Tour";
+			this.Shown += new System.EventHandler(this.FormPlay_Shown);
 			this.groupBoxHeritage.ResumeLayout(false);
 			this.groupBoxHeritage.PerformLayout();
 			((System.ComponentModel.ISupportInitialize)(this.pictureBoxCapital)).EndInit();
@@ -597,5 +619,7 @@
 		private System.Windows.Forms.Button buttonSleep;
 		private System.Windows.Forms.Button buttonSaleTo;
 		private System.Windows.Forms.Button buttonThief;
+		private System.Windows.Forms.TextBox textBoxThief;
+		private System.Windows.Forms.Label labelThief;
 	}
 }

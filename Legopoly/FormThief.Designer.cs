@@ -36,6 +36,7 @@
 			this.userControlItems1 = new Legopoly.UserControlItems();
 			this.buttonThief = new System.Windows.Forms.Button();
 			this.labelDescription = new System.Windows.Forms.Label();
+			this.buttonCancel = new System.Windows.Forms.Button();
 			this.SuspendLayout();
 			// 
 			// labelNotes
@@ -76,11 +77,11 @@
 			this.comboBoxThiefType.TabIndex = 4;
 			this.comboBoxThiefType.SelectedIndexChanged += new System.EventHandler(this.comboBoxThiefType_SelectedIndexChanged);
 			// 
-			// userControlItems2
+			// userControlItems1
 			// 
 			this.userControlItems1.Items = new Legopoly.Data.Items.ItemBase[0];
 			this.userControlItems1.Location = new System.Drawing.Point(16, 145);
-			this.userControlItems1.Name = "userControlItems2";
+			this.userControlItems1.Name = "userControlItems1";
 			this.userControlItems1.Size = new System.Drawing.Size(700, 398);
 			this.userControlItems1.TabIndex = 5;
 			// 
@@ -88,12 +89,13 @@
 			// 
 			this.buttonThief.Image = global::Legopoly.Properties.Resources.robber;
 			this.buttonThief.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-			this.buttonThief.Location = new System.Drawing.Point(512, 549);
+			this.buttonThief.Location = new System.Drawing.Point(306, 549);
 			this.buttonThief.Name = "buttonThief";
 			this.buttonThief.Size = new System.Drawing.Size(201, 83);
 			this.buttonThief.TabIndex = 6;
 			this.buttonThief.Text = "    Voler !";
 			this.buttonThief.UseVisualStyleBackColor = true;
+			this.buttonThief.Click += new System.EventHandler(this.buttonThief_Click);
 			// 
 			// labelDescription
 			// 
@@ -103,11 +105,24 @@
 			this.labelDescription.TabIndex = 7;
 			this.labelDescription.Text = "Description...";
 			// 
+			// buttonCancel
+			// 
+			this.buttonCancel.DialogResult = System.Windows.Forms.DialogResult.Cancel;
+			this.buttonCancel.Image = global::Legopoly.Properties.Resources.sign_stop;
+			this.buttonCancel.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+			this.buttonCancel.Location = new System.Drawing.Point(514, 550);
+			this.buttonCancel.Name = "buttonCancel";
+			this.buttonCancel.Size = new System.Drawing.Size(199, 82);
+			this.buttonCancel.TabIndex = 8;
+			this.buttonCancel.Text = "      Abandonner";
+			this.buttonCancel.UseVisualStyleBackColor = true;
+			// 
 			// FormThief
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
 			this.ClientSize = new System.Drawing.Size(725, 644);
+			this.Controls.Add(this.buttonCancel);
 			this.Controls.Add(this.labelDescription);
 			this.Controls.Add(this.buttonThief);
 			this.Controls.Add(this.userControlItems1);
@@ -136,5 +151,6 @@
 		private System.Windows.Forms.ComboBox comboBoxThiefType;
 		private System.Windows.Forms.Button buttonThief;
 		private System.Windows.Forms.Label labelDescription;
+		private System.Windows.Forms.Button buttonCancel;
 	}
 }

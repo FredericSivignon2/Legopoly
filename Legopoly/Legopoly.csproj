@@ -72,7 +72,9 @@
     <Compile Include="Data\GameVehicleData.cs" />
     <Compile Include="Data\GlobalData.cs" />
     <Compile Include="Data\Items\ATC.cs" />
+    <Compile Include="Data\Items\Bank.cs" />
     <Compile Include="Data\Items\Factory.cs" />
+    <Compile Include="Data\Items\ItemBaseCollection.cs" />
     <Compile Include="Data\Items\Motorbike.cs" />
     <Compile Include="Data\Items\MotorVehicle.cs" />
     <Compile Include="Data\Items\Restaurant.cs" />
@@ -202,6 +204,8 @@
       <DependentUpon>UserControlItems.cs</DependentUpon>
     </Compile>
     <Compile Include="Utils\IniFileReader.cs" />
+    <Content Include="Pictures\14avenueLuke.jpg" />
+    <None Include="Resources\robber_128.png" />
     <Content Include="thiefs.xml">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>

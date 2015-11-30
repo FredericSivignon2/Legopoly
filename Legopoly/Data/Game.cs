@@ -158,7 +158,7 @@ namespace Legopoly.Data
 			try
 			{
 				XmlSerializationHelper.HelperUTF8.ToFile<Game>(filePath, this);
-				LPMessageBox.ShowMessage("Jeu sauvegardé.");
+				LPMessageBox.ShowMessage(string.Format("Jeu sauvegardé dans\r\n{0}.", filePath));
 			}
 			catch (Exception exp)
 			{

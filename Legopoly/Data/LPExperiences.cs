@@ -22,6 +22,7 @@ namespace Legopoly.Data
 			this.ManagerialSkills = experiences.ManagerialSkills;
 			this.Empathy = experiences.Empathy;
 			this.Creativity = experiences.Creativity;
+			this.Thief = experiences.Thief;
 		}
 
 		#region Public Properties
@@ -39,6 +40,9 @@ namespace Legopoly.Data
 
 		[DataMember]
 		public int Empathy { get; set; } = 0;
+
+		[DataMember]
+		public int Thief { get; set; } = 0;
         #endregion
     }
 }

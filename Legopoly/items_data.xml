@@ -70,6 +70,16 @@
     <Name>11 ave. Luke Skywalker</Name>
     <PicturePath>11avenueLuke.jpg</PicturePath>
   </ItemBase>
+  
+  <!-- Banques -->
+  <ItemBase xmlns:d2p1="uri:Legopoly.Data.Items,Legopoly" i:type="d2p1:Bank">
+    <CostLostPerRound>0.0</CostLostPerRound>
+    <CostPerRound>30.0</CostPerRound>
+    <GainPerRound>4800.0</GainPerRound>
+    <InitialCost>590500.0</InitialCost>
+    <Name>14 ave. Luke Skywalker</Name>
+    <PicturePath>14avenueLuke.jpg</PicturePath>
+  </ItemBase>
 
   <!-- Restaurants -->
   <ItemBase xmlns:d2p1="uri:Legopoly.Data.Items,Legopoly" i:type="d2p1:Restaurant">
