@@ -206,5 +206,46 @@ namespace Legopoly.Data
 		{
 			return this.Name;
 		}
+
+		public void ComputeThiefCatchedValues(out int jailDelay, out double fine)
+		{
+			if (this.Experiences.Thief == 0)
+			{
+				jailDelay = 2;
+				fine = 0.0;
+				return;
+			}
+
+			if (this.Experiences.Thief < 5)
+			{
+				jailDelay = 3;
+				fine = 500.0;
+				return;
+			}
+
+			if (this.Experiences.Thief < 10)
+			{
+				jailDelay = 4;
+				fine = 1000.0;
+				return;
+			}
+
+			if (this.Experiences.Thief < 20)
+			{
+				jailDelay = 8;
+				fine = 10000.0;
+				return;
+			}
+
+			if (this.Experiences.Thief < 40)
+			{
+				jailDelay = 10;
+				fine = 20000.0;
+				return;
+			}
+
+			fine = 50000.0;
+			jailDelay = 20;
+		}
 	}
 }

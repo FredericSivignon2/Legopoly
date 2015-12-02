@@ -13,6 +13,9 @@ using System.Windows.Forms;
 
 namespace Legopoly
 {
+	/// <summary>
+	/// 
+	/// </summary>
     public partial class FormPlay : Form
     {
 		#region Data Members
@@ -74,7 +77,7 @@ namespace Legopoly
 				this.radioButtonOffWork.Checked = this.player.Working == false;
 				this.radioButtonWorking.Checked = this.player.Working;
 				this.Text = string.Format("Tour n°{0}", this.game.Round);
-
+				
 				UpdateButtonsEnable();
 			}
 			finally
@@ -82,6 +85,42 @@ namespace Legopoly
 				this.initializing = false;
 			}
         }
+
+		/// <summary>
+		/// If a user has performed holdup, it can be catched by the police at anytime. More chances to be catched
+		///  if he has performed a lot of holdups.
+		/// </summary>
+		private void CheckThief()
+		{
+			if (this.player.Experiences.Thief == 0)
+				return;
+
+			int catched = this.game.GetRandomNumber(0, 1000);
+			if (catched <= this.player.Experiences.Thief)
+			{
+				int jailDays = 0;
+				double fine = 0.0;
+				this.player.ComputeThiefCatchedValues(out jailDays, out fine);
+
+				LPMessageBox.ShowWarning(string.Format(
+					"Tu viens d'être identifié(e) par la Police et arrêté(e) pour tes précédents vols.\r\n\r\n" +
+					"Va en prison pour {0} tour(s) et payes {1:C2} d'amende.", jailDays, fine));
+
+				try
+				{
+					this.player.Capital -= fine;
+				}
+				catch (NoMoneyException)
+				{
+					this.player.Capital = 0.0;
+				}
+				this.player.JailDays = jailDays;
+
+				UpdateCapitalDisplay();
+				UpdateButtonsEnable();
+				UpdatePlayerItemList();
+			}
+		}
 
 		private void UpdatePlayerItemList()
 		{
@@ -125,7 +164,7 @@ namespace Legopoly
 					this.player.Job == null ? "Inactif" : this.player.Job.Name);
 				this.labelGrade.Text = this.player.Job == null ? string.Empty : this.player.Job.GradeName;
 				this.pictureBoxJob.Image = this.player.Job == null ? null : this.player.Job.Image;
-				this.textBoxSalary.Text = string.Format("{0:C2}", this.player.Job.SalaryPerRound * this.game.JobData.SalaryFactor);
+				this.textBoxSalary.Text = this.player.Job == null ? string.Empty : string.Format("{0:C2}", this.player.Job.SalaryPerRound * this.game.JobData.SalaryFactor);
 			}
 		}
 
@@ -400,6 +439,8 @@ namespace Legopoly
 					LPMessageBox.ShowExclamation(string.Format(
 						"Tu es en prison, passes ton tour.\r\n\r\nIl te reste {0} tours à passer en prison.", this.player.JailDays));
 			}
-		}
+
+			CheckThief();
+        }
 	}
 }

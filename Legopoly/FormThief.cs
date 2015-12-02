@@ -141,7 +141,7 @@ namespace Legopoly
 			int random = this._game.GetRandomNumber(0, 100);
 			if (random <= Math.Round(percentRisk))
 			{
-				ComputeCatchedValues();
+				this._player.ComputeThiefCatchedValues(out this._jailDelay, out this._fine);
 
 				LPMessageBox.ShowExclamation(string.Format(
 					"Tu t'es fait attraper ! Va en prison pour '{0}' tours.\r\n\r\nTu dois également payer {1:C2}.",
@@ -211,48 +211,7 @@ namespace Legopoly
 
 			return money;
 		}
-
-		private void ComputeCatchedValues()
-		{
-			if (this._player.Experiences.Thief == 0)
-			{
-				this._jailDelay = 2;
-				this._fine = 0.0;
-				return;
-			}
-
-			if (this._player.Experiences.Thief < 5)
-			{
-				this._jailDelay = 3;
-				this._fine = 500.0;
-				return;
-			}
-
-			if (this._player.Experiences.Thief < 10)
-			{
-				this._jailDelay = 4;
-				this._fine = 1000.0;
-				return;
-			}
-
-			if (this._player.Experiences.Thief < 20)
-			{
-				this._jailDelay = 8;
-				this._fine = 10000.0;
-				return;
-			}
-
-			if (this._player.Experiences.Thief < 40)
-			{
-				this._jailDelay = 10;
-				this._fine = 20000.0;
-				return;
-			}
-
-			this._fine = 50000.0;
-			this._jailDelay = 20;
-		}
-
+		
 		#endregion
 	}
 }

@@ -81,6 +81,7 @@
     <Compile Include="Data\Items\Shop.cs" />
     <Compile Include="Data\Jobs\Fireman.cs" />
     <Compile Include="Data\Jobs\Grade.cs" />
+    <Compile Include="Data\Jobs\Industrial.cs" />
     <Compile Include="Data\Jobs\JobBase.cs" />
     <Compile Include="Data\LPExperiences.cs" />
     <Compile Include="Data\Game.cs" />

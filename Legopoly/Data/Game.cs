@@ -190,6 +190,7 @@ namespace Legopoly.Data
 			this.allJobs = new List<JobBase>();
 			this.allJobs.Add(new Fireman());
 			this.allJobs.Add(new Policeman());
+			this.allJobs.Add(new Industrial());
         }
 
 		private string DataFilePath
