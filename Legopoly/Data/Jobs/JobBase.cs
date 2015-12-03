@@ -27,7 +27,7 @@ namespace Legopoly.Data.Jobs
 		private List<Mission> missions = new List<Mission>();
 		private int gradeNumber = 0;
         private string name;
-		private Image image;
+		private Image[] images;
         #endregion
 
         protected JobBase()
@@ -46,7 +46,7 @@ namespace Legopoly.Data.Jobs
 				}
 				this.gradeNumber = job.gradeNumber;
 				this.name = job.name;
-				this.image = job.image;
+				this.images = job.images;
 			}
 		}
 
@@ -77,11 +77,30 @@ namespace Legopoly.Data.Jobs
 		{
 			get
 			{
-				return this.image;
+				if (this.GradeLevel > 32)
+					throw new InvalidOperationException("Pas assez d'images pour afficher un avatar pour ce niveau !");
+				return this.images[this.GradeLevel];
 			}
-			protected set
+		}
+
+		protected Image[] Images
+		{
+			get
 			{
-				this.image = value;
+				return this.images;
+			}
+			set
+			{
+				this.images = value;
+			}
+		}
+
+		public void SetImagesForAllLevels(Image image)
+		{
+			this.images = new Image[32];
+			for (int i = 0; i < 32; i++)
+			{
+				this.images[i] = image;
 			}
 		}
 

@@ -119,11 +119,19 @@ namespace Legopoly
 					Name = "Damien",
 					Capital = this.game.PlayerData.DefaultCapital
 				};
+#if DEBUG
+				player.Experiences.Empathy = 350;
+				player.Experiences.Creativity = 500;
+				player.Experiences.PhysicalFitness = 150;
+				player.Experiences.Scientific = 640;
+				player.Experiences.ManagerialSkills = 490;
+#else
 				player.Experiences.Empathy = 10;
 				player.Experiences.Creativity = 2;
 				player.Experiences.PhysicalFitness = 20;
 				player.Experiences.Scientific = 6;
 				player.Experiences.ManagerialSkills = 2;
+#endif
 
 				this.game.Players.Add(player);
 

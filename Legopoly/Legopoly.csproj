@@ -83,6 +83,7 @@
     <Compile Include="Data\Jobs\Grade.cs" />
     <Compile Include="Data\Jobs\Industrial.cs" />
     <Compile Include="Data\Jobs\JobBase.cs" />
+    <Compile Include="Data\Jobs\Politician.cs" />
     <Compile Include="Data\LPExperiences.cs" />
     <Compile Include="Data\Game.cs" />
     <Compile Include="Data\Items\Bicycle.cs" />
@@ -97,6 +98,12 @@
     <Compile Include="Data\PlayerStateData.cs" />
     <Compile Include="Data\Schools\Course.cs" />
     <Compile Include="Data\Thiefs\Thief.cs" />
+    <Compile Include="FormBank.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormBank.Designer.cs">
+      <DependentUpon>FormBank.cs</DependentUpon>
+    </Compile>
     <Compile Include="FormChooseItem.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -207,6 +214,7 @@
     <Compile Include="Utils\IniFileReader.cs" />
     <Content Include="Pictures\14avenueLuke.jpg" />
     <None Include="Resources\robber_128.png" />
+    <None Include="Resources\bank_house2_euro.png" />
     <Content Include="thiefs.xml">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
@@ -252,6 +260,9 @@
     </Content>
     <None Include="Resources\school_32.png" />
     <None Include="Resources\school.png" />
+    <EmbeddedResource Include="FormBank.resx">
+      <DependentUpon>FormBank.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FormChoosePlayer.resx">
       <DependentUpon>FormChoosePlayer.cs</DependentUpon>
     </EmbeddedResource>

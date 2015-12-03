@@ -191,6 +191,7 @@ namespace Legopoly.Data
 			this.allJobs.Add(new Fireman());
 			this.allJobs.Add(new Policeman());
 			this.allJobs.Add(new Industrial());
+			this.allJobs.Add(new Politician());
         }
 
 		private string DataFilePath

@@ -442,5 +442,10 @@ namespace Legopoly
 
 			CheckThief();
         }
+
+		private void buttonBank_Click(object sender, EventArgs e)
+		{
+
+		}
 	}
 }

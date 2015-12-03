@@ -12,24 +12,14 @@ namespace Legopoly.Data.Jobs
 		public Industrial()
 		{
 			this.Name = "Industriel";
-			switch (base.GradeLevel)
-			{
-				case 0:
-				case 1:
-					this.Image = global::Legopoly.Properties.Resources.worker2;
-					break;
-				case 2:
-					this.Image = global::Legopoly.Properties.Resources.engineer;
-					break;
-				case 3:
-					this.Image = global::Legopoly.Properties.Resources.businessman2;
-					break;
-				default:
-				case 4:
-					this.Image = global::Legopoly.Properties.Resources.businessman3;
-					break;
 
-			}
+
+			this.Images = new Image[5];
+			this.Images[0] = global::Legopoly.Properties.Resources.worker2;
+			this.Images[1] = global::Legopoly.Properties.Resources.worker2;
+			this.Images[2] = global::Legopoly.Properties.Resources.engineer;
+			this.Images[3] = global::Legopoly.Properties.Resources.businessman2;
+			this.Images[4] = global::Legopoly.Properties.Resources.businessman3;
 		}
 
 		public Industrial(Industrial fm) : base(fm)

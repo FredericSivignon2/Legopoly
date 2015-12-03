@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -11,7 +12,7 @@ namespace Legopoly.Data.Jobs
         public Policeman()
         {
             this.Name = "Policier";
-			this.Image = global::Legopoly.Properties.Resources.policeman_usa;
+			SetImagesForAllLevels(global::Legopoly.Properties.Resources.policeman_usa);
 		}
 
 		public Policeman(Policeman pm) : base(pm)

@@ -11,7 +11,7 @@ namespace Legopoly.Data.Jobs
         public Fireman()
         {
             this.Name = "Pompier";
-			this.Image = global::Legopoly.Properties.Resources.firefighter;        
+			SetImagesForAllLevels(global::Legopoly.Properties.Resources.firefighter);
         }
 
 		public Fireman(Fireman fm) : base(fm)
