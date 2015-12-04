@@ -37,7 +37,7 @@
 			this.numericUpDownPutMoney = new System.Windows.Forms.NumericUpDown();
 			this.label3 = new System.Windows.Forms.Label();
 			this.label4 = new System.Windows.Forms.Label();
-			this.numericUpDown2 = new System.Windows.Forms.NumericUpDown();
+			this.numericUpDownGetMoney = new System.Windows.Forms.NumericUpDown();
 			this.label5 = new System.Windows.Forms.Label();
 			this.label6 = new System.Windows.Forms.Label();
 			this.labelBanqueName = new System.Windows.Forms.Label();
@@ -48,7 +48,7 @@
 			this.buttonOK = new System.Windows.Forms.Button();
 			this.buttonCancel = new System.Windows.Forms.Button();
 			((System.ComponentModel.ISupportInitialize)(this.numericUpDownPutMoney)).BeginInit();
-			((System.ComponentModel.ISupportInitialize)(this.numericUpDown2)).BeginInit();
+			((System.ComponentModel.ISupportInitialize)(this.numericUpDownGetMoney)).BeginInit();
 			this.SuspendLayout();
 			// 
 			// radioButtonPutMoney
@@ -134,12 +134,12 @@
 			this.label4.TabIndex = 9;
 			this.label4.Text = "€";
 			// 
-			// numericUpDown2
+			// numericUpDownGetMoney
 			// 
-			this.numericUpDown2.Location = new System.Drawing.Point(157, 270);
-			this.numericUpDown2.Name = "numericUpDown2";
-			this.numericUpDown2.Size = new System.Drawing.Size(120, 20);
-			this.numericUpDown2.TabIndex = 8;
+			this.numericUpDownGetMoney.Location = new System.Drawing.Point(157, 270);
+			this.numericUpDownGetMoney.Name = "numericUpDownGetMoney";
+			this.numericUpDownGetMoney.Size = new System.Drawing.Size(120, 20);
+			this.numericUpDownGetMoney.TabIndex = 8;
 			// 
 			// label5
 			// 
@@ -216,6 +216,7 @@
 			this.buttonOK.TabIndex = 17;
 			this.buttonOK.Text = "OK";
 			this.buttonOK.UseVisualStyleBackColor = true;
+			this.buttonOK.Click += new System.EventHandler(this.buttonOK_Click);
 			// 
 			// buttonCancel
 			// 
@@ -242,7 +243,7 @@
 			this.Controls.Add(this.labelBanqueName);
 			this.Controls.Add(this.label6);
 			this.Controls.Add(this.label4);
-			this.Controls.Add(this.numericUpDown2);
+			this.Controls.Add(this.numericUpDownGetMoney);
 			this.Controls.Add(this.label5);
 			this.Controls.Add(this.label3);
 			this.Controls.Add(this.numericUpDownPutMoney);
@@ -260,7 +261,7 @@
 			this.Text = "Banque";
 			this.Load += new System.EventHandler(this.FormBank_Load);
 			((System.ComponentModel.ISupportInitialize)(this.numericUpDownPutMoney)).EndInit();
-			((System.ComponentModel.ISupportInitialize)(this.numericUpDown2)).EndInit();
+			((System.ComponentModel.ISupportInitialize)(this.numericUpDownGetMoney)).EndInit();
 			this.ResumeLayout(false);
 			this.PerformLayout();
 
@@ -276,7 +277,7 @@
 		private System.Windows.Forms.NumericUpDown numericUpDownPutMoney;
 		private System.Windows.Forms.Label label3;
 		private System.Windows.Forms.Label label4;
-		private System.Windows.Forms.NumericUpDown numericUpDown2;
+		private System.Windows.Forms.NumericUpDown numericUpDownGetMoney;
 		private System.Windows.Forms.Label label5;
 		private System.Windows.Forms.Label label6;
 		private System.Windows.Forms.Label labelBanqueName;

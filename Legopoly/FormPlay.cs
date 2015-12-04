@@ -64,7 +64,6 @@ namespace Legopoly
 					ChooseJob();
 				}
 
-				UpdateCapitalDisplay();
 				UpdatePlayerItemList();
 				UpdateExperiencePoints();
 				UpdateJobInfo();
@@ -117,7 +116,7 @@ namespace Legopoly
 				}
 				this.player.JailDays = jailDays;
 
-				UpdateCapitalDisplay();
+				UpdatePlayerState();
 				UpdateButtonsEnable();
 				UpdatePlayerItemList();
 			}
@@ -133,13 +132,12 @@ namespace Legopoly
 			this.progressBarTiredness.Minimum = 0;
 			this.progressBarTiredness.Maximum = this.game.JobData.MaxWorkingRound;
 			this.progressBarTiredness.Value = this.player.WorkingRoundLeft;
+
+			this.labelCapital.Text = string.Format("{0:C2}", this.player.Capital);
+			this.labelCapitalBanks.Text = string.Format("{0:C2}", this.player.CapitalInBanks);
+			this.labelCapitalTotalVal.Text = string.Format("{0:C2}", this.player.Capital + this.player.CapitalInBanks);
 		}
-
-        private void UpdateCapitalDisplay()
-        {
-            this.labelCapital.Text = string.Format("{0:C2}", this.player.Capital);
-        }
-
+		
         private void UpdateExperiencePoints()
         {
             this.textBoxCreativity.Text = string.Format("{0,10:N0}", this.player.Experiences.Creativity);
@@ -211,7 +209,7 @@ namespace Legopoly
 			{
 				if (dlg.ShowDialog(this) == DialogResult.OK)
 				{
-					UpdateCapitalDisplay();
+					UpdatePlayerState();
 					this.movedPerformed = true;
 					UpdateButtonsEnable();
 				}
@@ -243,7 +241,7 @@ namespace Legopoly
 					// If a mission has been performed, a move is not allowed
 					this.missionPerformed = true;
 					this.player.Capital += dlg.Gain;
-					UpdateCapitalDisplay();
+					UpdatePlayerState();
 				}
 			}
 
@@ -321,7 +319,7 @@ namespace Legopoly
 				if (dlg.ShowDialog(this) == DialogResult.OK)
 				{
 					this.gamePerformed = true;
-					UpdateCapitalDisplay();
+					UpdatePlayerState();
 				}
 			}
 			UpdateButtonsEnable();
@@ -355,7 +353,7 @@ namespace Legopoly
 					player.Capital -= itemBase.InitialCost;
 					this.player.Items.Add(itemBase);
 
-					UpdateCapitalDisplay();
+					UpdatePlayerState();
 				}
 			}
 		}
@@ -376,7 +374,7 @@ namespace Legopoly
 			player.Capital += item.CurrentCost;
 			this.player.Items.Remove(item);
 
-			UpdateCapitalDisplay();
+			UpdatePlayerState();
 		}
 
 		private void buttonSaleTo_Click(object sender, EventArgs e)
@@ -412,7 +410,7 @@ namespace Legopoly
 			player.Capital += item.CurrentCost;
 			this.player.Items.Remove(item);
 
-			UpdateCapitalDisplay();
+			UpdatePlayerState();
 			// Update target player capital and items list
 			targetPlayer.Items.Add(item);
 			targetPlayer.Capital -= item.CurrentCost;
@@ -426,7 +424,7 @@ namespace Legopoly
 				{
 					this.thiefPerformed = true;
                     UpdateExperiencePoints();
-					UpdateCapitalDisplay();
+					UpdatePlayerState();
 					UpdateButtonsEnable();
 					UpdatePlayerItemList();
                 }
@@ -454,7 +452,7 @@ namespace Legopoly
 				if (dlg.ShowDialog(this) == DialogResult.OK)
 				{
 					this.bankPerformed = true;
-					UpdateCapitalDisplay();
+					UpdatePlayerState();
 					UpdateButtonsEnable();
 				}
 			}

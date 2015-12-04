@@ -34,12 +34,10 @@
 			this.buttonSaleTo = new System.Windows.Forms.Button();
 			this.userControlItems1 = new Legopoly.UserControlItems();
 			this.buttonSoldItem = new System.Windows.Forms.Button();
+			this.pictureBoxCapital = new System.Windows.Forms.PictureBox();
 			this.buttonBuyItem = new System.Windows.Forms.Button();
 			this.labelCapital = new System.Windows.Forms.Label();
 			this.groupBoxIdentification = new System.Windows.Forms.GroupBox();
-			this.groupBoxState = new System.Windows.Forms.GroupBox();
-			this.labeltiredness = new System.Windows.Forms.Label();
-			this.progressBarTiredness = new System.Windows.Forms.ProgressBar();
 			this.groupBox1 = new System.Windows.Forms.GroupBox();
 			this.textBoxThief = new System.Windows.Forms.TextBox();
 			this.labelThief = new System.Windows.Forms.Label();
@@ -60,6 +58,16 @@
 			this.radioButtonWorking = new System.Windows.Forms.RadioButton();
 			this.radioButtonOffWork = new System.Windows.Forms.RadioButton();
 			this.labelGrade = new System.Windows.Forms.Label();
+			this.buttonChangeJob = new System.Windows.Forms.Button();
+			this.pictureBoxJob = new System.Windows.Forms.PictureBox();
+			this.groupBoxState = new System.Windows.Forms.GroupBox();
+			this.labelCapitalTotal = new System.Windows.Forms.Label();
+			this.labeltiredness = new System.Windows.Forms.Label();
+			this.labelCapitalTotalVal = new System.Windows.Forms.Label();
+			this.progressBarTiredness = new System.Windows.Forms.ProgressBar();
+			this.label9 = new System.Windows.Forms.Label();
+			this.labelCapitalBanks = new System.Windows.Forms.Label();
+			this.label8 = new System.Windows.Forms.Label();
 			this.buttonBank = new System.Windows.Forms.Button();
 			this.buttonThief = new System.Windows.Forms.Button();
 			this.buttonSleep = new System.Windows.Forms.Button();
@@ -69,16 +77,13 @@
 			this.buttonMove = new System.Windows.Forms.Button();
 			this.buttonNextPlayer = new System.Windows.Forms.Button();
 			this.buttonStopGame = new System.Windows.Forms.Button();
-			this.buttonChangeJob = new System.Windows.Forms.Button();
-			this.pictureBoxJob = new System.Windows.Forms.PictureBox();
-			this.pictureBoxCapital = new System.Windows.Forms.PictureBox();
 			this.groupBoxHeritage.SuspendLayout();
+			((System.ComponentModel.ISupportInitialize)(this.pictureBoxCapital)).BeginInit();
 			this.groupBoxIdentification.SuspendLayout();
-			this.groupBoxState.SuspendLayout();
 			this.groupBox1.SuspendLayout();
 			this.groupBoxActivity.SuspendLayout();
 			((System.ComponentModel.ISupportInitialize)(this.pictureBoxJob)).BeginInit();
-			((System.ComponentModel.ISupportInitialize)(this.pictureBoxCapital)).BeginInit();
+			this.groupBoxState.SuspendLayout();
 			this.SuspendLayout();
 			// 
 			// labelName
@@ -100,17 +105,16 @@
 			this.groupBoxHeritage.Controls.Add(this.buttonSoldItem);
 			this.groupBoxHeritage.Controls.Add(this.pictureBoxCapital);
 			this.groupBoxHeritage.Controls.Add(this.buttonBuyItem);
-			this.groupBoxHeritage.Controls.Add(this.labelCapital);
 			this.groupBoxHeritage.Location = new System.Drawing.Point(12, 287);
 			this.groupBoxHeritage.Name = "groupBoxHeritage";
-			this.groupBoxHeritage.Size = new System.Drawing.Size(1170, 354);
+			this.groupBoxHeritage.Size = new System.Drawing.Size(977, 354);
 			this.groupBoxHeritage.TabIndex = 2;
 			this.groupBoxHeritage.TabStop = false;
 			this.groupBoxHeritage.Text = "Patrimoine";
 			// 
 			// buttonSaleTo
 			// 
-			this.buttonSaleTo.Location = new System.Drawing.Point(660, 147);
+			this.buttonSaleTo.Location = new System.Drawing.Point(719, 77);
 			this.buttonSaleTo.Name = "buttonSaleTo";
 			this.buttonSaleTo.Size = new System.Drawing.Size(88, 23);
 			this.buttonSaleTo.TabIndex = 9;
@@ -121,14 +125,14 @@
 			// userControlItems1
 			// 
 			this.userControlItems1.Items = new Legopoly.Data.Items.ItemBase[0];
-			this.userControlItems1.Location = new System.Drawing.Point(7, 19);
+			this.userControlItems1.Location = new System.Drawing.Point(76, 19);
 			this.userControlItems1.Name = "userControlItems1";
 			this.userControlItems1.Size = new System.Drawing.Size(637, 329);
 			this.userControlItems1.TabIndex = 8;
 			// 
 			// buttonSoldItem
 			// 
-			this.buttonSoldItem.Location = new System.Drawing.Point(660, 118);
+			this.buttonSoldItem.Location = new System.Drawing.Point(719, 48);
 			this.buttonSoldItem.Name = "buttonSoldItem";
 			this.buttonSoldItem.Size = new System.Drawing.Size(88, 23);
 			this.buttonSoldItem.TabIndex = 3;
@@ -136,9 +140,18 @@
 			this.buttonSoldItem.UseVisualStyleBackColor = true;
 			this.buttonSoldItem.Click += new System.EventHandler(this.buttonSoldItem_Click);
 			// 
+			// pictureBoxCapital
+			// 
+			this.pictureBoxCapital.Image = global::Legopoly.Properties.Resources.money;
+			this.pictureBoxCapital.Location = new System.Drawing.Point(6, 19);
+			this.pictureBoxCapital.Name = "pictureBoxCapital";
+			this.pictureBoxCapital.Size = new System.Drawing.Size(64, 64);
+			this.pictureBoxCapital.TabIndex = 7;
+			this.pictureBoxCapital.TabStop = false;
+			// 
 			// buttonBuyItem
 			// 
-			this.buttonBuyItem.Location = new System.Drawing.Point(660, 89);
+			this.buttonBuyItem.Location = new System.Drawing.Point(719, 19);
 			this.buttonBuyItem.Name = "buttonBuyItem";
 			this.buttonBuyItem.Size = new System.Drawing.Size(88, 23);
 			this.buttonBuyItem.TabIndex = 2;
@@ -149,10 +162,10 @@
 			// labelCapital
 			// 
 			this.labelCapital.AutoSize = true;
-			this.labelCapital.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.labelCapital.Location = new System.Drawing.Point(730, 34);
+			this.labelCapital.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.labelCapital.Location = new System.Drawing.Point(6, 98);
 			this.labelCapital.Name = "labelCapital";
-			this.labelCapital.Size = new System.Drawing.Size(156, 31);
+			this.labelCapital.Size = new System.Drawing.Size(128, 26);
 			this.labelCapital.TabIndex = 5;
 			this.labelCapital.Text = "-- capital --";
 			// 
@@ -160,7 +173,6 @@
 			// 
 			this.groupBoxIdentification.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-			this.groupBoxIdentification.Controls.Add(this.groupBoxState);
 			this.groupBoxIdentification.Controls.Add(this.groupBox1);
 			this.groupBoxIdentification.Controls.Add(this.groupBoxActivity);
 			this.groupBoxIdentification.Controls.Add(this.labelGrade);
@@ -169,37 +181,10 @@
 			this.groupBoxIdentification.Controls.Add(this.labelName);
 			this.groupBoxIdentification.Location = new System.Drawing.Point(12, 12);
 			this.groupBoxIdentification.Name = "groupBoxIdentification";
-			this.groupBoxIdentification.Size = new System.Drawing.Size(1170, 269);
+			this.groupBoxIdentification.Size = new System.Drawing.Size(977, 269);
 			this.groupBoxIdentification.TabIndex = 6;
 			this.groupBoxIdentification.TabStop = false;
 			this.groupBoxIdentification.Text = "Carte d\'identité";
-			// 
-			// groupBoxState
-			// 
-			this.groupBoxState.Controls.Add(this.labeltiredness);
-			this.groupBoxState.Controls.Add(this.progressBarTiredness);
-			this.groupBoxState.Location = new System.Drawing.Point(985, 17);
-			this.groupBoxState.Name = "groupBoxState";
-			this.groupBoxState.Size = new System.Drawing.Size(179, 246);
-			this.groupBoxState.TabIndex = 32;
-			this.groupBoxState.TabStop = false;
-			this.groupBoxState.Text = "Etat";
-			// 
-			// labeltiredness
-			// 
-			this.labeltiredness.AutoSize = true;
-			this.labeltiredness.Location = new System.Drawing.Point(7, 28);
-			this.labeltiredness.Name = "labeltiredness";
-			this.labeltiredness.Size = new System.Drawing.Size(43, 13);
-			this.labeltiredness.TabIndex = 1;
-			this.labeltiredness.Text = "Energie";
-			// 
-			// progressBarTiredness
-			// 
-			this.progressBarTiredness.Location = new System.Drawing.Point(6, 47);
-			this.progressBarTiredness.Name = "progressBarTiredness";
-			this.progressBarTiredness.Size = new System.Drawing.Size(167, 23);
-			this.progressBarTiredness.TabIndex = 0;
 			// 
 			// groupBox1
 			// 
@@ -217,14 +202,14 @@
 			this.groupBox1.Controls.Add(this.textBoxManagement);
 			this.groupBox1.Location = new System.Drawing.Point(393, 168);
 			this.groupBox1.Name = "groupBox1";
-			this.groupBox1.Size = new System.Drawing.Size(584, 95);
+			this.groupBox1.Size = new System.Drawing.Size(578, 95);
 			this.groupBox1.TabIndex = 31;
 			this.groupBox1.TabStop = false;
 			this.groupBox1.Text = "Expériences Cumulée";
 			// 
 			// textBoxThief
 			// 
-			this.textBoxThief.Location = new System.Drawing.Point(501, 59);
+			this.textBoxThief.Location = new System.Drawing.Point(485, 59);
 			this.textBoxThief.Name = "textBoxThief";
 			this.textBoxThief.ReadOnly = true;
 			this.textBoxThief.Size = new System.Drawing.Size(77, 20);
@@ -286,7 +271,7 @@
 			// 
 			// textBoxEmpathy
 			// 
-			this.textBoxEmpathy.Location = new System.Drawing.Point(501, 33);
+			this.textBoxEmpathy.Location = new System.Drawing.Point(485, 33);
 			this.textBoxEmpathy.Name = "textBoxEmpathy";
 			this.textBoxEmpathy.ReadOnly = true;
 			this.textBoxEmpathy.Size = new System.Drawing.Size(77, 20);
@@ -333,7 +318,7 @@
 			this.groupBoxActivity.Controls.Add(this.radioButtonOffWork);
 			this.groupBoxActivity.Location = new System.Drawing.Point(393, 17);
 			this.groupBoxActivity.Name = "groupBoxActivity";
-			this.groupBoxActivity.Size = new System.Drawing.Size(585, 145);
+			this.groupBoxActivity.Size = new System.Drawing.Size(578, 145);
 			this.groupBoxActivity.TabIndex = 30;
 			this.groupBoxActivity.TabStop = false;
 			this.groupBoxActivity.Text = "Activité";
@@ -399,6 +384,108 @@
 			this.labelGrade.Size = new System.Drawing.Size(52, 13);
 			this.labelGrade.TabIndex = 27;
 			this.labelGrade.Text = "-- grade --";
+			// 
+			// buttonChangeJob
+			// 
+			this.buttonChangeJob.Image = global::Legopoly.Properties.Resources.hat_blue;
+			this.buttonChangeJob.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+			this.buttonChangeJob.Location = new System.Drawing.Point(13, 240);
+			this.buttonChangeJob.Name = "buttonChangeJob";
+			this.buttonChangeJob.Size = new System.Drawing.Size(128, 23);
+			this.buttonChangeJob.TabIndex = 26;
+			this.buttonChangeJob.Text = "Changer de métier";
+			this.buttonChangeJob.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+			this.buttonChangeJob.UseVisualStyleBackColor = true;
+			this.buttonChangeJob.Click += new System.EventHandler(this.buttonChangeJob_Click);
+			// 
+			// pictureBoxJob
+			// 
+			this.pictureBoxJob.Image = global::Legopoly.Properties.Resources.policeman_usa;
+			this.pictureBoxJob.Location = new System.Drawing.Point(13, 69);
+			this.pictureBoxJob.Name = "pictureBoxJob";
+			this.pictureBoxJob.Size = new System.Drawing.Size(128, 128);
+			this.pictureBoxJob.TabIndex = 25;
+			this.pictureBoxJob.TabStop = false;
+			// 
+			// groupBoxState
+			// 
+			this.groupBoxState.Controls.Add(this.labelCapitalTotal);
+			this.groupBoxState.Controls.Add(this.labeltiredness);
+			this.groupBoxState.Controls.Add(this.labelCapitalTotalVal);
+			this.groupBoxState.Controls.Add(this.progressBarTiredness);
+			this.groupBoxState.Controls.Add(this.label9);
+			this.groupBoxState.Controls.Add(this.labelCapitalBanks);
+			this.groupBoxState.Controls.Add(this.label8);
+			this.groupBoxState.Controls.Add(this.labelCapital);
+			this.groupBoxState.Location = new System.Drawing.Point(995, 12);
+			this.groupBoxState.Name = "groupBoxState";
+			this.groupBoxState.Size = new System.Drawing.Size(179, 629);
+			this.groupBoxState.TabIndex = 32;
+			this.groupBoxState.TabStop = false;
+			this.groupBoxState.Text = "Etat";
+			// 
+			// labelCapitalTotal
+			// 
+			this.labelCapitalTotal.AutoSize = true;
+			this.labelCapitalTotal.Location = new System.Drawing.Point(7, 187);
+			this.labelCapitalTotal.Name = "labelCapitalTotal";
+			this.labelCapitalTotal.Size = new System.Drawing.Size(65, 13);
+			this.labelCapitalTotal.TabIndex = 14;
+			this.labelCapitalTotal.Text = "Capital total:";
+			// 
+			// labeltiredness
+			// 
+			this.labeltiredness.AutoSize = true;
+			this.labeltiredness.Location = new System.Drawing.Point(7, 28);
+			this.labeltiredness.Name = "labeltiredness";
+			this.labeltiredness.Size = new System.Drawing.Size(43, 13);
+			this.labeltiredness.TabIndex = 1;
+			this.labeltiredness.Text = "Energie";
+			// 
+			// labelCapitalTotalVal
+			// 
+			this.labelCapitalTotalVal.AutoSize = true;
+			this.labelCapitalTotalVal.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.labelCapitalTotalVal.Location = new System.Drawing.Point(4, 203);
+			this.labelCapitalTotalVal.Name = "labelCapitalTotalVal";
+			this.labelCapitalTotalVal.Size = new System.Drawing.Size(128, 26);
+			this.labelCapitalTotalVal.TabIndex = 13;
+			this.labelCapitalTotalVal.Text = "-- capital --";
+			// 
+			// progressBarTiredness
+			// 
+			this.progressBarTiredness.Location = new System.Drawing.Point(6, 47);
+			this.progressBarTiredness.Name = "progressBarTiredness";
+			this.progressBarTiredness.Size = new System.Drawing.Size(167, 23);
+			this.progressBarTiredness.TabIndex = 0;
+			// 
+			// label9
+			// 
+			this.label9.AutoSize = true;
+			this.label9.Location = new System.Drawing.Point(8, 132);
+			this.label9.Name = "label9";
+			this.label9.Size = new System.Drawing.Size(107, 13);
+			this.label9.TabIndex = 12;
+			this.label9.Text = "Capital en banque(s):";
+			// 
+			// labelCapitalBanks
+			// 
+			this.labelCapitalBanks.AutoSize = true;
+			this.labelCapitalBanks.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.labelCapitalBanks.Location = new System.Drawing.Point(5, 148);
+			this.labelCapitalBanks.Name = "labelCapitalBanks";
+			this.labelCapitalBanks.Size = new System.Drawing.Size(128, 26);
+			this.labelCapitalBanks.TabIndex = 11;
+			this.labelCapitalBanks.Text = "-- capital --";
+			// 
+			// label8
+			// 
+			this.label8.AutoSize = true;
+			this.label8.Location = new System.Drawing.Point(6, 82);
+			this.label8.Name = "label8";
+			this.label8.Size = new System.Drawing.Size(92, 13);
+			this.label8.TabIndex = 10;
+			this.label8.Text = "Capital disponible:";
 			// 
 			// buttonBank
 			// 
@@ -521,42 +608,12 @@
 			this.buttonStopGame.UseVisualStyleBackColor = true;
 			this.buttonStopGame.Click += new System.EventHandler(this.buttonStopGame_Click);
 			// 
-			// buttonChangeJob
-			// 
-			this.buttonChangeJob.Image = global::Legopoly.Properties.Resources.hat_blue;
-			this.buttonChangeJob.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-			this.buttonChangeJob.Location = new System.Drawing.Point(13, 240);
-			this.buttonChangeJob.Name = "buttonChangeJob";
-			this.buttonChangeJob.Size = new System.Drawing.Size(128, 23);
-			this.buttonChangeJob.TabIndex = 26;
-			this.buttonChangeJob.Text = "Changer de métier";
-			this.buttonChangeJob.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-			this.buttonChangeJob.UseVisualStyleBackColor = true;
-			this.buttonChangeJob.Click += new System.EventHandler(this.buttonChangeJob_Click);
-			// 
-			// pictureBoxJob
-			// 
-			this.pictureBoxJob.Image = global::Legopoly.Properties.Resources.policeman_usa;
-			this.pictureBoxJob.Location = new System.Drawing.Point(13, 69);
-			this.pictureBoxJob.Name = "pictureBoxJob";
-			this.pictureBoxJob.Size = new System.Drawing.Size(128, 128);
-			this.pictureBoxJob.TabIndex = 25;
-			this.pictureBoxJob.TabStop = false;
-			// 
-			// pictureBoxCapital
-			// 
-			this.pictureBoxCapital.Image = global::Legopoly.Properties.Resources.money;
-			this.pictureBoxCapital.Location = new System.Drawing.Point(660, 19);
-			this.pictureBoxCapital.Name = "pictureBoxCapital";
-			this.pictureBoxCapital.Size = new System.Drawing.Size(64, 64);
-			this.pictureBoxCapital.TabIndex = 7;
-			this.pictureBoxCapital.TabStop = false;
-			// 
 			// FormPlay
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
 			this.ClientSize = new System.Drawing.Size(1194, 729);
+			this.Controls.Add(this.groupBoxState);
 			this.Controls.Add(this.buttonBank);
 			this.Controls.Add(this.buttonThief);
 			this.Controls.Add(this.buttonSleep);
@@ -577,17 +634,16 @@
 			this.Text = "Tour";
 			this.Shown += new System.EventHandler(this.FormPlay_Shown);
 			this.groupBoxHeritage.ResumeLayout(false);
-			this.groupBoxHeritage.PerformLayout();
+			((System.ComponentModel.ISupportInitialize)(this.pictureBoxCapital)).EndInit();
 			this.groupBoxIdentification.ResumeLayout(false);
 			this.groupBoxIdentification.PerformLayout();
-			this.groupBoxState.ResumeLayout(false);
-			this.groupBoxState.PerformLayout();
 			this.groupBox1.ResumeLayout(false);
 			this.groupBox1.PerformLayout();
 			this.groupBoxActivity.ResumeLayout(false);
 			this.groupBoxActivity.PerformLayout();
 			((System.ComponentModel.ISupportInitialize)(this.pictureBoxJob)).EndInit();
-			((System.ComponentModel.ISupportInitialize)(this.pictureBoxCapital)).EndInit();
+			this.groupBoxState.ResumeLayout(false);
+			this.groupBoxState.PerformLayout();
 			this.ResumeLayout(false);
 
         }
@@ -637,5 +693,10 @@
 		private System.Windows.Forms.TextBox textBoxThief;
 		private System.Windows.Forms.Label labelThief;
 		private System.Windows.Forms.Button buttonBank;
+		private System.Windows.Forms.Label labelCapitalTotal;
+		private System.Windows.Forms.Label labelCapitalTotalVal;
+		private System.Windows.Forms.Label label9;
+		private System.Windows.Forms.Label labelCapitalBanks;
+		private System.Windows.Forms.Label label8;
 	}
 }

@@ -68,7 +68,7 @@ namespace Legopoly
 			this.radioButtonPutMoney.Checked = true;
 
 			this.numericUpDownPutMoney.Maximum = Convert.ToDecimal(this.player.Capital);
-			this.numericUpDown2.Maximum = Convert.ToDecimal(this.bankAccount.Deposit);
+			this.numericUpDownGetMoney.Maximum = Convert.ToDecimal(this.bankAccount.Deposit);
         }
 
 		private void UpdateControlsEnabled()
@@ -79,7 +79,7 @@ namespace Legopoly
 			this.label3.Enabled = this.radioButtonPutMoney.Checked;
 
 			this.label5.Enabled = this.radioButtonGetMoney.Checked;
-			this.numericUpDown2.Enabled = this.radioButtonGetMoney.Checked;
+			this.numericUpDownGetMoney.Enabled = this.radioButtonGetMoney.Checked;
 			this.label4.Enabled = this.radioButtonGetMoney.Checked;
 		}
 		#endregion
@@ -108,8 +108,26 @@ namespace Legopoly
 		{
 			UpdateControlsEnabled();
 		}
+
 		#endregion
 
-
+		private void buttonOK_Click(object sender, EventArgs e)
+		{
+			if (this.radioButtonPutMoney.Checked)
+			{
+				double amount = Convert.ToDouble(this.numericUpDownPutMoney.Value);
+				this.player.Capital -= amount;
+				this.bankAccount.Deposit += amount;
+			}
+			else
+			{
+				if (this.radioButtonGetMoney.Checked)
+				{
+					double amount = Convert.ToDouble(this.numericUpDownGetMoney.Value);
+					this.player.Capital += amount;
+					this.bankAccount.Deposit -= amount;
+				}
+			}
+		}
 	}
 }

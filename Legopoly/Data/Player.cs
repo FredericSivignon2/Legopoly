@@ -152,6 +152,23 @@ namespace Legopoly.Data
 				this.bankAccounts = value;
             }
 		}
+
+		public double CapitalInBanks
+		{
+			get
+			{
+				if (this.bankAccounts == null || this.bankAccounts.Count == 0)
+					return 0.0;
+
+				double total = 0.0;
+				foreach (BankAccount account in this.bankAccounts)
+				{
+					total += account.Deposit;
+				}
+
+				return total;
+			}
+		}
 		#endregion
 
 		public bool IsOwning(ItemBase item)
