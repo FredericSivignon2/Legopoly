@@ -26,8 +26,14 @@ namespace Legopoly.Data.Items
     public class ItemBase
     {
 		private const string itemsDataFilePath = "items_data.xml";
-		
+
 		#region Public Properties
+		/// <summary>
+		/// The item unique identifier.
+		/// </summary>
+		[DataMember]
+		public long Id { get; set; }
+
 		/// <summary>
 		/// Gets or sets the item name.
 		/// </summary>

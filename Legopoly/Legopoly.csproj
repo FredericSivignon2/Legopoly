@@ -68,6 +68,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Data\BankAccount.cs" />
+    <Compile Include="Data\BankAccountCollection.cs" />
     <Compile Include="Data\GameJobData.cs" />
     <Compile Include="Data\GameVehicleData.cs" />
     <Compile Include="Data\GlobalData.cs" />
@@ -103,6 +105,12 @@
     </Compile>
     <Compile Include="FormBank.Designer.cs">
       <DependentUpon>FormBank.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormChooseBank.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormChooseBank.Designer.cs">
+      <DependentUpon>FormChooseBank.cs</DependentUpon>
     </Compile>
     <Compile Include="FormChooseItem.cs">
       <SubType>Form</SubType>
@@ -262,6 +270,9 @@
     <None Include="Resources\school.png" />
     <EmbeddedResource Include="FormBank.resx">
       <DependentUpon>FormBank.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormChooseBank.resx">
+      <DependentUpon>FormChooseBank.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormChoosePlayer.resx">
       <DependentUpon>FormChoosePlayer.cs</DependentUpon>

@@ -1,203 +1,220 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <ArrayOfItemBase xmlns:i="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://schemas.datacontract.org/2004/07/Legopoly.Data.Items">
-	
-  <!-- Maisons -->
-  
-  <ItemBase xmlns:d2p1="uri:Legopoly.Data.Items,Legopoly" i:type="d2p1:Home">
-    <CostLostPerRound>0.0</CostLostPerRound>
-    <CostPerRound>10.8</CostPerRound>
-    <GainPerRound>0.0</GainPerRound>
-    <InitialCost>65000.0</InitialCost>
-    <Name>2 rue Han Solo</Name>
-    <PicturePath>2rueHanSolo.jpg</PicturePath>
-  </ItemBase>
+
+	<!-- Maisons -->
+
+	<ItemBase xmlns:d2p1="uri:Legopoly.Data.Items,Legopoly" i:type="d2p1:Home">
+		<CostLostPerRound>0.0</CostLostPerRound>
+		<CostPerRound>10.8</CostPerRound>
+		<GainPerRound>0.0</GainPerRound>
+		<Id>1</Id>
+		<InitialCost>65000.0</InitialCost>
+		<Name>2 rue Han Solo</Name>
+		<PicturePath>2rueHanSolo.jpg</PicturePath>
+	</ItemBase>
 	<ItemBase xmlns:d2p1="uri:Legopoly.Data.Items,Legopoly" i:type="d2p1:Home">
 		<CostLostPerRound>0.0</CostLostPerRound>
 		<CostPerRound>11.2</CostPerRound>
 		<GainPerRound>0.0</GainPerRound>
 		<InitialCost>72000.0</InitialCost>
 		<Name>3 rue Han Solo</Name>
-    <PicturePath>red_house.jpg</PicturePath>
+		<PicturePath>red_house.jpg</PicturePath>
 	</ItemBase>
-  <ItemBase xmlns:d2p1="uri:Legopoly.Data.Items,Legopoly" i:type="d2p1:Home">
-    <CostLostPerRound>0.0</CostLostPerRound>
-    <CostPerRound>10.0</CostPerRound>
-    <GainPerRound>0.0</GainPerRound>
-    <InitialCost>60000.0</InitialCost>
-    <Name>4 rue Han Solo</Name>
-    <PicturePath>blue_house.jpg</PicturePath>
-  </ItemBase>
-  <ItemBase xmlns:d2p1="uri:Legopoly.Data.Items,Legopoly" i:type="d2p1:Home">
-    <CostLostPerRound>0.0</CostLostPerRound>
-    <CostPerRound>10.2</CostPerRound>
-    <GainPerRound>0.0</GainPerRound>
-    <InitialCost>62000.0</InitialCost>
-    <Name>1 rue Yoda</Name>
-    <PicturePath>1rueYoda.jpg</PicturePath>
-  </ItemBase>
-  <ItemBase xmlns:d2p1="uri:Legopoly.Data.Items,Legopoly" i:type="d2p1:Home">
-    <CostLostPerRound>0.0</CostLostPerRound>
-    <CostPerRound>13.5</CostPerRound>
-    <GainPerRound>0.0</GainPerRound>
-    <InitialCost>80000.0</InitialCost>
-    <Name>2 rue Yoda</Name>
-    <PicturePath>2rueYoda.jpg</PicturePath>
-  </ItemBase>
-  
-  <ItemBase xmlns:d2p1="uri:Legopoly.Data.Items,Legopoly" i:type="d2p1:Home">
-    <CostLostPerRound>0.0</CostLostPerRound>
-    <CostPerRound>15.2</CostPerRound>
-    <GainPerRound>0.0</GainPerRound>
-    <InitialCost>45000.0</InitialCost>
-    <Name>5 ave. Luke Skywalker</Name>
-    <PicturePath>5avenueLuke.jpg</PicturePath>
-  </ItemBase>
-  
-  <!-- Magasins -->
-  <ItemBase xmlns:d2p1="uri:Legopoly.Data.Items,Legopoly" i:type="d2p1:Shop">
-    <CostLostPerRound>0.0</CostLostPerRound>
-    <CostPerRound>16.2</CostPerRound>
-    <GainPerRound>235.0</GainPerRound>
-    <InitialCost>94000.0</InitialCost>
-    <Name>6 ave. Luke Skywalker</Name>
-    <PicturePath>6avenueLuke.jpg</PicturePath>
-  </ItemBase>
-  <ItemBase xmlns:d2p1="uri:Legopoly.Data.Items,Legopoly" i:type="d2p1:Shop">
-    <CostLostPerRound>0.0</CostLostPerRound>
-    <CostPerRound>25.8</CostPerRound>
-    <GainPerRound>983.0</GainPerRound>
-    <InitialCost>210000.0</InitialCost>
-    <Name>11 ave. Luke Skywalker</Name>
-    <PicturePath>11avenueLuke.jpg</PicturePath>
-  </ItemBase>
-  
-  <!-- Banques -->
-  <ItemBase xmlns:d2p1="uri:Legopoly.Data.Items,Legopoly" i:type="d2p1:Bank">
-    <CostLostPerRound>0.0</CostLostPerRound>
-    <CostPerRound>30.0</CostPerRound>
-    <GainPerRound>4800.0</GainPerRound>
-    <InitialCost>590500.0</InitialCost>
-    <Name>14 ave. Luke Skywalker</Name>
-    <PicturePath>14avenueLuke.jpg</PicturePath>
-  </ItemBase>
+	<ItemBase xmlns:d2p1="uri:Legopoly.Data.Items,Legopoly" i:type="d2p1:Home">
+		<CostLostPerRound>0.0</CostLostPerRound>
+		<CostPerRound>10.0</CostPerRound>
+		<GainPerRound>0.0</GainPerRound>
+		<Id>2</Id>
+		<InitialCost>60000.0</InitialCost>
+		<Name>4 rue Han Solo</Name>
+		<PicturePath>blue_house.jpg</PicturePath>
+	</ItemBase>
+	<ItemBase xmlns:d2p1="uri:Legopoly.Data.Items,Legopoly" i:type="d2p1:Home">
+		<CostLostPerRound>0.0</CostLostPerRound>
+		<CostPerRound>10.2</CostPerRound>
+		<GainPerRound>0.0</GainPerRound>
+		<Id>3</Id>
+		<InitialCost>62000.0</InitialCost>
+		<Name>1 rue Yoda</Name>
+		<PicturePath>1rueYoda.jpg</PicturePath>
+	</ItemBase>
+	<ItemBase xmlns:d2p1="uri:Legopoly.Data.Items,Legopoly" i:type="d2p1:Home">
+		<CostLostPerRound>0.0</CostLostPerRound>
+		<CostPerRound>13.5</CostPerRound>
+		<GainPerRound>0.0</GainPerRound>
+		<Id>4</Id>
+		<InitialCost>80000.0</InitialCost>
+		<Name>2 rue Yoda</Name>
+		<PicturePath>2rueYoda.jpg</PicturePath>
+	</ItemBase>
 
-  <!-- Restaurants -->
-  <ItemBase xmlns:d2p1="uri:Legopoly.Data.Items,Legopoly" i:type="d2p1:Restaurant">
-    <CostLostPerRound>0.0</CostLostPerRound>
-    <CostPerRound>18.2</CostPerRound>
-    <GainPerRound>682.0</GainPerRound>
-    <InitialCost>152000.0</InitialCost>
-    <Name>7 ave. Luke Skywalker</Name>
-    <PicturePath>7avenueLuke.jpg</PicturePath>
-  </ItemBase>
+	<ItemBase xmlns:d2p1="uri:Legopoly.Data.Items,Legopoly" i:type="d2p1:Home">
+		<CostLostPerRound>0.0</CostLostPerRound>
+		<CostPerRound>15.2</CostPerRound>
+		<GainPerRound>0.0</GainPerRound>
+		<Id>5</Id>
+		<InitialCost>45000.0</InitialCost>
+		<Name>5 ave. Luke Skywalker</Name>
+		<PicturePath>5avenueLuke.jpg</PicturePath>
+	</ItemBase>
 
-  <!-- Voitures -->
-  <ItemBase xmlns:d2p1="uri:Legopoly.Data.Items,Legopoly" i:type="d2p1:Car">
-    <CostLostPerRound>0.15</CostLostPerRound>
-    <CostPerRound>0.06</CostPerRound>
-    <GainPerRound>0.0</GainPerRound>
-    <InitialCost>15800.0</InitialCost>
-    <Name>Rover Sport</Name>
-    <PicturePath>Rover_Sport.jpg</PicturePath>
-    <CostPerMove>0.05</CostPerMove>
-    <MaxMovePerRound>10</MaxMovePerRound>
-    <MinMovePerRound>5</MinMovePerRound>
-    <ConsumptionPerMove>0.48</ConsumptionPerMove>
-    <TankCapacity>120.0</TankCapacity>
-  </ItemBase>
-  <ItemBase xmlns:d2p1="uri:Legopoly.Data.Items,Legopoly" i:type="d2p1:Car">
-    <CostLostPerRound>0.01</CostLostPerRound>
-    <CostPerRound>0.034</CostPerRound>
-    <GainPerRound>0.0</GainPerRound>
-    <InitialCost>11300.0</InitialCost>
-    <Name>Myra TT</Name>
-    <PicturePath>myra_TT.jpg</PicturePath>
-    <CostPerMove>0.032</CostPerMove>
-    <MaxMovePerRound>12</MaxMovePerRound>
-    <MinMovePerRound>6</MinMovePerRound>
-    <ConsumptionPerMove>0.30</ConsumptionPerMove>
-    <TankCapacity>80.0</TankCapacity>
-  </ItemBase>
+	<!-- Magasins -->
+	<ItemBase xmlns:d2p1="uri:Legopoly.Data.Items,Legopoly" i:type="d2p1:Shop">
+		<CostLostPerRound>0.0</CostLostPerRound>
+		<CostPerRound>16.2</CostPerRound>
+		<GainPerRound>235.0</GainPerRound>
+		<Id>100</Id>
+		<InitialCost>94000.0</InitialCost>
+		<Name>6 ave. Luke Skywalker</Name>
+		<PicturePath>6avenueLuke.jpg</PicturePath>
+	</ItemBase>
+	<ItemBase xmlns:d2p1="uri:Legopoly.Data.Items,Legopoly" i:type="d2p1:Shop">
+		<CostLostPerRound>0.0</CostLostPerRound>
+		<CostPerRound>25.8</CostPerRound>
+		<GainPerRound>983.0</GainPerRound>
+		<Id>101</Id>
+		<InitialCost>210000.0</InitialCost>
+		<Name>11 ave. Luke Skywalker</Name>
+		<PicturePath>11avenueLuke.jpg</PicturePath>
+	</ItemBase>
+
+	<!-- Banques -->
+	<ItemBase xmlns:d2p1="uri:Legopoly.Data.Items,Legopoly" i:type="d2p1:Bank">
+		<CostLostPerRound>0.0</CostLostPerRound>
+		<CostPerRound>30.0</CostPerRound>
+		<GainPerRound>4800.0</GainPerRound>
+		<Id>200</Id>
+		<InitialCost>590500.0</InitialCost>
+		<Name>14 ave. Luke Skywalker</Name>
+		<PicturePath>14avenueLuke.jpg</PicturePath>
+	</ItemBase>
+
+	<!-- Restaurants -->
+	<ItemBase xmlns:d2p1="uri:Legopoly.Data.Items,Legopoly" i:type="d2p1:Restaurant">
+		<CostLostPerRound>0.0</CostLostPerRound>
+		<CostPerRound>18.2</CostPerRound>
+		<GainPerRound>682.0</GainPerRound>
+		<Id>300</Id>
+		<InitialCost>152000.0</InitialCost>
+		<Name>7 ave. Luke Skywalker</Name>
+		<PicturePath>7avenueLuke.jpg</PicturePath>
+	</ItemBase>
+
+	<!-- Voitures -->
+	<ItemBase xmlns:d2p1="uri:Legopoly.Data.Items,Legopoly" i:type="d2p1:Car">
+		<CostLostPerRound>0.15</CostLostPerRound>
+		<CostPerRound>0.06</CostPerRound>
+		<GainPerRound>0.0</GainPerRound>
+		<Id>400</Id>
+		<InitialCost>15800.0</InitialCost>
+		<Name>Rover Sport</Name>
+		<PicturePath>Rover_Sport.jpg</PicturePath>
+		<CostPerMove>0.05</CostPerMove>
+		<MaxMovePerRound>10</MaxMovePerRound>
+		<MinMovePerRound>5</MinMovePerRound>
+		<ConsumptionPerMove>0.48</ConsumptionPerMove>
+		<TankCapacity>120.0</TankCapacity>
+	</ItemBase>
+	<ItemBase xmlns:d2p1="uri:Legopoly.Data.Items,Legopoly" i:type="d2p1:Car">
+		<CostLostPerRound>0.01</CostLostPerRound>
+		<CostPerRound>0.034</CostPerRound>
+		<GainPerRound>0.0</GainPerRound>
+		<Id>401</Id>
+		<InitialCost>11300.0</InitialCost>
+		<Name>Myra TT</Name>
+		<PicturePath>myra_TT.jpg</PicturePath>
+		<CostPerMove>0.032</CostPerMove>
+		<MaxMovePerRound>12</MaxMovePerRound>
+		<MinMovePerRound>6</MinMovePerRound>
+		<ConsumptionPerMove>0.30</ConsumptionPerMove>
+		<TankCapacity>80.0</TankCapacity>
+	</ItemBase>
 	<ItemBase xmlns:d2p1="uri:Legopoly.Data.Items,Legopoly" i:type="d2p1:Car">
 		<CostLostPerRound>0.13</CostLostPerRound>
 		<CostPerRound>0.05</CostPerRound>
 		<GainPerRound>0.0</GainPerRound>
+		<Id>402</Id>
 		<InitialCost>12000.0</InitialCost>
 		<Name>Fourgon J20</Name>
-    <PicturePath>van_J20.jpg</PicturePath>
-    <CostPerMove>0.04</CostPerMove>
+		<PicturePath>van_J20.jpg</PicturePath>
+		<CostPerMove>0.04</CostPerMove>
 		<MaxMovePerRound>8</MaxMovePerRound>
 		<MinMovePerRound>4</MinMovePerRound>
 		<ConsumptionPerMove>0.42</ConsumptionPerMove>
 		<TankCapacity>80.0</TankCapacity>
 	</ItemBase>
-  <ItemBase xmlns:d2p1="uri:Legopoly.Data.Items,Legopoly" i:type="d2p1:Car">
-    <CostLostPerRound>0.07</CostLostPerRound>
-    <CostPerRound>0.02</CostPerRound>
-    <GainPerRound>0.0</GainPerRound>
-    <InitialCost>6300.0</InitialCost>
-    <Name>Mini Pick-Up C1</Name>
-    <PicturePath>mini_pickup_C1.jpg</PicturePath>
-    <CostPerMove>0.02</CostPerMove>
-    <MaxMovePerRound>7</MaxMovePerRound>
-    <MinMovePerRound>3</MinMovePerRound>
-    <ConsumptionPerMove>0.28</ConsumptionPerMove>
-    <TankCapacity>54.0</TankCapacity>
-  </ItemBase>
-  <ItemBase xmlns:d2p1="uri:Legopoly.Data.Items,Legopoly" i:type="d2p1:Car">
-    <CostLostPerRound>0.01</CostLostPerRound>
-    <CostPerRound>0.011</CostPerRound>
-    <GainPerRound>0.0</GainPerRound>
-    <InitialCost>3800.0</InitialCost>
-    <Name>Mini Mocke 750</Name>
-    <PicturePath>mini_mock_750.jpg</PicturePath>
-    <CostPerMove>0.011</CostPerMove>
-    <MaxMovePerRound>5</MaxMovePerRound>
-    <MinMovePerRound>2</MinMovePerRound>
-    <ConsumptionPerMove>0.11</ConsumptionPerMove>
-    <TankCapacity>39.0</TankCapacity>
-  </ItemBase>
-  <ItemBase xmlns:d2p1="uri:Legopoly.Data.Items,Legopoly" i:type="d2p1:Car">
-    <CostLostPerRound>0.01</CostLostPerRound>
-    <CostPerRound>0.015</CostPerRound>
-    <GainPerRound>0.0</GainPerRound>
-    <InitialCost>3500.0</InitialCost>
-    <Name>Myra 1100S</Name>
-    <PicturePath>myra_1100S.jpg</PicturePath>
-    <CostPerMove>0.014</CostPerMove>
-    <MaxMovePerRound>6</MaxMovePerRound>
-    <MinMovePerRound>3</MinMovePerRound>
-    <ConsumptionPerMove>0.28</ConsumptionPerMove>
-    <TankCapacity>40.0</TankCapacity>
-  </ItemBase>
-  <ItemBase xmlns:d2p1="uri:Legopoly.Data.Items,Legopoly" i:type="d2p1:Car">
-    <CostLostPerRound>0.01</CostLostPerRound>
-    <CostPerRound>0.018</CostPerRound>
-    <GainPerRound>0.0</GainPerRound>
-    <InitialCost>5900.0</InitialCost>
-    <Name>Kart F1</Name>
-    <PicturePath>Kart_F1.jpg</PicturePath>
-    <CostPerMove>0.018</CostPerMove>
-    <MaxMovePerRound>11</MaxMovePerRound>
-    <MinMovePerRound>6</MinMovePerRound>
-    <ConsumptionPerMove>0.34</ConsumptionPerMove>
-    <TankCapacity>29.0</TankCapacity>
-  </ItemBase>
+	<ItemBase xmlns:d2p1="uri:Legopoly.Data.Items,Legopoly" i:type="d2p1:Car">
+		<CostLostPerRound>0.07</CostLostPerRound>
+		<CostPerRound>0.02</CostPerRound>
+		<GainPerRound>0.0</GainPerRound>
+		<Id>403</Id>
+		<InitialCost>6300.0</InitialCost>
+		<Name>Mini Pick-Up C1</Name>
+		<PicturePath>mini_pickup_C1.jpg</PicturePath>
+		<CostPerMove>0.02</CostPerMove>
+		<MaxMovePerRound>7</MaxMovePerRound>
+		<MinMovePerRound>3</MinMovePerRound>
+		<ConsumptionPerMove>0.28</ConsumptionPerMove>
+		<TankCapacity>54.0</TankCapacity>
+	</ItemBase>
+	<ItemBase xmlns:d2p1="uri:Legopoly.Data.Items,Legopoly" i:type="d2p1:Car">
+		<CostLostPerRound>0.01</CostLostPerRound>
+		<CostPerRound>0.011</CostPerRound>
+		<GainPerRound>0.0</GainPerRound>
+		<Id>404</Id>
+		<InitialCost>3800.0</InitialCost>
+		<Name>Mini Mocke 750</Name>
+		<PicturePath>mini_mock_750.jpg</PicturePath>
+		<CostPerMove>0.011</CostPerMove>
+		<MaxMovePerRound>5</MaxMovePerRound>
+		<MinMovePerRound>2</MinMovePerRound>
+		<ConsumptionPerMove>0.11</ConsumptionPerMove>
+		<TankCapacity>39.0</TankCapacity>
+	</ItemBase>
+	<ItemBase xmlns:d2p1="uri:Legopoly.Data.Items,Legopoly" i:type="d2p1:Car">
+		<CostLostPerRound>0.01</CostLostPerRound>
+		<CostPerRound>0.015</CostPerRound>
+		<GainPerRound>0.0</GainPerRound>
+		<Id>405</Id>
+		<InitialCost>3500.0</InitialCost>
+		<Name>Myra 1100S</Name>
+		<PicturePath>myra_1100S.jpg</PicturePath>
+		<CostPerMove>0.014</CostPerMove>
+		<MaxMovePerRound>6</MaxMovePerRound>
+		<MinMovePerRound>3</MinMovePerRound>
+		<ConsumptionPerMove>0.28</ConsumptionPerMove>
+		<TankCapacity>40.0</TankCapacity>
+	</ItemBase>
+	<ItemBase xmlns:d2p1="uri:Legopoly.Data.Items,Legopoly" i:type="d2p1:Car">
+		<CostLostPerRound>0.01</CostLostPerRound>
+		<CostPerRound>0.018</CostPerRound>
+		<GainPerRound>0.0</GainPerRound>
+		<Id>406</Id>
+		<InitialCost>5900.0</InitialCost>
+		<Name>Kart F1</Name>
+		<PicturePath>Kart_F1.jpg</PicturePath>
+		<CostPerMove>0.018</CostPerMove>
+		<MaxMovePerRound>11</MaxMovePerRound>
+		<MinMovePerRound>6</MinMovePerRound>
+		<ConsumptionPerMove>0.34</ConsumptionPerMove>
+		<TankCapacity>29.0</TankCapacity>
+	</ItemBase>
 
-  <!-- ATC -->
-  <ItemBase xmlns:d2p1="uri:Legopoly.Data.Items,Legopoly" i:type="d2p1:ATC">
-    <CostLostPerRound>0.02</CostLostPerRound>
-    <CostPerRound>0.001</CostPerRound>
-    <GainPerRound>0.0</GainPerRound>
-    <InitialCost>3400.0</InitialCost>
-    <Name>ATC 350S</Name>
-    <PicturePath>atc_350S_white.jpg</PicturePath>
-    <CostPerMove>0.001</CostPerMove>
-    <MaxMovePerRound>5</MaxMovePerRound>
-    <MinMovePerRound>2</MinMovePerRound>
-    <ConsumptionPerMove>0.12</ConsumptionPerMove>
-    <TankCapacity>9.0</TankCapacity>
-  </ItemBase>
-  
-  
+	<!-- ATC -->
+	<ItemBase xmlns:d2p1="uri:Legopoly.Data.Items,Legopoly" i:type="d2p1:ATC">
+		<CostLostPerRound>0.02</CostLostPerRound>
+		<CostPerRound>0.001</CostPerRound>
+		<GainPerRound>0.0</GainPerRound>
+		<Id>407</Id>
+		<InitialCost>3400.0</InitialCost>
+		<Name>ATC 350S</Name>
+		<PicturePath>atc_350S_white.jpg</PicturePath>
+		<CostPerMove>0.001</CostPerMove>
+		<MaxMovePerRound>5</MaxMovePerRound>
+		<MinMovePerRound>2</MinMovePerRound>
+		<ConsumptionPerMove>0.12</ConsumptionPerMove>
+		<TankCapacity>9.0</TankCapacity>
+	</ItemBase>
+
+
 </ArrayOfItemBase>

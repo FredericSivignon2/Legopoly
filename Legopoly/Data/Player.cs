@@ -23,6 +23,7 @@ namespace Legopoly.Data
 		private double capital = 10000.0;
 		private JobBase job;
 		private int jailDays = 0;
+		private BankAccountCollection bankAccounts;
 		#endregion
 
 		#region Constructors
@@ -136,6 +137,19 @@ namespace Legopoly.Data
 			set
 			{
 				this.jailDays = value;
+            }
+		}
+
+		[DataMember]
+		public BankAccountCollection BankAccounts
+		{
+			get
+			{
+				return this.bankAccounts;
+            }
+			set
+			{
+				this.bankAccounts = value;
             }
 		}
 		#endregion

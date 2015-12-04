@@ -27,6 +27,7 @@ namespace Legopoly
 		private bool schoolPerformed = false;
 		private bool gamePerformed = false;
 		private bool thiefPerformed = false;
+		private bool bankPerformed = false;
 		#endregion
 
 		#region Constructors
@@ -263,16 +264,18 @@ namespace Legopoly
 				this.buttonSchool.Enabled = false;
 				this.buttonGame.Enabled = false;
 				this.buttonThief.Enabled = false;
+				this.buttonBank.Enabled = false;
 				return;
 			}
 
-			if (this.missionPerformed || this.movedPerformed || this.schoolPerformed || this.gamePerformed || this.thiefPerformed)
+			if (this.missionPerformed || this.movedPerformed || this.schoolPerformed || this.gamePerformed || this.thiefPerformed || this.bankPerformed)
 			{
 				this.buttonMove.Enabled = false;
 				this.buttonMission.Enabled = false;
 				this.buttonSchool.Enabled = false;
 				this.buttonGame.Enabled = false;
 				this.buttonThief.Enabled = false;
+				this.buttonBank.Enabled = false;
                 return;
 			}
 
@@ -281,6 +284,7 @@ namespace Legopoly
 			this.buttonGame.Enabled = !this.radioButtonWorking.Checked;
 			this.buttonSleep.Enabled = !this.radioButtonWorking.Checked;
 			this.buttonThief.Enabled = !this.radioButtonWorking.Checked;
+			this.buttonBank.Enabled = !this.radioButtonWorking.Checked;
 		}
 
 		private void buttonStopGame_Click(object sender, EventArgs e)
@@ -445,7 +449,15 @@ namespace Legopoly
 
 		private void buttonBank_Click(object sender, EventArgs e)
 		{
-
+			using (FormBank dlg = new FormBank(this.game, this.player))
+			{
+				if (dlg.ShowDialog(this) == DialogResult.OK)
+				{
+					this.bankPerformed = true;
+					UpdateCapitalDisplay();
+					UpdateButtonsEnable();
+				}
+			}
 		}
 	}
 }

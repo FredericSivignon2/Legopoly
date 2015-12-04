@@ -3,6 +3,7 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Legopoly.Data.Missions;
 using FoundationLibraries.Xml;
 using Legopoly.Data.Thiefs;
+using Legopoly.Data.Items;
 
 namespace Legopoly.Tests
 {
@@ -74,6 +75,26 @@ namespace Legopoly.Tests
 				}
 			};
 			XmlSerializationHelper.HelperUTF8.ToFile<Thief[]>("E:\\thiefs.xml", thiefs);
+		}
+
+		[TestMethod]
+		public void ItemBase_GenerateFile()
+		{
+			Bank[] banks = new Bank[]
+			{
+				new Bank()
+				{
+					CostPerRound = 1560.0,
+					CurrentCost = 563402.3,
+					GainPerRound = 8960.0,
+					Id = 1000,
+					InitialCost = 580630.0,
+					Name = "My Bank",
+					PicturePath = "toto.png"
+				}
+            };
+
+			XmlSerializationHelper.HelperUTF8.ToFile<Bank[]>("E:\\banks.xml", banks);
 		}
     }
 }
