@@ -136,7 +136,8 @@ namespace Legopoly
 			this.labelCapital.Text = string.Format("{0:C2}", this.player.Capital);
 			this.labelCapitalBanks.Text = string.Format("{0:C2}", this.player.CapitalInBanks);
 			this.labelCapitalTotalVal.Text = string.Format("{0:C2}", this.player.Capital + this.player.CapitalInBanks);
-		}
+			this.labelCurrentLoanCount.Text = string.Format("{0}", this.player.CurrentLoanCount);
+        }
 		
         private void UpdateExperiencePoints()
         {

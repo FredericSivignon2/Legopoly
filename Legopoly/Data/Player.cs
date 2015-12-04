@@ -169,6 +169,24 @@ namespace Legopoly.Data
 				return total;
 			}
 		}
+
+		public int CurrentLoanCount
+		{
+			get
+			{
+				if (this.bankAccounts == null || this.bankAccounts.Count == 0)
+					return 0;
+
+				int total = 0;
+				foreach (BankAccount account in this.bankAccounts)
+				{
+					if (account.LoanRepaymentTurnsLeft > 0)
+						total++;
+				}
+
+				return total;
+			}
+		}
 		#endregion
 
 		public bool IsOwning(ItemBase item)
@@ -230,6 +248,24 @@ namespace Legopoly.Data
 			if (this.jailDays > 0)
 			{
 				this.jailDays--;
+			}
+
+			if (this.bankAccounts != null)
+			{
+				foreach (BankAccount account in this.bankAccounts)
+				{
+					if (account.LoanRepaymentTurnsLeft > 0)
+					{
+						account.LoanRepaymentTurnsLeft--;
+						this.capital -= account.LoanRepaymentPerTurn;
+						if (account.LoanRepaymentTurnsLeft == 0)
+							account.LoanRepaymentPerTurn = 0.0; // Loan is repayed!
+                    }
+					Bank bank = Parameters.ParametersMain.Instance.Shop.GetItem(account.BankId) as Bank;
+					if (bank != null)
+						// Add % of interest for the current deposit
+						account.Deposit += account.Deposit * bank.DepositPercentInterestPerTurn / 100.0;
+				}
 			}
 		}
 

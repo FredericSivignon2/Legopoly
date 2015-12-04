@@ -77,6 +77,8 @@
 			this.buttonMove = new System.Windows.Forms.Button();
 			this.buttonNextPlayer = new System.Windows.Forms.Button();
 			this.buttonStopGame = new System.Windows.Forms.Button();
+			this.label10 = new System.Windows.Forms.Label();
+			this.labelCurrentLoanCount = new System.Windows.Forms.Label();
 			this.groupBoxHeritage.SuspendLayout();
 			((System.ComponentModel.ISupportInitialize)(this.pictureBoxCapital)).BeginInit();
 			this.groupBoxIdentification.SuspendLayout();
@@ -409,6 +411,8 @@
 			// 
 			// groupBoxState
 			// 
+			this.groupBoxState.Controls.Add(this.labelCurrentLoanCount);
+			this.groupBoxState.Controls.Add(this.label10);
 			this.groupBoxState.Controls.Add(this.labelCapitalTotal);
 			this.groupBoxState.Controls.Add(this.labeltiredness);
 			this.groupBoxState.Controls.Add(this.labelCapitalTotalVal);
@@ -608,6 +612,25 @@
 			this.buttonStopGame.UseVisualStyleBackColor = true;
 			this.buttonStopGame.Click += new System.EventHandler(this.buttonStopGame_Click);
 			// 
+			// label10
+			// 
+			this.label10.AutoSize = true;
+			this.label10.Location = new System.Drawing.Point(8, 250);
+			this.label10.Name = "label10";
+			this.label10.Size = new System.Drawing.Size(84, 13);
+			this.label10.TabIndex = 15;
+			this.label10.Text = "Prêt(s) en cours:";
+			// 
+			// labelCurrentLoanCount
+			// 
+			this.labelCurrentLoanCount.AutoSize = true;
+			this.labelCurrentLoanCount.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.labelCurrentLoanCount.Location = new System.Drawing.Point(6, 263);
+			this.labelCurrentLoanCount.Name = "labelCurrentLoanCount";
+			this.labelCurrentLoanCount.Size = new System.Drawing.Size(168, 26);
+			this.labelCurrentLoanCount.TabIndex = 16;
+			this.labelCurrentLoanCount.Text = "-- loan count --";
+			// 
 			// FormPlay
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -698,5 +721,7 @@
 		private System.Windows.Forms.Label label9;
 		private System.Windows.Forms.Label labelCapitalBanks;
 		private System.Windows.Forms.Label label8;
+		private System.Windows.Forms.Label labelCurrentLoanCount;
+		private System.Windows.Forms.Label label10;
 	}
 }

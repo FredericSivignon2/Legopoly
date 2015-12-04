@@ -87,6 +87,10 @@
 		<InitialCost>590500.0</InitialCost>
 		<Name>14 ave. Luke Skywalker</Name>
 		<PicturePath>14avenueLuke.jpg</PicturePath>
+		<DepositPercentInterestPerTurn>0.12</DepositPercentInterestPerTurn>
+		<LoanRate>2.5</LoanRate>
+		<MaxLoanAmount>50000</MaxLoanAmount>
+		<MinLoanAmount>1000</MinLoanAmount>
 	</ItemBase>
 
 	<!-- Restaurants -->

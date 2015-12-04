@@ -90,7 +90,10 @@ namespace Legopoly.Tests
 					Id = 1000,
 					InitialCost = 580630.0,
 					Name = "My Bank",
-					PicturePath = "toto.png"
+					PicturePath = "toto.png",
+					LoanRate = 2.5,
+					MinLoanAmount = 1000.0,
+                    MaxLoanAmount = 25000.0
 				}
             };
 

@@ -33,5 +33,10 @@ namespace Legopoly.Parameters
 
         [DataMember]
         public List<ItemBase> Items { get; set; } = new List<ItemBase>();
+
+		public ItemBase GetItem(long itemId)
+		{
+			return Items.First<ItemBase>(item => { return item.Id == itemId; });
+		}
 	}
 }

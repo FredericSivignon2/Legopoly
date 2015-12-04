@@ -22,6 +22,8 @@ namespace Legopoly
 		private Player player;
 		private Bank bank;
 		private BankAccount bankAccount;
+		private double loanRepaymentPerTurn;
+		private int loanRepaymentTurnsLeft;
 		#endregion
 
 		#region Constructor
@@ -64,6 +66,7 @@ namespace Legopoly
 			this.labelBanqueName.Text = this.bank.Name;
 			this.labelLoanRepaymentPerTurn.Text = string.Format("{0:C2}", this.bankAccount.LoanRepaymentPerTurn);
 			this.labelDeposit.Text = string.Format("{0:C2}", this.bankAccount.Deposit);
+			this.label18.Text = string.Format("{0}%", this.bank.DepositPercentInterestPerTurn);
 
 			this.radioButtonPutMoney.Checked = true;
 
@@ -71,12 +74,38 @@ namespace Legopoly
 			this.numericUpDownGetMoney.Maximum = Convert.ToDecimal(this.bankAccount.Deposit);
 
 			this.numericUpDownTurnNumber.Value = 20;
-			this.textBox1.Text = string.Format("{0}%", this.game.PlayerData.LoanRate);
+			this.textBox1.Text = string.Format("{0}%", this.bank.LoanRate);
+
+			// IMPORTANT!!!
+			this.numericUpDownLoanAmount.Minimum = Convert.ToDecimal(this.bank.MinLoanAmount);
+			this.numericUpDownLoanAmount.Maximum = Convert.ToDecimal(this.bank.MaxLoanAmount);
+
+			this.labelTurnLeftValue.Text = string.Format("{0}", this.bankAccount.LoanRepaymentTurnsLeft);
+			if (this.bankAccount.LoanRepaymentTurnsLeft <= 0)
+			{
+				this.label16.Visible = false;
+				this.labelTurnLeftValue.Visible = false;
+				this.labelTurnsLeft.Visible = false;
+            }
+			else
+			{
+				this.label16.Visible = true;
+				this.labelTurnLeftValue.Visible = true;
+				this.labelTurnsLeft.Visible = true;
+
+				if (this.bankAccount.LoanRepaymentTurnsLeft == 1)
+				{
+					this.labelTurnsLeft.Text = "tour.";
+                }
+				else
+				{
+					this.labelTurnsLeft.Text = "tours.";
+				}
+			}
         }
 
 		private void UpdateControlsEnabled()
 		{
-			this.labelDepositHelp.Enabled = this.radioButtonPutMoney.Checked;
 			this.label2.Enabled = this.radioButtonPutMoney.Checked;
 			this.numericUpDownPutMoney.Enabled = this.radioButtonPutMoney.Checked;
 			this.label3.Enabled = this.radioButtonPutMoney.Checked;
@@ -86,6 +115,7 @@ namespace Legopoly
 			this.label4.Enabled = this.radioButtonGetMoney.Checked;
 
 			this.panelLoan.Enabled = this.radioButtonTakeOutALoan.Checked;
+
         }
 		#endregion
 
@@ -132,6 +162,15 @@ namespace Legopoly
 					this.player.Capital += amount;
 					this.bankAccount.Deposit -= amount;
 				}
+				else
+				{
+					if (this.radioButtonTakeOutALoan.Checked)
+					{
+						this.player.Capital += Convert.ToDouble(this.numericUpDownLoanAmount.Value);
+						this.bankAccount.LoanRepaymentPerTurn = this.loanRepaymentPerTurn;
+						this.bankAccount.LoanRepaymentTurnsLeft = Convert.ToInt32(this.numericUpDownTurnNumber.Value);
+                    }
+				}
 			}
 		}
 
@@ -148,9 +187,9 @@ namespace Legopoly
 		private void UpdateLoanValues()
 		{
 			double amount = Convert.ToDouble(this.numericUpDownLoanAmount.Value);
-			double totalCost = amount + (amount * this.game.PlayerData.LoanRate / 100.0);
-			this.textBox2.Text = string.Format("{0:C2}", totalCost / Convert.ToDouble(this.numericUpDownTurnNumber.Value));		
-
+			double totalCost = amount + (amount * this.bank.LoanRate / 100.0);
+			this.loanRepaymentPerTurn = totalCost / Convert.ToDouble(this.numericUpDownTurnNumber.Value);
+            this.textBox2.Text = string.Format("{0:C2}", this.loanRepaymentPerTurn);	
         }
 	}
 }
