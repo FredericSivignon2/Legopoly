@@ -47,14 +47,36 @@
 			this.labelLoanRepaymentPerTurn = new System.Windows.Forms.Label();
 			this.buttonOK = new System.Windows.Forms.Button();
 			this.buttonCancel = new System.Windows.Forms.Button();
+			this.groupBox1 = new System.Windows.Forms.GroupBox();
+			this.groupBox2 = new System.Windows.Forms.GroupBox();
+			this.label1 = new System.Windows.Forms.Label();
+			this.numericUpDownLoanAmount = new System.Windows.Forms.NumericUpDown();
+			this.label8 = new System.Windows.Forms.Label();
+			this.numericUpDownTurnNumber = new System.Windows.Forms.NumericUpDown();
+			this.label10 = new System.Windows.Forms.Label();
+			this.label11 = new System.Windows.Forms.Label();
+			this.label12 = new System.Windows.Forms.Label();
+			this.textBox1 = new System.Windows.Forms.TextBox();
+			this.label13 = new System.Windows.Forms.Label();
+			this.textBox2 = new System.Windows.Forms.TextBox();
+			this.label14 = new System.Windows.Forms.Label();
+			this.label15 = new System.Windows.Forms.Label();
+			this.pictureBox1 = new System.Windows.Forms.PictureBox();
+			this.panelLoan = new System.Windows.Forms.Panel();
 			((System.ComponentModel.ISupportInitialize)(this.numericUpDownPutMoney)).BeginInit();
 			((System.ComponentModel.ISupportInitialize)(this.numericUpDownGetMoney)).BeginInit();
+			this.groupBox1.SuspendLayout();
+			this.groupBox2.SuspendLayout();
+			((System.ComponentModel.ISupportInitialize)(this.numericUpDownLoanAmount)).BeginInit();
+			((System.ComponentModel.ISupportInitialize)(this.numericUpDownTurnNumber)).BeginInit();
+			((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+			this.panelLoan.SuspendLayout();
 			this.SuspendLayout();
 			// 
 			// radioButtonPutMoney
 			// 
 			this.radioButtonPutMoney.AutoSize = true;
-			this.radioButtonPutMoney.Location = new System.Drawing.Point(13, 132);
+			this.radioButtonPutMoney.Location = new System.Drawing.Point(9, 36);
 			this.radioButtonPutMoney.Name = "radioButtonPutMoney";
 			this.radioButtonPutMoney.Size = new System.Drawing.Size(117, 17);
 			this.radioButtonPutMoney.TabIndex = 0;
@@ -66,7 +88,7 @@
 			// radioButtonGetMoney
 			// 
 			this.radioButtonGetMoney.AutoSize = true;
-			this.radioButtonGetMoney.Location = new System.Drawing.Point(13, 239);
+			this.radioButtonGetMoney.Location = new System.Drawing.Point(9, 143);
 			this.radioButtonGetMoney.Name = "radioButtonGetMoney";
 			this.radioButtonGetMoney.Size = new System.Drawing.Size(108, 17);
 			this.radioButtonGetMoney.TabIndex = 1;
@@ -78,7 +100,7 @@
 			// radioButtonTakeOutALoan
 			// 
 			this.radioButtonTakeOutALoan.AutoSize = true;
-			this.radioButtonTakeOutALoan.Location = new System.Drawing.Point(13, 324);
+			this.radioButtonTakeOutALoan.Location = new System.Drawing.Point(9, 228);
 			this.radioButtonTakeOutALoan.Name = "radioButtonTakeOutALoan";
 			this.radioButtonTakeOutALoan.Size = new System.Drawing.Size(114, 17);
 			this.radioButtonTakeOutALoan.TabIndex = 2;
@@ -92,9 +114,9 @@
 			this.labelDepositHelp.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
 			this.labelDepositHelp.ForeColor = System.Drawing.SystemColors.Highlight;
-			this.labelDepositHelp.Location = new System.Drawing.Point(53, 156);
+			this.labelDepositHelp.Location = new System.Drawing.Point(49, 60);
 			this.labelDepositHelp.Name = "labelDepositHelp";
-			this.labelDepositHelp.Size = new System.Drawing.Size(774, 34);
+			this.labelDepositHelp.Size = new System.Drawing.Size(515, 34);
 			this.labelDepositHelp.TabIndex = 3;
 			this.labelDepositHelp.Text = "A LEGOPoly, déposer de l\'argent dans une banque, en plus de pouvoir te rapporter " +
     "de temps en temps, te permet aussi, comme pour une assurance, de t\'aider financi" +
@@ -103,7 +125,7 @@
 			// label2
 			// 
 			this.label2.AutoSize = true;
-			this.label2.Location = new System.Drawing.Point(56, 193);
+			this.label2.Location = new System.Drawing.Point(52, 97);
 			this.label2.Name = "label2";
 			this.label2.Size = new System.Drawing.Size(95, 13);
 			this.label2.TabIndex = 4;
@@ -111,7 +133,7 @@
 			// 
 			// numericUpDownPutMoney
 			// 
-			this.numericUpDownPutMoney.Location = new System.Drawing.Point(157, 191);
+			this.numericUpDownPutMoney.Location = new System.Drawing.Point(162, 95);
 			this.numericUpDownPutMoney.Name = "numericUpDownPutMoney";
 			this.numericUpDownPutMoney.Size = new System.Drawing.Size(120, 20);
 			this.numericUpDownPutMoney.TabIndex = 5;
@@ -119,7 +141,7 @@
 			// label3
 			// 
 			this.label3.AutoSize = true;
-			this.label3.Location = new System.Drawing.Point(283, 193);
+			this.label3.Location = new System.Drawing.Point(288, 97);
 			this.label3.Name = "label3";
 			this.label3.Size = new System.Drawing.Size(13, 13);
 			this.label3.TabIndex = 6;
@@ -128,7 +150,7 @@
 			// label4
 			// 
 			this.label4.AutoSize = true;
-			this.label4.Location = new System.Drawing.Point(283, 272);
+			this.label4.Location = new System.Drawing.Point(288, 176);
 			this.label4.Name = "label4";
 			this.label4.Size = new System.Drawing.Size(13, 13);
 			this.label4.TabIndex = 9;
@@ -136,7 +158,7 @@
 			// 
 			// numericUpDownGetMoney
 			// 
-			this.numericUpDownGetMoney.Location = new System.Drawing.Point(157, 270);
+			this.numericUpDownGetMoney.Location = new System.Drawing.Point(162, 174);
 			this.numericUpDownGetMoney.Name = "numericUpDownGetMoney";
 			this.numericUpDownGetMoney.Size = new System.Drawing.Size(120, 20);
 			this.numericUpDownGetMoney.TabIndex = 8;
@@ -144,7 +166,7 @@
 			// label5
 			// 
 			this.label5.AutoSize = true;
-			this.label5.Location = new System.Drawing.Point(56, 272);
+			this.label5.Location = new System.Drawing.Point(52, 176);
 			this.label5.Name = "label5";
 			this.label5.Size = new System.Drawing.Size(83, 13);
 			this.label5.TabIndex = 7;
@@ -153,7 +175,7 @@
 			// label6
 			// 
 			this.label6.AutoSize = true;
-			this.label6.Location = new System.Drawing.Point(13, 13);
+			this.label6.Location = new System.Drawing.Point(6, 31);
 			this.label6.Name = "label6";
 			this.label6.Size = new System.Drawing.Size(122, 13);
 			this.label6.TabIndex = 10;
@@ -162,16 +184,18 @@
 			// labelBanqueName
 			// 
 			this.labelBanqueName.AutoSize = true;
-			this.labelBanqueName.Location = new System.Drawing.Point(142, 13);
+			this.labelBanqueName.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.labelBanqueName.ForeColor = System.Drawing.SystemColors.HotTrack;
+			this.labelBanqueName.Location = new System.Drawing.Point(135, 31);
 			this.labelBanqueName.Name = "labelBanqueName";
-			this.labelBanqueName.Size = new System.Drawing.Size(110, 13);
+			this.labelBanqueName.Size = new System.Drawing.Size(132, 13);
 			this.labelBanqueName.TabIndex = 11;
 			this.labelBanqueName.Text = "-- nom de la banque --";
 			// 
 			// label7
 			// 
 			this.label7.AutoSize = true;
-			this.label7.Location = new System.Drawing.Point(13, 38);
+			this.label7.Location = new System.Drawing.Point(6, 56);
 			this.label7.Name = "label7";
 			this.label7.Size = new System.Drawing.Size(37, 13);
 			this.label7.TabIndex = 12;
@@ -181,7 +205,7 @@
 			// 
 			this.labelDeposit.AutoSize = true;
 			this.labelDeposit.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.labelDeposit.Location = new System.Drawing.Point(53, 38);
+			this.labelDeposit.Location = new System.Drawing.Point(46, 56);
 			this.labelDeposit.Name = "labelDeposit";
 			this.labelDeposit.Size = new System.Drawing.Size(39, 13);
 			this.labelDeposit.TabIndex = 13;
@@ -190,7 +214,7 @@
 			// label9
 			// 
 			this.label9.AutoSize = true;
-			this.label9.Location = new System.Drawing.Point(13, 53);
+			this.label9.Location = new System.Drawing.Point(6, 71);
 			this.label9.Name = "label9";
 			this.label9.Size = new System.Drawing.Size(212, 13);
 			this.label9.TabIndex = 14;
@@ -200,7 +224,7 @@
 			// 
 			this.labelLoanRepaymentPerTurn.AutoSize = true;
 			this.labelLoanRepaymentPerTurn.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.labelLoanRepaymentPerTurn.Location = new System.Drawing.Point(231, 53);
+			this.labelLoanRepaymentPerTurn.Location = new System.Drawing.Point(224, 71);
 			this.labelLoanRepaymentPerTurn.Name = "labelLoanRepaymentPerTurn";
 			this.labelLoanRepaymentPerTurn.Size = new System.Drawing.Size(39, 13);
 			this.labelLoanRepaymentPerTurn.TabIndex = 15;
@@ -210,7 +234,7 @@
 			// 
 			this.buttonOK.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
 			this.buttonOK.DialogResult = System.Windows.Forms.DialogResult.OK;
-			this.buttonOK.Location = new System.Drawing.Point(670, 500);
+			this.buttonOK.Location = new System.Drawing.Point(498, 500);
 			this.buttonOK.Name = "buttonOK";
 			this.buttonOK.Size = new System.Drawing.Size(75, 23);
 			this.buttonOK.TabIndex = 17;
@@ -222,36 +246,195 @@
 			// 
 			this.buttonCancel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
 			this.buttonCancel.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-			this.buttonCancel.Location = new System.Drawing.Point(751, 500);
+			this.buttonCancel.Location = new System.Drawing.Point(579, 500);
 			this.buttonCancel.Name = "buttonCancel";
 			this.buttonCancel.Size = new System.Drawing.Size(75, 23);
 			this.buttonCancel.TabIndex = 16;
 			this.buttonCancel.Text = "Annuler";
 			this.buttonCancel.UseVisualStyleBackColor = true;
 			// 
+			// groupBox1
+			// 
+			this.groupBox1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+			this.groupBox1.Controls.Add(this.label6);
+			this.groupBox1.Controls.Add(this.labelBanqueName);
+			this.groupBox1.Controls.Add(this.label7);
+			this.groupBox1.Controls.Add(this.labelLoanRepaymentPerTurn);
+			this.groupBox1.Controls.Add(this.labelDeposit);
+			this.groupBox1.Controls.Add(this.label9);
+			this.groupBox1.Location = new System.Drawing.Point(83, 12);
+			this.groupBox1.Name = "groupBox1";
+			this.groupBox1.Size = new System.Drawing.Size(571, 105);
+			this.groupBox1.TabIndex = 18;
+			this.groupBox1.TabStop = false;
+			this.groupBox1.Text = "Etat du compte";
+			// 
+			// groupBox2
+			// 
+			this.groupBox2.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+			this.groupBox2.Controls.Add(this.panelLoan);
+			this.groupBox2.Controls.Add(this.radioButtonPutMoney);
+			this.groupBox2.Controls.Add(this.radioButtonGetMoney);
+			this.groupBox2.Controls.Add(this.radioButtonTakeOutALoan);
+			this.groupBox2.Controls.Add(this.labelDepositHelp);
+			this.groupBox2.Controls.Add(this.label4);
+			this.groupBox2.Controls.Add(this.label2);
+			this.groupBox2.Controls.Add(this.numericUpDownGetMoney);
+			this.groupBox2.Controls.Add(this.numericUpDownPutMoney);
+			this.groupBox2.Controls.Add(this.label5);
+			this.groupBox2.Controls.Add(this.label3);
+			this.groupBox2.Location = new System.Drawing.Point(84, 123);
+			this.groupBox2.Name = "groupBox2";
+			this.groupBox2.Size = new System.Drawing.Size(570, 371);
+			this.groupBox2.TabIndex = 19;
+			this.groupBox2.TabStop = false;
+			this.groupBox2.Text = "Opérations possibles";
+			// 
+			// label1
+			// 
+			this.label1.AutoSize = true;
+			this.label1.Location = new System.Drawing.Point(239, 13);
+			this.label1.Name = "label1";
+			this.label1.Size = new System.Drawing.Size(13, 13);
+			this.label1.TabIndex = 12;
+			this.label1.Text = "€";
+			// 
+			// numericUpDownLoanAmount
+			// 
+			this.numericUpDownLoanAmount.Location = new System.Drawing.Point(113, 11);
+			this.numericUpDownLoanAmount.Name = "numericUpDownLoanAmount";
+			this.numericUpDownLoanAmount.Size = new System.Drawing.Size(120, 20);
+			this.numericUpDownLoanAmount.TabIndex = 11;
+			this.numericUpDownLoanAmount.ValueChanged += new System.EventHandler(this.numericUpDownLoanAmount_ValueChanged);
+			// 
+			// label8
+			// 
+			this.label8.AutoSize = true;
+			this.label8.Location = new System.Drawing.Point(3, 13);
+			this.label8.Name = "label8";
+			this.label8.Size = new System.Drawing.Size(85, 13);
+			this.label8.TabIndex = 10;
+			this.label8.Text = "Montant du prêt:";
+			// 
+			// numericUpDownTurnNumber
+			// 
+			this.numericUpDownTurnNumber.Location = new System.Drawing.Point(155, 37);
+			this.numericUpDownTurnNumber.Name = "numericUpDownTurnNumber";
+			this.numericUpDownTurnNumber.Size = new System.Drawing.Size(78, 20);
+			this.numericUpDownTurnNumber.TabIndex = 14;
+			this.numericUpDownTurnNumber.ValueChanged += new System.EventHandler(this.numericUpDownTurnNumber_ValueChanged);
+			// 
+			// label10
+			// 
+			this.label10.AutoSize = true;
+			this.label10.Location = new System.Drawing.Point(3, 39);
+			this.label10.Name = "label10";
+			this.label10.Size = new System.Drawing.Size(110, 13);
+			this.label10.TabIndex = 13;
+			this.label10.Text = "Remboursemennt sur:";
+			// 
+			// label11
+			// 
+			this.label11.AutoSize = true;
+			this.label11.Location = new System.Drawing.Point(239, 39);
+			this.label11.Name = "label11";
+			this.label11.Size = new System.Drawing.Size(30, 13);
+			this.label11.TabIndex = 15;
+			this.label11.Text = "tours";
+			// 
+			// label12
+			// 
+			this.label12.AutoSize = true;
+			this.label12.Location = new System.Drawing.Point(3, 66);
+			this.label12.Name = "label12";
+			this.label12.Size = new System.Drawing.Size(74, 13);
+			this.label12.TabIndex = 16;
+			this.label12.Text = "Taux d\'intérêt:";
+			// 
+			// textBox1
+			// 
+			this.textBox1.Location = new System.Drawing.Point(113, 63);
+			this.textBox1.Name = "textBox1";
+			this.textBox1.ReadOnly = true;
+			this.textBox1.Size = new System.Drawing.Size(120, 20);
+			this.textBox1.TabIndex = 17;
+			// 
+			// label13
+			// 
+			this.label13.AutoSize = true;
+			this.label13.Location = new System.Drawing.Point(239, 66);
+			this.label13.Name = "label13";
+			this.label13.Size = new System.Drawing.Size(15, 13);
+			this.label13.TabIndex = 18;
+			this.label13.Text = "%";
+			// 
+			// textBox2
+			// 
+			this.textBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.textBox2.Location = new System.Drawing.Point(113, 94);
+			this.textBox2.Name = "textBox2";
+			this.textBox2.ReadOnly = true;
+			this.textBox2.Size = new System.Drawing.Size(120, 20);
+			this.textBox2.TabIndex = 20;
+			// 
+			// label14
+			// 
+			this.label14.Location = new System.Drawing.Point(3, 89);
+			this.label14.Name = "label14";
+			this.label14.Size = new System.Drawing.Size(108, 29);
+			this.label14.TabIndex = 19;
+			this.label14.Text = "Montant à rembourser par tour:";
+			// 
+			// label15
+			// 
+			this.label15.AutoSize = true;
+			this.label15.Location = new System.Drawing.Point(239, 97);
+			this.label15.Name = "label15";
+			this.label15.Size = new System.Drawing.Size(13, 13);
+			this.label15.TabIndex = 21;
+			this.label15.Text = "€";
+			// 
+			// pictureBox1
+			// 
+			this.pictureBox1.Image = global::Legopoly.Properties.Resources.bank_house2_euro;
+			this.pictureBox1.Location = new System.Drawing.Point(13, 12);
+			this.pictureBox1.Name = "pictureBox1";
+			this.pictureBox1.Size = new System.Drawing.Size(64, 64);
+			this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
+			this.pictureBox1.TabIndex = 20;
+			this.pictureBox1.TabStop = false;
+			// 
+			// panelLoan
+			// 
+			this.panelLoan.Controls.Add(this.label8);
+			this.panelLoan.Controls.Add(this.label15);
+			this.panelLoan.Controls.Add(this.numericUpDownLoanAmount);
+			this.panelLoan.Controls.Add(this.textBox2);
+			this.panelLoan.Controls.Add(this.label1);
+			this.panelLoan.Controls.Add(this.label14);
+			this.panelLoan.Controls.Add(this.label10);
+			this.panelLoan.Controls.Add(this.label13);
+			this.panelLoan.Controls.Add(this.numericUpDownTurnNumber);
+			this.panelLoan.Controls.Add(this.textBox1);
+			this.panelLoan.Controls.Add(this.label11);
+			this.panelLoan.Controls.Add(this.label12);
+			this.panelLoan.Location = new System.Drawing.Point(22, 246);
+			this.panelLoan.Name = "panelLoan";
+			this.panelLoan.Size = new System.Drawing.Size(327, 119);
+			this.panelLoan.TabIndex = 22;
+			// 
 			// FormBank
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-			this.ClientSize = new System.Drawing.Size(838, 535);
+			this.ClientSize = new System.Drawing.Size(666, 535);
+			this.Controls.Add(this.pictureBox1);
+			this.Controls.Add(this.groupBox2);
+			this.Controls.Add(this.groupBox1);
 			this.Controls.Add(this.buttonOK);
 			this.Controls.Add(this.buttonCancel);
-			this.Controls.Add(this.labelLoanRepaymentPerTurn);
-			this.Controls.Add(this.label9);
-			this.Controls.Add(this.labelDeposit);
-			this.Controls.Add(this.label7);
-			this.Controls.Add(this.labelBanqueName);
-			this.Controls.Add(this.label6);
-			this.Controls.Add(this.label4);
-			this.Controls.Add(this.numericUpDownGetMoney);
-			this.Controls.Add(this.label5);
-			this.Controls.Add(this.label3);
-			this.Controls.Add(this.numericUpDownPutMoney);
-			this.Controls.Add(this.label2);
-			this.Controls.Add(this.labelDepositHelp);
-			this.Controls.Add(this.radioButtonTakeOutALoan);
-			this.Controls.Add(this.radioButtonGetMoney);
-			this.Controls.Add(this.radioButtonPutMoney);
 			this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
 			this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
 			this.MaximizeBox = false;
@@ -262,6 +445,15 @@
 			this.Load += new System.EventHandler(this.FormBank_Load);
 			((System.ComponentModel.ISupportInitialize)(this.numericUpDownPutMoney)).EndInit();
 			((System.ComponentModel.ISupportInitialize)(this.numericUpDownGetMoney)).EndInit();
+			this.groupBox1.ResumeLayout(false);
+			this.groupBox1.PerformLayout();
+			this.groupBox2.ResumeLayout(false);
+			this.groupBox2.PerformLayout();
+			((System.ComponentModel.ISupportInitialize)(this.numericUpDownLoanAmount)).EndInit();
+			((System.ComponentModel.ISupportInitialize)(this.numericUpDownTurnNumber)).EndInit();
+			((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+			this.panelLoan.ResumeLayout(false);
+			this.panelLoan.PerformLayout();
 			this.ResumeLayout(false);
 			this.PerformLayout();
 
@@ -287,5 +479,21 @@
 		private System.Windows.Forms.Label labelLoanRepaymentPerTurn;
 		private System.Windows.Forms.Button buttonOK;
 		private System.Windows.Forms.Button buttonCancel;
+		private System.Windows.Forms.GroupBox groupBox1;
+		private System.Windows.Forms.GroupBox groupBox2;
+		private System.Windows.Forms.Label label11;
+		private System.Windows.Forms.NumericUpDown numericUpDownTurnNumber;
+		private System.Windows.Forms.Label label10;
+		private System.Windows.Forms.Label label1;
+		private System.Windows.Forms.NumericUpDown numericUpDownLoanAmount;
+		private System.Windows.Forms.Label label8;
+		private System.Windows.Forms.Label label13;
+		private System.Windows.Forms.TextBox textBox1;
+		private System.Windows.Forms.Label label12;
+		private System.Windows.Forms.Label label15;
+		private System.Windows.Forms.TextBox textBox2;
+		private System.Windows.Forms.Label label14;
+		private System.Windows.Forms.PictureBox pictureBox1;
+		private System.Windows.Forms.Panel panelLoan;
 	}
 }

@@ -231,6 +231,7 @@ namespace Legopoly.Data
 
 			IniSection sectionPlayers = iniFile.Sections["Players"];
 			this.playerData.DefaultCapital = Int32.Parse(sectionPlayers.KeyValues["DefaultCapital"], CultureInfo.InvariantCulture);
+			this.playerData.LoanRate = Double.Parse(sectionPlayers.KeyValues["LoanRate"], CultureInfo.InvariantCulture);
 		}
     }
 }

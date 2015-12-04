@@ -69,6 +69,9 @@ namespace Legopoly
 
 			this.numericUpDownPutMoney.Maximum = Convert.ToDecimal(this.player.Capital);
 			this.numericUpDownGetMoney.Maximum = Convert.ToDecimal(this.bankAccount.Deposit);
+
+			this.numericUpDownTurnNumber.Value = 20;
+			this.textBox1.Text = string.Format("{0}%", this.game.PlayerData.LoanRate);
         }
 
 		private void UpdateControlsEnabled()
@@ -81,7 +84,9 @@ namespace Legopoly
 			this.label5.Enabled = this.radioButtonGetMoney.Checked;
 			this.numericUpDownGetMoney.Enabled = this.radioButtonGetMoney.Checked;
 			this.label4.Enabled = this.radioButtonGetMoney.Checked;
-		}
+
+			this.panelLoan.Enabled = this.radioButtonTakeOutALoan.Checked;
+        }
 		#endregion
 
 		#region Event Handlers
@@ -129,5 +134,23 @@ namespace Legopoly
 				}
 			}
 		}
+
+		private void numericUpDownLoanAmount_ValueChanged(object sender, EventArgs e)
+		{
+			UpdateLoanValues();
+		}
+
+		private void numericUpDownTurnNumber_ValueChanged(object sender, EventArgs e)
+		{
+			UpdateLoanValues();
+		}
+
+		private void UpdateLoanValues()
+		{
+			double amount = Convert.ToDouble(this.numericUpDownLoanAmount.Value);
+			double totalCost = amount + (amount * this.game.PlayerData.LoanRate / 100.0);
+			this.textBox2.Text = string.Format("{0:C2}", totalCost / Convert.ToDouble(this.numericUpDownTurnNumber.Value));		
+
+        }
 	}
 }

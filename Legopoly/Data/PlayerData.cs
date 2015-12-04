@@ -12,5 +12,8 @@ namespace Legopoly.Data
 	{
 		[DataMember]
 		public int DefaultCapital { get; set; }
+
+		[DataMember]
+		public double LoanRate { get; set; }
 	}
 }
